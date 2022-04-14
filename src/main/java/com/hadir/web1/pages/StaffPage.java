@@ -152,6 +152,7 @@ public class StaffPage {
 			inputEmailEditDataStaff.sendKeys("cindymeinidaprtw@gmail.com");
 			inputFullNameEditDataStaff.sendKeys(Keys.CONTROL, "a");
 			inputFullNameEditDataStaff.sendKeys("Meinida Cindy Pratiwi");
+			tunggu(2);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView();", inputNikEditStaff);
 			inputNikEditStaff.sendKeys(Keys.CONTROL, "a");
@@ -184,6 +185,7 @@ public class StaffPage {
 		}
 		
 		public String get_Txt_Staff_page() {
+			tunggu(5);
 			return PopUpSubmit.getText();
 		}
 		

@@ -24,14 +24,11 @@ public class LoginPage {
 	@FindBy(css = "#root > div > div.mt--8.container > div > div > div > div > form > div.text-center > button")
 	WebElement btnLogin;
 
-//	@FindBy(css = "")
-//	WebElement btnLogin;
-
 	@FindBy(css = "#navbar-main > div > a")
 	WebElement textDashboard;
 
-	public void submitLogin(String username, String password) {
-		userName.sendKeys(username);
+	public void submitLogin(String usernamee, String password) {
+		userName.sendKeys(usernamee);
 		userPassword.sendKeys(password);
 		btnLogin.click();
 	}

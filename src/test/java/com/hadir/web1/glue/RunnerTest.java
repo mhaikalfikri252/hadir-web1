@@ -7,7 +7,8 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports.html" }, features = {
-		"src/main/resources/features" })
+		"src/main/resources/features/Login.feature", 
+		"src/main/resources/features/Staff.feature" })
 
 public class RunnerTest {
 

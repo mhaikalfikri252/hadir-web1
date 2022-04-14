@@ -2,6 +2,7 @@ package com.hadir.web1.glue;
 
 import static org.junit.Assert.assertEquals;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -9,9 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
 import com.hadir.web1.pages.LoginPage;
-import com.hadir.web1.pages.StaffPage;
 import com.hadir.web1.utils.ConfigurationProperties;
-import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -23,18 +22,16 @@ import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
-public class StaffStepDefinition {
+public class LoginInvalidStepDefinition {
 
 	private static WebDriver driver;
-	private StaffPage staffPage;
 	private LoginPage loginPage;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportStaff.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportLoginInvalid.html");
 
 	@Autowired
 	ConfigurationProperties configurationProperties;
@@ -42,10 +39,9 @@ public class StaffStepDefinition {
 	@Before
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
-		staffPage = new StaffPage();
 		loginPage = new LoginPage();
-		extentTest = reports.startTest("Test Report Staff");
-//		StaffTestCases[] tests = StaffTestCases.values();
+		extentTest = reports.startTest("Test Report Login Invalid");
+//		LoginTestCases[] tests = LoginTestCases.values();
 //		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
 //		Utils.testCount++;
 	}
@@ -69,44 +65,36 @@ public class StaffStepDefinition {
 //		driver.quit();
 	}
 
-	@Given("Admin akses url")
-	public void admin_akses_url() {
-		driver = DriverSingleton.getDriver();
-		driver.get(Constants.URL);
-		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
+	@When("User melakukan logout")
+	public void user_melakukan_logout() {
+		loginPage.logoutAction();
+		extentTest.log(LogStatus.PASS, "User melakukan logout");
 	}
 
-	@When("Admin akses login")
-	public void admin_akses_login() {
-		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
-		extentTest.log(LogStatus.PASS, "Admin klik login button");
-
+	@And("User kembali melakukan login")
+	public void user_kembali_melakukan_login() {
+		loginPage.submitLogin("user", "user123");
+		extentTest.log(LogStatus.PASS, "User kembali melakukan login");
 	}
 
-	@And("Admin klik staff page")
-	public void customer_klik_staff_page() {
-		staffPage.go_to_staff_page();
-		extentTest.log(LogStatus.PASS, "Admin klik staff page");
+	@Then("User tidak berhasil login")
+	public void user_tidak_berhasil_login() {
+		tunggu();
+		assertEquals(configurationProperties.getTextInvalidLogin(), loginPage.getTextInvalidLogin());
+		extentTest.log(LogStatus.PASS, "User tidak berhasil login");
 	}
 
-	@And("Admin klik view history staff")
-	public void admin_klik_view_history_staff() {
-		staffPage.historyStaffPage();
-		extentTest.log(LogStatus.PASS, "Admin klik view history staff");
+	public static void tunggu() {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
-	@And("Admin klik edit data staff")
-	public void admin_klik_edit_data_staff() {
-		staffPage.go_to_staff_page();
-		staffPage.edit_data_staff();
-		staffPage.form_edit_staff();
-		extentTest.log(LogStatus.PASS, "Admin klik edit data staff");
+	public void scroll() {
+		JavascriptExecutor je = (JavascriptExecutor) driver;
+		je.executeScript("window.scrollBy(0,500)");
 	}
 
-	@Then("Admin success go to view history staff page and edit data")
-	public void admin_success_go_to_view_history_staff_page_and_edit_data() {
-		assertEquals(configurationProperties.getTxtEditPage(), staffPage.get_Txt_Staff_page());
-		extentTest.log(LogStatus.PASS, "Admin success go to view history staff page and edit data");
-
-	}
 }

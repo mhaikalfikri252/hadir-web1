@@ -1,13 +1,12 @@
 package com.hadir.web1.utils;
 
-public enum TestCases {
+public enum LoginTestCases {
 
-	T1("Testing Login User"),
-	T2("Testing view history Staff Page");
+	T1("Testing Login User"), T2("Testing Login Invalid User");
 
 	private String testName;
 
-	TestCases(String value) {
+	LoginTestCases(String value) {
 		this.testName = value;
 	}
 

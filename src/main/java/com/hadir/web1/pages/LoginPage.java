@@ -27,8 +27,8 @@ public class LoginPage {
 	@FindBy(css = "#navbar-main > div > a")
 	WebElement textDashboard;
 
-	public void submitLogin(String username, String password) {
-		userName.sendKeys(username);
+	public void submitLogin(String usernamee, String password) {
+		userName.sendKeys(usernamee);
 		userPassword.sendKeys(password);
 		btnLogin.click();
 	}

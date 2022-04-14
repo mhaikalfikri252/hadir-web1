@@ -12,7 +12,6 @@ import com.hadir.web1.drivers.DriverSingleton;
 import com.hadir.web1.pages.LoginPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
-import com.hadir.web1.utils.TestCases;
 import com.hadir.web1.utils.Utils;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -35,7 +34,7 @@ public class LoginStepDefinition {
 	private static WebDriver driver;
 	private LoginPage loginPage;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReport.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportLogin.html");
 
 	@Autowired
 	ConfigurationProperties configurationProperties;
@@ -44,9 +43,10 @@ public class LoginStepDefinition {
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
-		TestCases[] tests = TestCases.values();
-		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
-		Utils.testCount++;
+		extentTest = reports.startTest("Test Report Login");
+//		LoginTestCases[] tests = LoginTestCases.values();
+//		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
+//		Utils.testCount++;
 	}
 
 	@AfterStep
@@ -68,27 +68,25 @@ public class LoginStepDefinition {
 //		driver.quit();
 	}
 
-	@Given("Customer mengakses url")
-	public void customer_mengakses_url() {
+	@Given("User mengakses url")
+	public void user_mengakses_url() {
 		driver = DriverSingleton.getDriver();
 		driver.get(Constants.URL);
 		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
 	}
 
-	@When("Customer klik login button")
-	public void customer_klik_login_button() {
+	@When("User klik login button")
+	public void user_klik_login_button() {
 		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
-		extentTest.log(LogStatus.PASS, "Customer klik login button");
+		extentTest.log(LogStatus.PASS, "User klik login button");
 	}
 
-	@Then("Customer berhasil login")
-	public void customer_berhasil_login() {
+	@Then("User berhasil login")
+	public void user_berhasil_login() {
 		tunggu();
 		assertEquals(configurationProperties.getTextDashboard(), loginPage.getTextDashboard());
-		extentTest.log(LogStatus.PASS, "Customer berhasil login");
+		extentTest.log(LogStatus.PASS, "User berhasil login");
 	}
-	
-	
 
 	public static void tunggu() {
 		try {

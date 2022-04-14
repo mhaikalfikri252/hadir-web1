@@ -24,16 +24,47 @@ public class LoginPage {
 	@FindBy(css = "#root > div > div.mt--8.container > div > div > div > div > form > div.text-center > button")
 	WebElement btnLogin;
 
+	@FindBy(css = "#navbar-main > div > ul > li > a > div > span > img")
+	WebElement btnProfile;
+
+	@FindBy(css = "#navbar-main > div > ul > li > div > a:nth-child(4)")
+	WebElement btnLogout;
+
 	@FindBy(css = "#navbar-main > div > a")
 	WebElement textDashboard;
+
+	@FindBy(css = "#root > div > div.mt--8.container > div > div > div > div > div > div > span")
+	WebElement textInvalidLogin;
 
 	public void submitLogin(String usernamee, String password) {
 		userName.sendKeys(usernamee);
 		userPassword.sendKeys(password);
 		btnLogin.click();
+
+	}
+
+	public void logoutAction() {
+		tunggu(2);
+		btnProfile.click();
+		tunggu(1);
+		btnLogout.click();
+		tunggu(1);
+		driver.switchTo().alert().accept();
 	}
 
 	public String getTextDashboard() {
 		return textDashboard.getText();
+	}
+
+	public String getTextInvalidLogin() {
+		return textInvalidLogin.getText();
+	}
+
+	void tunggu(int detik) {
+		try {
+			Thread.sleep(detik * 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 }

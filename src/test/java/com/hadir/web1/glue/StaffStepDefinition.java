@@ -2,7 +2,6 @@ package com.hadir.web1.glue;
 
 import static org.junit.Assert.assertEquals;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -10,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
 import com.hadir.web1.pages.LoginPage;
+import com.hadir.web1.pages.StaffPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.TestCases;
@@ -28,25 +28,24 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.spring.CucumberContextConfiguration;
 
-@CucumberContextConfiguration
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
-public class LoginStepDefinition {
+public class StaffStepDefinition {
 
 	private static WebDriver driver;
-	private LoginPage loginPage;
+	private StaffPage staffPage;
 	ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/TestReport.html");
-
+	
 	@Autowired
 	ConfigurationProperties configurationProperties;
 
 	@Before
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
-		loginPage = new LoginPage();
-		TestCases[] tests = TestCases.values();
-		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
-		Utils.testCount++;
+		staffPage  = new StaffPage();
+//		TestCases[] tests = TestCases.values();
+//		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
+//		Utils.testCount++;
 	}
 
 	@AfterStep
@@ -68,39 +67,26 @@ public class LoginStepDefinition {
 //		driver.quit();
 	}
 
-	@Given("Customer mengakses url")
-	public void customer_mengakses_url() {
-		driver = DriverSingleton.getDriver();
-		driver.get(Constants.URL);
-		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
+	@When("Admin klik staff page")
+	public void customer_klik_staff_page() {
+	    staffPage.go_to_staff_page();
 	}
 
-	@When("Customer klik login button")
-	public void customer_klik_login_button() {
-		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
-		extentTest.log(LogStatus.PASS, "Customer klik login button");
+	@When("Admin klik view history staff")
+	public void admin_klik_view_history_staff() {
+		staffPage.historyStaffPage();
 	}
 
-	@Then("Customer berhasil login")
-	public void customer_berhasil_login() {
-		tunggu();
-		assertEquals(configurationProperties.getTextDashboard(), loginPage.getTextDashboard());
-		extentTest.log(LogStatus.PASS, "Customer berhasil login");
-	}
-	
-	
-
-	public static void tunggu() {
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+	@When("Admin klik edit data staff")
+	public void admin_klik_edit_data_staff() {
+		staffPage.go_to_staff_page();
+		staffPage.edit_data_staff();
+		staffPage.form_edit_staff();
 	}
 
-	public void scroll() {
-		JavascriptExecutor je = (JavascriptExecutor) driver;
-		je.executeScript("window.scrollBy(0,500)");
-	}
+	@Then("Admin success go to view history staff page and edit data")
+	public void admin_success_go_to_view_history_staff_page_and_edit_data() {
+		assertEquals(configurationProperties.getTxtEditPage(), staffPage.get_Txt_Staff_page());
 
+	}
 }

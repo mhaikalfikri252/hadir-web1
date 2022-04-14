@@ -14,7 +14,7 @@ public class ConfigurationProperties {
 	@Value("${email}")
 	private String email;
 
-	@Value("${username}")
+	@Value("${usernamee}")
 	private String userName;
 
 	@Value("${password}")
@@ -25,6 +25,9 @@ public class ConfigurationProperties {
 
 	@Value("${textDashboard}")
 	private String textDashboard;
+	
+	@Value("${txtEditPage}")
+	private String txtEditPage;
 
 	public String getBrowser() {
 		return browser;
@@ -45,5 +48,11 @@ public class ConfigurationProperties {
 	public String getTextDashboard() {
 		return textDashboard;
 	}
+
+	public String getTxtEditPage() {
+		return txtEditPage;
+	}
+	
+	
 
 }

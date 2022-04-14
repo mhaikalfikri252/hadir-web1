@@ -43,7 +43,8 @@ public class LoginStepDefinition {
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
-//		TestCases[] tests = TestCases.values();
+		extentTest = reports.startTest("Test Report Login");
+//		LoginTestCases[] tests = LoginTestCases.values();
 //		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
 //		Utils.testCount++;
 	}
@@ -71,20 +72,20 @@ public class LoginStepDefinition {
 	public void user_mengakses_url() {
 		driver = DriverSingleton.getDriver();
 		driver.get(Constants.URL);
-//		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
+		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
 	}
 
 	@When("User klik login button")
 	public void user_klik_login_button() {
 		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
-//		extentTest.log(LogStatus.PASS, "User klik login button");
+		extentTest.log(LogStatus.PASS, "User klik login button");
 	}
 
 	@Then("User berhasil login")
 	public void user_berhasil_login() {
 		tunggu();
 		assertEquals(configurationProperties.getTextDashboard(), loginPage.getTextDashboard());
-//		extentTest.log(LogStatus.PASS, "User berhasil login");
+		extentTest.log(LogStatus.PASS, "User berhasil login");
 	}
 
 	public static void tunggu() {

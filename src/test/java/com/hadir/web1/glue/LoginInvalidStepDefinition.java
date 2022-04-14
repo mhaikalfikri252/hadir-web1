@@ -40,7 +40,8 @@ public class LoginInvalidStepDefinition {
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
-//		TestCases[] tests = TestCases.values();
+		extentTest = reports.startTest("Test Report Login Invalid");
+//		LoginTestCases[] tests = LoginTestCases.values();
 //		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
 //		Utils.testCount++;
 	}
@@ -64,30 +65,23 @@ public class LoginInvalidStepDefinition {
 //		driver.quit();
 	}
 
-//	@Given("User mengakses url login page")
-//	public void user_mengakses_url() {
-//		driver = DriverSingleton.getDriver();
-//		driver.get(Constants.URL);
-//		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
-//	}
-
 	@When("User melakukan logout")
 	public void user_melakukan_logout() {
 		loginPage.logoutAction();
-//		extentTest.log(LogStatus.PASS, "User klik login button");
+		extentTest.log(LogStatus.PASS, "User melakukan logout");
 	}
 
 	@And("User kembali melakukan login")
 	public void user_kembali_melakukan_login() {
 		loginPage.submitLogin("user", "user123");
-//		extentTest.log(LogStatus.PASS, "User klik login button");
+		extentTest.log(LogStatus.PASS, "User kembali melakukan login");
 	}
 
 	@Then("User tidak berhasil login")
 	public void user_tidak_berhasil_login() {
 		tunggu();
 		assertEquals(configurationProperties.getTextInvalidLogin(), loginPage.getTextInvalidLogin());
-//		extentTest.log(LogStatus.PASS, "User tidak berhasil login");
+		extentTest.log(LogStatus.PASS, "User tidak berhasil login");
 	}
 
 	public static void tunggu() {

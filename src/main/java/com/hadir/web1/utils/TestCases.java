@@ -2,7 +2,7 @@ package com.hadir.web1.utils;
 
 public enum TestCases {
 
-	T1("Testing Login User"), T2("Testing ??"), T3("Testing ??");
+	T1("Testing Login User");
 
 	private String testName;
 

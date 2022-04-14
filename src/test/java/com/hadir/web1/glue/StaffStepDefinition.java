@@ -12,7 +12,6 @@ import com.hadir.web1.pages.LoginPage;
 import com.hadir.web1.pages.StaffPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
-import com.hadir.web1.utils.TestCases;
 import com.hadir.web1.utils.Utils;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -36,7 +35,6 @@ public class StaffStepDefinition {
 	private LoginPage loginPage;
 	ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportStaff.html");
-
 	@Autowired
 	ConfigurationProperties configurationProperties;
 

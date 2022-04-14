@@ -11,6 +11,7 @@ import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
 import com.hadir.web1.pages.LoginPage;
 import com.hadir.web1.utils.ConfigurationProperties;
+import com.hadir.web1.utils.LoginTestCases;
 import com.hadir.web1.utils.Utils;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -41,9 +42,9 @@ public class LoginInvalidStepDefinition {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
 		extentTest = reports.startTest("Test Report Login Invalid");
-//		LoginTestCases[] tests = LoginTestCases.values();
-//		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
-//		Utils.testCount++;
+		LoginTestCases[] tests = LoginTestCases.values();
+		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
+		Utils.testCount++;
 	}
 
 	@AfterStep

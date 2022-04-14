@@ -1,6 +1,6 @@
 Feature: Customer klik Staff
 
-  Scenario: Testing view history Staff Page
+  Scenario: Testing Staff Page
     Given Admin akses url
     When Admin akses login
     And Admin klik staff page

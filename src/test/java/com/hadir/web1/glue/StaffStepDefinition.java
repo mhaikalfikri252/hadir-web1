@@ -12,10 +12,9 @@ import com.hadir.web1.pages.LoginPage;
 import com.hadir.web1.pages.StaffPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
+import com.hadir.web1.utils.LoginTestCases;
 import com.hadir.web1.utils.Utils;
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
+import com.relevantcodes.extentreports.*;
 
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
@@ -44,10 +43,9 @@ public class StaffStepDefinition {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		staffPage = new StaffPage();
 		loginPage = new LoginPage();
-		extentTest = reports.startTest("Test Report Staff");
-//		StaffTestCases[] tests = StaffTestCases.values();
-//		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
-//		Utils.testCount++;
+		LoginTestCases[] tests = LoginTestCases.values();
+		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
+		Utils.testCount++;
 	}
 
 	@AfterStep

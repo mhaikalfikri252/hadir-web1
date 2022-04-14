@@ -2,7 +2,7 @@ package com.hadir.web1.utils;
 
 public enum StaffTestCases {
 
-	T1("Testing View History Staff Page");
+	T1("Customer klik Staff");
 
 	private String testName;
 

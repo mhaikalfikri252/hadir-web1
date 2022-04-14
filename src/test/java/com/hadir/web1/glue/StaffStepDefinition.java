@@ -34,7 +34,7 @@ public class StaffStepDefinition {
 	private static WebDriver driver;
 	private StaffPage staffPage;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReport.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportStaff.html");
 	
 	@Autowired
 	ConfigurationProperties configurationProperties;

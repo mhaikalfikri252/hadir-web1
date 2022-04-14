@@ -12,6 +12,7 @@ import com.hadir.web1.pages.LoginPage;
 import com.hadir.web1.pages.StaffPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
+import com.hadir.web1.utils.TestCases;
 import com.hadir.web1.utils.Utils;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -44,9 +45,9 @@ public class StaffStepDefinition {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		staffPage = new StaffPage();
 		loginPage = new LoginPage();
-//		TestCases[] tests = TestCases.values();
-//		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
-//		Utils.testCount++;
+		TestCases[] tests = TestCases.values();
+		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
+		Utils.testCount++;
 	}
 
 	@AfterStep
@@ -72,23 +73,26 @@ public class StaffStepDefinition {
 	public void admin_akses_url() {
 		driver = DriverSingleton.getDriver();
 		driver.get(Constants.URL);
-//		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
+		extentTest.log(LogStatus.PASS, "Navigating to "+Constants.URL);
 	}
 
 	@When("Admin akses login")
 	public void admin_akses_login() {
 		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
-//		extentTest.log(LogStatus.PASS, "Customer klik login button");
+		extentTest.log(LogStatus.PASS, "Admin klik login button");
+		
 	}
 
 	@And("Admin klik staff page")
 	public void customer_klik_staff_page() {
 		staffPage.go_to_staff_page();
+		extentTest.log(LogStatus.PASS, "Admin klik staff page");
 	}
 
 	@And("Admin klik view history staff")
 	public void admin_klik_view_history_staff() {
 		staffPage.historyStaffPage();
+		extentTest.log(LogStatus.PASS, "Admin klik view history staff");
 	}
 
 	@And("Admin klik edit data staff")
@@ -96,11 +100,13 @@ public class StaffStepDefinition {
 		staffPage.go_to_staff_page();
 		staffPage.edit_data_staff();
 		staffPage.form_edit_staff();
+		extentTest.log(LogStatus.PASS, "Admin klik edit data staff");
 	}
 
 	@Then("Admin success go to view history staff page and edit data")
 	public void admin_success_go_to_view_history_staff_page_and_edit_data() {
 		assertEquals(configurationProperties.getTxtEditPage(), staffPage.get_Txt_Staff_page());
+		extentTest.log(LogStatus.PASS, "Admin success go to view history staff page and edit data");
 
 	}
 }

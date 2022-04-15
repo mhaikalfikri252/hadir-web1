@@ -6,8 +6,8 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports.html" }, features = {
-"src/main/resources/features/Register.feature"})
+@CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports-register.html" }, features = {
+		"src/main/resources/features/Register.feature" })
 
 public class RegisterRunnerTest {
 

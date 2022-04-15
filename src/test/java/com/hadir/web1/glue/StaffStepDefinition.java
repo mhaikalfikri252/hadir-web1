@@ -34,7 +34,6 @@ public class StaffStepDefinition {
 	private LoginPage loginPage;
 	ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportStaff.html");
-
 	@Autowired
 	ConfigurationProperties configurationProperties;
 
@@ -43,9 +42,10 @@ public class StaffStepDefinition {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		staffPage = new StaffPage();
 		loginPage = new LoginPage();
-		LoginTestCases[] tests = LoginTestCases.values();
-		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
-		Utils.testCount++;
+		extentTest = reports.startTest("Customer klik Staff");
+//		LoginTestCases[] tests = LoginTestCases.values();
+//		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
+//		Utils.testCount++;
 	}
 
 	@AfterStep

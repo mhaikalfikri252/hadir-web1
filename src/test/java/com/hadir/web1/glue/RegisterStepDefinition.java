@@ -9,12 +9,14 @@ import org.springframework.test.context.ContextConfiguration;
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
 import com.hadir.web1.pages.LoginPage;
-import com.hadir.web1.pages.StaffPage;
+import com.hadir.web1.pages.RegisterPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
-import com.hadir.web1.utils.LoginTestCases;
 import com.hadir.web1.utils.Utils;
-import com.relevantcodes.extentreports.*;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
@@ -25,32 +27,27 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.spring.CucumberContextConfiguration;
+
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
-public class StaffStepDefinition {
+public class RegisterStepDefinition {
 
 	private static WebDriver driver;
-	private StaffPage staffPage;
 	private LoginPage loginPage;
+	private RegisterPage registerPage;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportStaff.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportRegister.html");
+
 	@Autowired
 	ConfigurationProperties configurationProperties;
 
 	@Before
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
-		staffPage = new StaffPage();
 		loginPage = new LoginPage();
-<<<<<<< HEAD
-		extentTest = reports.startTest("Testing View History Staff Page");
-//		StaffTestCases[] tests = StaffTestCases.values();
-=======
-		extentTest = reports.startTest("Customer klik Staff");
-//		LoginTestCases[] tests = LoginTestCases.values();
->>>>>>> b706ce1d14cf754e2b84cc3a4264209e1e062e30
-//		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
-//		Utils.testCount++;
+		registerPage = new RegisterPage();
+		extentTest = reports.startTest("Testing halaman register");
 	}
 
 	@AfterStep
@@ -69,47 +66,44 @@ public class StaffStepDefinition {
 
 	@AfterAll
 	public static void closeBrowser() {
-//		driver.quit();
+		//		driver.quit();
 	}
 
-	@Given("Admin akses url")
-	public void admin_akses_url() {
+	@Given("User mengakses url web")
+	public void user_mengakses_url_web() {
 		driver = DriverSingleton.getDriver();
 		driver.get(Constants.URL);
 		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
 	}
 
-	@When("Admin akses login")
-	public void admin_akses_login() {
+	@When("User login ke halaman web")
+	public void user_login_ke_halaman_web() {
 		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
-		extentTest.log(LogStatus.PASS, "Admin klik login button");
-
+		extentTest.log(LogStatus.PASS, "User login ke halaman web");
 	}
 
-	@And("Admin klik staff page")
-	public void customer_klik_staff_page() {
-		staffPage.go_to_staff_page();
-		extentTest.log(LogStatus.PASS, "Admin klik staff page");
+	@And("User klik menu register")
+	public void user_klik_menu_register() {
+		registerPage.go_to_Register_page();
+		extentTest.log(LogStatus.PASS, "User klik menu register");
 	}
 
-	@And("Admin klik view history staff")
-	public void admin_klik_view_history_staff() {
-		staffPage.historyStaffPage();
-		extentTest.log(LogStatus.PASS, "Admin klik view history staff");
+	@And("User melakukan pencarian data karyawan")
+	public void user_melakukan_pencarian_data_karyawan() {
+		registerPage.search_data_karyawan();
+		extentTest.log(LogStatus.PASS, "User melakukan pencarian data karyawan");
 	}
 
-	@And("Admin klik edit data staff")
-	public void admin_klik_edit_data_staff() {
-		staffPage.go_to_staff_page();
-		staffPage.edit_data_staff();
-		staffPage.form_edit_staff();
-		extentTest.log(LogStatus.PASS, "Admin klik edit data staff");
+	@And("User melakukan perubahan data")
+	public void user_melakukan_perubahan_data() {
+		registerPage.edit_data_karyawan();
+		extentTest.log(LogStatus.PASS, "User melakukan perubahan data");
 	}
 
-	@Then("Admin success go to view history staff page and edit data")
-	public void admin_success_go_to_view_history_staff_page_and_edit_data() {
-		assertEquals(configurationProperties.getTxtEditPage(), staffPage.get_Txt_Staff_page());
-		extentTest.log(LogStatus.PASS, "Admin success go to view history staff page and edit data");
+	@Then("User berhasil melakukan perubahan data")
+	public void user_berhasil_melakukan_perubahan_data() {
+		assertEquals(configurationProperties.getTxtRegisterPage(), registerPage.get_Txt_Register_Page());
+		extentTest.log(LogStatus.PASS, "User berhasil melakukan perubahan data");
 
 	}
 }

@@ -43,7 +43,7 @@ public class LoginStepDefinition {
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
-		extentTest = reports.startTest("Test Report Login");
+		extentTest = reports.startTest("Testing User Login");
 //		LoginTestCases[] tests = LoginTestCases.values();
 //		extentTest = reports.startTest(tests[Utils.testCount].getTestName());
 //		Utils.testCount++;

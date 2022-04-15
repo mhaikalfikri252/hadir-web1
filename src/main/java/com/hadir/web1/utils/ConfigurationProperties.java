@@ -28,6 +28,9 @@ public class ConfigurationProperties {
 	
 	@Value("${txtEditPage}")
 	private String txtEditPage;
+	
+	@Value("${txtRegisterPage}")
+	private String txtRegisterPage;
 
 	public String getBrowser() {
 		return browser;
@@ -51,6 +54,10 @@ public class ConfigurationProperties {
 
 	public String getTxtEditPage() {
 		return txtEditPage;
+	}
+
+	public String getTxtRegisterPage() {
+		return txtRegisterPage;
 	}
 	
 	

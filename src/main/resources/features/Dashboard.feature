@@ -1,6 +1,6 @@
 Feature: User cek to Dashboard
 	Scenario: Testing View Dashboard Page
-		Given User mengakses url web
+		Given User mengakses url web hadir
     When User login dan menampilkan dashboard
     And User klik card staff
     And User klik card leader

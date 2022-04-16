@@ -10,7 +10,6 @@ import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
 import com.hadir.web1.pages.DashboardPage;
 import com.hadir.web1.pages.LoginPage;
-import com.hadir.web1.pages.StaffPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
@@ -36,10 +35,10 @@ public class DashboardStepDefinition {
 	private DashboardPage dashboardPage;
 	ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportDashboard.html");
-	
+
 	@Autowired
 	ConfigurationProperties configurationProperties;
-	
+
 	@Before
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
@@ -47,7 +46,7 @@ public class DashboardStepDefinition {
 		dashboardPage = new DashboardPage();
 		extentTest = reports.startTest("Testing View Dashboard Page");
 	}
-	
+
 	@AfterStep
 	public void getResult(Scenario scenario) throws Exception {
 		if (scenario.isFailed()) {
@@ -66,69 +65,71 @@ public class DashboardStepDefinition {
 	public static void closeBrowser() {
 //		driver.quit();
 	}
-	
-	@Given("User akses url")
-	public void admin_akses_url() {
+
+	@Given("User mengakses url web hadir")
+	public void user_mengakses_url_web_hadir() {
 		driver = DriverSingleton.getDriver();
 		driver.get(Constants.URL);
 		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
 	}
 
 	@When("User login dan menampilkan dashboard")
-	public void admin_akses_login() {
+	public void user_login_dan_menampilkan_dashboard() {
+		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
 		tunggu();
 		extentTest.log(LogStatus.PASS, "User klik login button");
 
 	}
 
 	@And("User klik card staff")
-	public void customer_klik_cardStaff() {
+	public void user_klik_card_staff() {
 		dashboardPage.go_to_cardStaff();
 		extentTest.log(LogStatus.PASS, "User klik card Staff");
 	}
-	
+
 	@And("User klik card leader")
-	public void customer_klik_cardLeader() {
+	public void user_klik_card_leader() {
 		dashboardPage.go_to_cardLeader();
 		extentTest.log(LogStatus.PASS, "User klik card leader");
 	}
-	
+
 	@And("User klik card change request")
-	public void customer_klik_chanReq() {
+	public void user_klik_card_change_request() {
 		dashboardPage.go_to_cardChanReq();
 		extentTest.log(LogStatus.PASS, "User klik card change request");
 	}
-	
+
 	@And("User klik card supervisior")
-	public void customer_klik_cardSupervisior() {
+	public void user_klik_card_supervisor() {
 		dashboardPage.go_to_cardSupervisor();
 		extentTest.log(LogStatus.PASS, "User klik card supervisior");
 	}
-	
+
 	@And("User klik card manager")
-	public void customer_klik_cardManager() {
+	public void user_klik_card_manager() {
 		dashboardPage.go_to_cardManager();
 		extentTest.log(LogStatus.PASS, "User klik card manager");
 	}
-	
+
 	@And("User klik card head")
-	public void customer_klik_cardHead() {
+	public void user_klik_card_head() {
 		dashboardPage.go_to_cardHead();
 		extentTest.log(LogStatus.PASS, "User klik card head");
 	}
 
 	@And("User klik button See All")
-	public void customer_klik_seeAll() {
+	public void user_klik_button_see_all() {
 		dashboardPage.go_to_btnSeeAll();
 		extentTest.log(LogStatus.PASS, "User klik button See All");
 	}
-	
+
 	@Then("User berhasil cek button in Dashboard")
-	public void user_succes_cek () {
+	public void user_berhasil_cek_button_in_dashboard() {
 		assertEquals(configurationProperties.getTextDashboard(), dashboardPage.getTextDashboard());
-		extentTest.log(LogStatus.PASS, "Admin success go to view history staff page and edit data");
+		extentTest.log(LogStatus.PASS, "User berhasil cek button in dashboard");
 
 	}
+
 	public static void tunggu() {
 		try {
 			Thread.sleep(1000);

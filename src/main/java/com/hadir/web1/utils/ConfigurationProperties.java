@@ -31,6 +31,9 @@ public class ConfigurationProperties {
 	
 	@Value("${txtRegisterPage}")
 	private String txtRegisterPage;
+	
+	@Value("${txtShiftPage}")
+	private String txtShiftPage;
 
 	public String getBrowser() {
 		return browser;
@@ -58,6 +61,10 @@ public class ConfigurationProperties {
 
 	public String getTxtRegisterPage() {
 		return txtRegisterPage;
+	}
+
+	public String getTxtShiftPage() {
+		return txtShiftPage;
 	}
 	
 	

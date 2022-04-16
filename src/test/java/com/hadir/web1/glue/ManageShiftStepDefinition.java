@@ -9,7 +9,8 @@ import org.springframework.test.context.ContextConfiguration;
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
 import com.hadir.web1.pages.LoginPage;
-import com.hadir.web1.pages.StaffPage;
+import com.hadir.web1.pages.ManageShift;
+import com.hadir.web1.pages.RegisterPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
@@ -28,22 +29,23 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
-public class StaffStepDefinition {
-
+public class ManageShiftStepDefinition {
+	
 	private static WebDriver driver;
-	private StaffPage staffPage;
 	private LoginPage loginPage;
+	private ManageShift mngShift;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportStaff.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportShitManagemen.html");
+
 	@Autowired
 	ConfigurationProperties configurationProperties;
 
 	@Before
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
-		staffPage = new StaffPage();
 		loginPage = new LoginPage();
-		extentTest = reports.startTest("Testing View History Staff Page");
+		mngShift = new ManageShift();
+		extentTest = reports.startTest("Testing Manage Shift Page");
 	}
 
 	@AfterStep
@@ -62,47 +64,56 @@ public class StaffStepDefinition {
 
 	@AfterAll
 	public static void closeBrowser() {
-//		driver.quit();
+		//		driver.quit();
 	}
-
-	@Given("Admin akses url")
-	public void admin_akses_url() {
-		driver = DriverSingleton.getDriver();
-		driver.get(Constants.URL);
-		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
+	
+	@Given("Akses url oleh admin")
+	public void akses_url_oleh_admin() {
+			driver = DriverSingleton.getDriver();
+			driver.get(Constants.URL);
+			extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
 	}
-
-	@When("Admin akses login")
+	
+	@When("Admin mengakses login")
 	public void admin_akses_login() {
 		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
 		extentTest.log(LogStatus.PASS, "Admin klik login button");
+	}
+
+
+	@When("Admin klik Manage Shift page")
+	public void admin_klik_manage_shift_page() {
+	   mngShift.go_to_mng_shift();
+	   extentTest.log(LogStatus.PASS, "Admin add shift time");
+	}
+	
+	@When("Admin add shift time")
+	public void admin_add_shift_time() {
+	  mngShift.addShift();
+	  extentTest.log(LogStatus.PASS, "Admin klik Manage Shift page");
+	}
+	
+	@When("Admin Search By Shift Code")
+	public void admin_search_by_shift_code() {
+	    mngShift.searchBy();
+	    extentTest.log(LogStatus.PASS, "Admin Search By Shift Code");
+	}
+		
+
+	@When("Admin edit shift time")
+	public void admin_edit_shift_time() {
+	    mngShift.editDataShift();
+		extentTest.log(LogStatus.PASS, "Admin edit shift time");
 
 	}
 
-	@When("Admin klik staff page")
-	public void customer_klik_staff_page() {
-		staffPage.go_to_staff_page();
-		extentTest.log(LogStatus.PASS, "Admin klik staff page");
-	}
-
-	@When("Admin klik view history staff")
-	public void admin_klik_view_history_staff() {
-		staffPage.historyStaffPage();
-		extentTest.log(LogStatus.PASS, "Admin klik view history staff");
-	}
-
-	@When("Admin klik edit data staff")
-	public void admin_klik_edit_data_staff() {
-		staffPage.go_to_staff_page();
-		staffPage.edit_data_staff();
-		staffPage.form_edit_staff();
-		extentTest.log(LogStatus.PASS, "Admin klik edit data staff");
-	}
-
-	@Then("Admin success go to view history staff page and edit data")
-	public void admin_success_go_to_view_history_staff_page_and_edit_data() {
-		assertEquals(configurationProperties.getTxtEditPage(), staffPage.get_Txt_Staff_page());
-		extentTest.log(LogStatus.PASS, "Admin success go to view history staff page and edit data");
+	
+	@Then("Admin success go to add shift page and edit data")
+	public void admin_success_go_to_add_shift_page_and_edit_data() {
+		assertEquals(configurationProperties.getTxtShiftPage(), mngShift.get_Txt_Shift_Page());
+		extentTest.log(LogStatus.PASS, "Admin success go to add shift page and edit data");
 
 	}
+
+
 }

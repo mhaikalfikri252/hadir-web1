@@ -31,7 +31,13 @@ public class ConfigurationProperties {
 	
 	@Value("${txtRegisterPage}")
 	private String txtRegisterPage;
-
+	
+	@Value("${txtBerhasilUpdateData}")
+	private String txtBerhasilUpdateData;
+	
+	@Value("${txtHapusPosisi}")
+	private String txtHapusPosisi;
+	
 	public String getBrowser() {
 		return browser;
 	}
@@ -60,6 +66,11 @@ public class ConfigurationProperties {
 		return txtRegisterPage;
 	}
 	
-	
-
+	public String getTxtManagePosisiPage() {
+		return txtBerhasilUpdateData;
+	}
+	public String getTxtHapusPosisi()  {
+		return txtHapusPosisi;
+	}
 }
+

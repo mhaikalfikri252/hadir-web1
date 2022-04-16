@@ -75,7 +75,6 @@ public class RegisterPage {
 		}
 		dropdown_search.sendKeys(Keys.ENTER);
 		tunggu(2);
-
 		input_keyword.sendKeys("1234567890");
 		btnSearch.click();
 	}
@@ -97,6 +96,7 @@ public class RegisterPage {
 
 		editTipeKaryawan.click();
 		for(int i = 0; i<=3;i++) {
+			
 			editTipeKaryawan.sendKeys(Keys.DOWN);
 		}
 		editTipeKaryawan.sendKeys(Keys.ENTER);

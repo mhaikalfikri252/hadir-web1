@@ -13,7 +13,6 @@ import com.hadir.web1.pages.RegisterPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -27,8 +26,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.spring.CucumberContextConfiguration;
-
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
 public class RegisterStepDefinition {
@@ -66,7 +63,7 @@ public class RegisterStepDefinition {
 
 	@AfterAll
 	public static void closeBrowser() {
-		//		driver.quit();
+		// driver.quit();
 	}
 
 	@Given("User mengakses url web")

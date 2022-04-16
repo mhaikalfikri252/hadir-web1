@@ -25,19 +25,32 @@ public class ConfigurationProperties {
 
 	@Value("${textDashboard}")
 	private String textDashboard;
-	
+
 	@Value("${txtEditPage}")
 	private String txtEditPage;
-	
+
 	@Value("${txtRegisterPage}")
 	private String txtRegisterPage;
 	
+
 	@Value("${txtBerhasilUpdateData}")
 	private String txtBerhasilUpdateData;
 	
 	@Value("${txtHapusPosisi}")
 	private String txtHapusPosisi;
 	
+
+	@Value("${txtShiftPage}")
+	private String txtShiftPage;
+
+	@Value("${textBerhasilHapusDataTipe}")
+	private String textBerhasilHapusDataTipe;
+
+	public String getTextBerhasilHapusDataTipe() {
+		return textBerhasilHapusDataTipe;
+	}
+
+
 	public String getBrowser() {
 		return browser;
 	}
@@ -65,6 +78,7 @@ public class ConfigurationProperties {
 	public String getTxtRegisterPage() {
 		return txtRegisterPage;
 	}
+
 	
 	public String getTxtManagePosisiPage() {
 		return txtBerhasilUpdateData;
@@ -72,5 +86,8 @@ public class ConfigurationProperties {
 	public String getTxtHapusPosisi()  {
 		return txtHapusPosisi;
 	}
-}
 
+	public String getTxtShiftPage() {
+		return txtShiftPage;
+	}
+}

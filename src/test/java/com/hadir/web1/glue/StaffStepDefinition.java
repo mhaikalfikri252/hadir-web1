@@ -79,19 +79,19 @@ public class StaffStepDefinition {
 
 	}
 
-	@And("Admin klik staff page")
+	@When("Admin klik staff page")
 	public void customer_klik_staff_page() {
 		staffPage.go_to_staff_page();
 		extentTest.log(LogStatus.PASS, "Admin klik staff page");
 	}
 
-	@And("Admin klik view history staff")
+	@When("Admin klik view history staff")
 	public void admin_klik_view_history_staff() {
 		staffPage.historyStaffPage();
 		extentTest.log(LogStatus.PASS, "Admin klik view history staff");
 	}
 
-	@And("Admin klik edit data staff")
+	@When("Admin klik edit data staff")
 	public void admin_klik_edit_data_staff() {
 		staffPage.go_to_staff_page();
 		staffPage.edit_data_staff();

@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
 import com.hadir.web1.pages.LoginPage;
-import com.hadir.web1.pages.RegisterPage;
+import com.hadir.web1.pages.ManageTipePage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
@@ -28,13 +28,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
-public class RegisterStepDefinition {
+public class ManageTipeStepDefinition {
 
 	private static WebDriver driver;
 	private LoginPage loginPage;
-	private RegisterPage registerPage;
+	private ManageTipePage manageTipePage;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportRegister.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportManageTipe.html");
 
 	@Autowired
 	ConfigurationProperties configurationProperties;
@@ -43,8 +43,8 @@ public class RegisterStepDefinition {
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
-		registerPage = new RegisterPage();
-		extentTest = reports.startTest("Testing halaman register");
+		manageTipePage = new ManageTipePage();
+		extentTest = reports.startTest("Testing Halaman Manage Tipe");
 	}
 
 	@AfterStep
@@ -66,41 +66,49 @@ public class RegisterStepDefinition {
 		// driver.quit();
 	}
 
-	@Given("User mengakses url web")
-	public void user_mengakses_url_web() {
+	@Given("User mengakses web hadir")
+	public void user_mengakses_web_hadir() {
 		driver = DriverSingleton.getDriver();
 		driver.get(Constants.URL);
 		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
 	}
 
-	@When("User login ke halaman web")
-	public void user_login_ke_halaman_web() {
+	@When("User akses login")
+	public void user_akses_login() {
 		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
 		extentTest.log(LogStatus.PASS, "User login ke halaman web");
 	}
 
-	@And("User klik menu register")
-	public void user_klik_menu_register() {
-		registerPage.go_to_Register_page();
-		extentTest.log(LogStatus.PASS, "User klik menu register");
+	@And("User klik manage tipe")
+	public void user_klik_manage_tipe() {
+		manageTipePage.goToManageTipe();
+		extentTest.log(LogStatus.PASS, "User klik manage tipe");
 	}
 
-	@And("User melakukan pencarian data karyawan")
-	public void user_melakukan_pencarian_data_karyawan() {
-		registerPage.search_data_karyawan();
-		extentTest.log(LogStatus.PASS, "User melakukan pencarian data karyawan");
+	@And("User tambah data tipe")
+	public void user_tambah_data_tipe() {
+		manageTipePage.addManageTipe();
+		extentTest.log(LogStatus.PASS, "User add manage tipe");
 	}
 
-	@And("User melakukan perubahan data")
-	public void user_melakukan_perubahan_data() {
-		registerPage.edit_data_karyawan();
-		extentTest.log(LogStatus.PASS, "User melakukan perubahan data");
-	}
-
-	@Then("User berhasil melakukan perubahan data")
-	public void user_berhasil_melakukan_perubahan_data() {
-		assertEquals(configurationProperties.getTxtRegisterPage(), registerPage.get_Txt_Register_Page());
-		extentTest.log(LogStatus.PASS, "User berhasil melakukan perubahan data");
+	@And("User edit data tipe")
+	public void user_edit_data_tipe() {
+		manageTipePage.editManageTipe();
+		driver.navigate().refresh();
+		extentTest.log(LogStatus.PASS, "User edit manage tipe");
 
 	}
+
+	@And("User hapus data tipe")
+	public void user_hapus_data_tipe() {
+		manageTipePage.deleteManageTipe();
+		extentTest.log(LogStatus.PASS, "User delete manage tipe");
+	}
+
+	@Then("User berhasil hapus data")
+	public void user_berhasil_hapus_data() {
+		assertEquals(configurationProperties.getTextBerhasilHapusDataTipe(), manageTipePage.getTextSuccessDeleteData());
+		extentTest.log(LogStatus.PASS, "User berhasil melakukan hapus data tipe");
+	}
+
 }

@@ -31,6 +31,9 @@ public class ConfigurationProperties {
 
 	@Value("${txtRegisterPage}")
 	private String txtRegisterPage;
+	
+	@Value("${txtShiftPage}")
+	private String txtShiftPage;
 
 	@Value("${textBerhasilHapusDataTipe}")
 	private String textBerhasilHapusDataTipe;
@@ -66,5 +69,11 @@ public class ConfigurationProperties {
 	public String getTxtRegisterPage() {
 		return txtRegisterPage;
 	}
+
+	public String getTxtShiftPage() {
+		return txtShiftPage;
+	}
+	
+
 
 }

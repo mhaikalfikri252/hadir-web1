@@ -46,6 +46,9 @@ public class ConfigurationProperties {
 
 	@Value("${textHapusAbsenPoint}")
 	private String textHapusAbsenPoint;
+	
+	@Value("${txtSuccessExport}")
+	private String txtSuccessExport;
 
 	public String getTextHapusAbsenPoint() {
 		return textHapusAbsenPoint;
@@ -94,4 +97,10 @@ public class ConfigurationProperties {
 	public String getTxtShiftPage() {
 		return txtShiftPage;
 	}
+
+	public String getTxtSuccessExport() {
+		return txtSuccessExport;
+	}
+	
+	
 }

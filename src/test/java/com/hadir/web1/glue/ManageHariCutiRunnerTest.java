@@ -6,7 +6,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports-manage-haricuti.html" }, features = {
+@CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports-manageharicuti.html" }, features = {
 		"src/main/resources/features/ManageHariCuti.feature" })
 
 public class ManageHariCutiRunnerTest {

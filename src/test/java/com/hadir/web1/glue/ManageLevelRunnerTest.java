@@ -6,7 +6,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports-manage-level.html" }, features = {
+@CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports-managelevel.html" }, features = {
 		"src/main/resources/features/ManageLevel.feature" })
 
 public class ManageLevelRunnerTest {

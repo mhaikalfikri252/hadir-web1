@@ -18,6 +18,7 @@ public class ManageTipePage {
 	@FindBy(css = "#sidenav-main > div > div > ul > li:nth-child(11) > a")
 	WebElement btnManageTipe;
 
+	// Add Data Tipe
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > div > button")
 	WebElement btnAddDataTipe;
 
@@ -27,12 +28,14 @@ public class ManageTipePage {
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > button.btn.btn-primary")
 	WebElement btnSubmitAdd;
 
+	// Edit Data Tipe
 	@FindBy(id = "t1")
 	WebElement btnEdit;
 
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-primary")
 	WebElement btnSubmitEdit;
 
+	// Delete Data Tipe
 	@FindBy(id = "t2")
 	WebElement btnDelete;
 

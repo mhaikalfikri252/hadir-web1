@@ -83,43 +83,43 @@ public class DashboardStepDefinition {
 
 	@And("User klik card staff")
 	public void user_klik_card_staff() {
-		dashboardPage.go_to_cardStaff();
+		dashboardPage.goToCardStaff();
 		extentTest.log(LogStatus.PASS, "User klik card Staff");
 	}
 
 	@And("User klik card leader")
 	public void user_klik_card_leader() {
-		dashboardPage.go_to_cardLeader();
+		dashboardPage.goToCardLeader();
 		extentTest.log(LogStatus.PASS, "User klik card leader");
 	}
 
 	@And("User klik card change request")
 	public void user_klik_card_change_request() {
-		dashboardPage.go_to_cardChanReq();
+		dashboardPage.goToCardChangeRequest();
 		extentTest.log(LogStatus.PASS, "User klik card change request");
 	}
 
 	@And("User klik card supervisior")
 	public void user_klik_card_supervisor() {
-		dashboardPage.go_to_cardSupervisor();
+		dashboardPage.goToCardSupervisor();
 		extentTest.log(LogStatus.PASS, "User klik card supervisior");
 	}
 
 	@And("User klik card manager")
 	public void user_klik_card_manager() {
-		dashboardPage.go_to_cardManager();
+		dashboardPage.goToCardManager();
 		extentTest.log(LogStatus.PASS, "User klik card manager");
 	}
 
 	@And("User klik card head")
 	public void user_klik_card_head() {
-		dashboardPage.go_to_cardHead();
+		dashboardPage.goToCardHead();
 		extentTest.log(LogStatus.PASS, "User klik card head");
 	}
 
 	@And("User klik button See All")
 	public void user_klik_button_see_all() {
-		dashboardPage.go_to_btnSeeAll();
+		dashboardPage.goToBtnSeeAll();
 		extentTest.log(LogStatus.PASS, "User klik button See All");
 	}
 

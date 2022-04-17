@@ -81,25 +81,25 @@ public class RegisterStepDefinition {
 
 	@And("User klik menu register")
 	public void user_klik_menu_register() {
-		registerPage.go_to_Register_page();
+		registerPage.goToRegisterPage();
 		extentTest.log(LogStatus.PASS, "User klik menu register");
 	}
 
 	@And("User melakukan pencarian data karyawan")
 	public void user_melakukan_pencarian_data_karyawan() {
-		registerPage.search_data_karyawan();
+		registerPage.searchDataKaryawan();
 		extentTest.log(LogStatus.PASS, "User melakukan pencarian data karyawan");
 	}
 
 	@And("User melakukan perubahan data")
 	public void user_melakukan_perubahan_data() {
-		registerPage.edit_data_karyawan();
+		registerPage.editDataKaryawan();
 		extentTest.log(LogStatus.PASS, "User melakukan perubahan data");
 	}
 
 	@Then("User berhasil melakukan perubahan data")
 	public void user_berhasil_melakukan_perubahan_data() {
-		assertEquals(configurationProperties.getTxtRegisterPage(), registerPage.get_Txt_Register_Page());
+		assertEquals(configurationProperties.getTxtRegisterPage(), registerPage.getTextRegisterPage());
 		extentTest.log(LogStatus.PASS, "User berhasil melakukan perubahan data");
 
 	}

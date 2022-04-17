@@ -41,43 +41,43 @@ public class DashboardPage {
 	@FindBy(css = "#navbar-main > div > a")
 	WebElement textDashboard;
 
-	public void go_to_cardStaff() {
+	public void goToCardStaff() {
 		cardStaff.click();
 		tunggu(2);
 		btnDashboard.click();
 	}
 
-	public void go_to_cardLeader() {
+	public void goToCardLeader() {
 		cardLeader.click();
 		tunggu(2);
 		btnDashboard.click();
 	}
 
-	public void go_to_cardChanReq() {
+	public void goToCardChangeRequest() {
 		cardChanReq.click();
 		tunggu(2);
 		btnDashboard.click();
 	}
 
-	public void go_to_cardSupervisor() {
+	public void goToCardSupervisor() {
 		cardSupervisor.click();
 		tunggu(2);
 		btnDashboard.click();
 	}
 
-	public void go_to_cardManager() {
+	public void goToCardManager() {
 		cardManager.click();
 		tunggu(2);
 		btnDashboard.click();
 	}
 
-	public void go_to_cardHead() {
+	public void goToCardHead() {
 		cardHead.click();
 		tunggu(2);
 		btnDashboard.click();
 	}
 
-	public void go_to_btnSeeAll() {
+	public void goToBtnSeeAll() {
 		btnSeeAll.click();
 		tunggu(2);
 		btnDashboard.click();

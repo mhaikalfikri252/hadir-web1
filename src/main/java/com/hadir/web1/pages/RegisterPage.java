@@ -16,7 +16,7 @@ public class RegisterPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	// register page
+	// Register Page
 	@FindBy(linkText = "Register")
 	WebElement btnRegister;
 
@@ -30,7 +30,7 @@ public class RegisterPage {
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > form > div > div.col-sm-2 > button")
 	WebElement btnSearch;
 
-	// Edit data karyawan
+	// Edit Data Karyawan
 	@FindBy(id = "t1")
 	WebElement btnUbahData;
 
@@ -59,12 +59,12 @@ public class RegisterPage {
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
 	WebElement txtSuccess;
 
-	public void go_to_Register_page() {
+	public void goToRegisterPage() {
 		btnRegister.click();
 		tunggu(2);
 	}
 
-	public void search_data_karyawan() {
+	public void searchDataKaryawan() {
 		dropdown_search.click();
 		for (int i = 1; i <= 1; i++) {
 			dropdown_search.sendKeys(Keys.DOWN);
@@ -75,7 +75,7 @@ public class RegisterPage {
 		btnSearch.click();
 	}
 
-	public void edit_data_karyawan() {
+	public void editDataKaryawan() {
 		btnUbahData.click();
 		tunggu(2);
 		editNama.sendKeys("Dummy");
@@ -91,7 +91,7 @@ public class RegisterPage {
 		editNIK.sendKeys("0");
 
 		editTipeKaryawan.click();
-		for(int i = 0; i<=3;i++) {
+		for (int i = 0; i <= 3; i++) {
 			editTipeKaryawan.sendKeys(Keys.DOWN);
 		}
 		editTipeKaryawan.sendKeys(Keys.ENTER);
@@ -102,7 +102,7 @@ public class RegisterPage {
 
 	}
 
-	public String get_Txt_Register_Page() {
+	public String getTextRegisterPage() {
 		return txtSuccess.getText();
 	}
 

@@ -1,10 +1,5 @@
 package com.hadir.web1.pages;
 
-import java.util.List;
-
-import javax.swing.text.html.CSS;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,19 +8,19 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.hadir.web1.drivers.DriverSingleton;
 
-public class ManageShift {
+public class ManageShiftPage {
 
 	WebDriver driver;
 
-	public ManageShift() {
+	public ManageShiftPage() {
 		this.driver = DriverSingleton.getDriver();
 		PageFactory.initElements(driver, this);
 	}
-	
+
 //	Manage Shift Page
 	@FindBy(linkText = "Manage Shift")
 	WebElement btnMngShift;
-	
+
 //	Search Manage Shift
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > form > div:nth-child(1) > div:nth-child(2) > div > select")
 	WebElement btnSearchBy;
@@ -36,7 +31,7 @@ public class ManageShift {
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > form > div:nth-child(1) > div.col-sm-2 > button")
 	WebElement btnSearch;
 //	end Search Manage Shift
-	
+
 //	Edit Data Shift
 	@FindBy(id = "t4")
 	WebElement btnEditMngShift;
@@ -59,7 +54,7 @@ public class ManageShift {
 	@FindBy(css = "body > div.swal2-container.swal2-center.swal2-fade.swal2-shown > div > div.swal2-actions > button.swal2-confirm.swal2-styled")
 	WebElement btnOk;
 //	end edit data shift
-	
+
 //	Add data shift
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > div > a > button")
 	WebElement btnAddShift;
@@ -81,13 +76,12 @@ public class ManageShift {
 	WebElement btnSubmitAddShift;
 	@FindBy(css = "body > div.swal2-container.swal2-center.swal2-fade.swal2-shown > div > div.swal2-actions > button.swal2-confirm.swal2-styled")
 	WebElement btnOkAddShift;
-	
-	
-	public void go_to_mng_shift() {
+
+	public void goToManageShift() {
 		tunggu(2);
 		btnMngShift.click();
 	}
-	
+
 	public void searchBy() {
 		tunggu(3);
 		btnSearchBy.click();
@@ -101,7 +95,7 @@ public class ManageShift {
 		tunggu(1);
 		btnSearch.click();
 		tunggu(3);
-		}
+	}
 
 	public void editDataShift() {
 		btnEditMngShift.click();
@@ -122,21 +116,21 @@ public class ManageShift {
 		tunggu(1);
 		btnSubmitEditShift.click();
 	}
-	
-	public void addShift() {
+
+	public void addDataShift() {
 		tunggu(1);
 		btnAddShift.click();
-		tunggu(1);	
+		tunggu(1);
 		inputCode.click();
 		tunggu(1);
-		
+
 //		drpDwnAddDay.click();
 //		for(int i = 1; i <=4 ;i++) {
 //			drpDwnAddDay.sendKeys(Keys.DOWN);
 //		}
 //		drpDwnAddDay.click();
 //		tunggu(1);
-		
+
 		drpDwnAddDay.click();
 		tunggu(1);
 		inputDayAddShift.click();
@@ -146,27 +140,25 @@ public class ManageShift {
 		inputShiftOut.sendKeys("0400PM");
 		tunggu(1);
 		inputShiftOvertime.sendKeys("0300PM");
-		tunggu(1);	
+		tunggu(1);
 		btnSubmitAddShift.click();
 		tunggu(1);
 		btnOkAddShift.click();
 		tunggu(2);
 		btnMngShift.click();
 	}
-	
-	
-	public String get_Txt_Shift_Page() {
+
+	public String getTextManageShiftPage() {
 		return btnOk.getText();
 	}
-	
-	
+
 	public void tunggu(int detik) {
 		try {
-			Thread.sleep(detik*1000);
+			Thread.sleep(detik * 1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 }

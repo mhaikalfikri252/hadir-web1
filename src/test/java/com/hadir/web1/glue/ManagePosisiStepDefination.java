@@ -1,4 +1,5 @@
 package com.hadir.web1.glue;
+
 import static org.junit.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,6 @@ import com.hadir.web1.pages.ManagePosisiPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -26,11 +26,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.spring.CucumberContextConfiguration;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
 public class ManagePosisiStepDefination {
-	
+
 	private static WebDriver driver;
 	private LoginPage loginPage;
 	private ManagePosisiPage managePosisiPage;
@@ -47,7 +46,7 @@ public class ManagePosisiStepDefination {
 		managePosisiPage = new ManagePosisiPage();
 		extentTest = reports.startTest("Testing halaman Manage Posisi");
 	}
-	
+
 	@AfterStep
 	public void getResult(Scenario scenario) throws Exception {
 		if (scenario.isFailed()) {
@@ -64,11 +63,11 @@ public class ManagePosisiStepDefination {
 
 	@AfterAll
 	public static void closeBrowser() {
-		//		driver.quit();
+		// driver.quit();
 	}
-	
+
 	@Given("User masuk situs hadir")
-	 public void user_masuk_situs_hadir() {
+	public void user_masuk_situs_hadir() {
 		driver = DriverSingleton.getDriver();
 		driver.get(Constants.URL);
 		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
@@ -79,37 +78,35 @@ public class ManagePosisiStepDefination {
 		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
 		extentTest.log(LogStatus.PASS, "Admin login ke halaman web");
 	}
+
 	@And("Admin klik menu manage posisi")
 	public void admin_klik_menu_manage_posisi() {
-		managePosisiPage.go_to_Manage_Posisi_page();
+		managePosisiPage.goToManagePosisi();
 		extentTest.log(LogStatus.PASS, "Admin klik menu manage posisi page");
 	}
-	
+
 	@And("Admin klik tambah posisi")
 	public void admin_klik_tambah_posisi() {
-		managePosisiPage.go_to_Manage_Posisi_page();
-		managePosisiPage.tambah_posisi();
+		managePosisiPage.tambahPosisi();
 		extentTest.log(LogStatus.PASS, "Admin klik tambah posisi");
 	}
 
 	@And("Admin klik ubah posisi")
 	public void admin_klik_ubah_posisi() {
-		driver.navigate().refresh();
-		managePosisiPage.ubah_posisi();
+		managePosisiPage.ubahPosisi();
 		extentTest.log(LogStatus.PASS, "Admin klik ubah posisi");
-		
 	}
+
 	@And("Admin klik hapus posisi")
 	public void admin_klik_hapus_posisi() {
 		driver.navigate().refresh();
-		managePosisiPage.hapus_posisi();
+		managePosisiPage.hapusPosisi();
 		extentTest.log(LogStatus.PASS, "Admin klik hapus posisi");
 	}
-	
+
 	@Then("Admin success go to tambah posisi and ubah posisi and hapus posisi")
 	public void Admin_success_go_to_tambah_posisi_and_ubah_posisi_and_hapus_posisi() {
-		assertEquals(configurationProperties.getTxtHapusPosisi(), managePosisiPage.get_Txt_Hapus_Posisi());
+		assertEquals(configurationProperties.getTxtHapusPosisi(), managePosisiPage.getTextHapusPosisi());
 		extentTest.log(LogStatus.PASS, "Admin success go to tambah posisi and ubah posisi and hapus posisi");
 	}
 }
-

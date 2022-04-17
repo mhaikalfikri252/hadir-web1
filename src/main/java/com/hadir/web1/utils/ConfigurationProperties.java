@@ -31,14 +31,12 @@ public class ConfigurationProperties {
 
 	@Value("${txtRegisterPage}")
 	private String txtRegisterPage;
-	
 
 	@Value("${txtBerhasilUpdateData}")
 	private String txtBerhasilUpdateData;
-	
+
 	@Value("${txtHapusPosisi}")
 	private String txtHapusPosisi;
-	
 
 	@Value("${txtShiftPage}")
 	private String txtShiftPage;
@@ -49,7 +47,6 @@ public class ConfigurationProperties {
 	public String getTextBerhasilHapusDataTipe() {
 		return textBerhasilHapusDataTipe;
 	}
-
 
 	public String getBrowser() {
 		return browser;
@@ -79,11 +76,11 @@ public class ConfigurationProperties {
 		return txtRegisterPage;
 	}
 
-	
 	public String getTxtManagePosisiPage() {
 		return txtBerhasilUpdateData;
 	}
-	public String getTxtHapusPosisi()  {
+
+	public String getTxtHapusPosisi() {
 		return txtHapusPosisi;
 	}
 

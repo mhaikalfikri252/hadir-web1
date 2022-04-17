@@ -9,8 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
 import com.hadir.web1.pages.LoginPage;
-import com.hadir.web1.pages.ManageShift;
-import com.hadir.web1.pages.RegisterPage;
+import com.hadir.web1.pages.ManageShiftPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
@@ -23,19 +22,18 @@ import io.cucumber.java.AfterAll;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
 public class ManageShiftStepDefinition {
-	
+
 	private static WebDriver driver;
 	private LoginPage loginPage;
-	private ManageShift mngShift;
+	private ManageShiftPage manageShiftPage;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportShitManagemen.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportManageShift.html");
 
 	@Autowired
 	ConfigurationProperties configurationProperties;
@@ -44,7 +42,7 @@ public class ManageShiftStepDefinition {
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
-		mngShift = new ManageShift();
+		manageShiftPage = new ManageShiftPage();
 		extentTest = reports.startTest("Testing Manage Shift Page");
 	}
 
@@ -64,56 +62,52 @@ public class ManageShiftStepDefinition {
 
 	@AfterAll
 	public static void closeBrowser() {
-		//		driver.quit();
+		// driver.quit();
 	}
-	
+
 	@Given("Akses url oleh admin")
 	public void akses_url_oleh_admin() {
-			driver = DriverSingleton.getDriver();
-			driver.get(Constants.URL);
-			extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
+		driver = DriverSingleton.getDriver();
+		driver.get(Constants.URL);
+		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
 	}
-	
+
 	@When("Admin mengakses login")
 	public void admin_akses_login() {
 		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
 		extentTest.log(LogStatus.PASS, "Admin klik login button");
 	}
 
-
 	@When("Admin klik Manage Shift page")
 	public void admin_klik_manage_shift_page() {
-	   mngShift.go_to_mng_shift();
-	   extentTest.log(LogStatus.PASS, "Admin add shift time");
+		manageShiftPage.goToManageShift();
+		extentTest.log(LogStatus.PASS, "Admin add shift time");
 	}
-	
+
 	@When("Admin add shift time")
 	public void admin_add_shift_time() {
-	  mngShift.addShift();
-	  extentTest.log(LogStatus.PASS, "Admin klik Manage Shift page");
+		manageShiftPage.addDataShift();
+		extentTest.log(LogStatus.PASS, "Admin klik Manage Shift page");
 	}
-	
+
 	@When("Admin Search By Shift Code")
 	public void admin_search_by_shift_code() {
-	    mngShift.searchBy();
-	    extentTest.log(LogStatus.PASS, "Admin Search By Shift Code");
+		manageShiftPage.searchBy();
+		extentTest.log(LogStatus.PASS, "Admin Search By Shift Code");
 	}
-		
 
 	@When("Admin edit shift time")
 	public void admin_edit_shift_time() {
-	    mngShift.editDataShift();
+		manageShiftPage.editDataShift();
 		extentTest.log(LogStatus.PASS, "Admin edit shift time");
 
 	}
 
-	
 	@Then("Admin success go to add shift page and edit data")
 	public void admin_success_go_to_add_shift_page_and_edit_data() {
-		assertEquals(configurationProperties.getTxtShiftPage(), mngShift.get_Txt_Shift_Page());
+		assertEquals(configurationProperties.getTxtShiftPage(), manageShiftPage.getTextManageShiftPage());
 		extentTest.log(LogStatus.PASS, "Admin success go to add shift page and edit data");
 
 	}
-
 
 }

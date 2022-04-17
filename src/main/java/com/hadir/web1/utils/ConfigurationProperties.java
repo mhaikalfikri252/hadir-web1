@@ -44,6 +44,13 @@ public class ConfigurationProperties {
 	@Value("${textBerhasilHapusDataTipe}")
 	private String textBerhasilHapusDataTipe;
 
+	@Value("${textHapusAbsenPoint}")
+	private String textHapusAbsenPoint;
+
+	public String getTextHapusAbsenPoint() {
+		return textHapusAbsenPoint;
+	}
+
 	public String getTextBerhasilHapusDataTipe() {
 		return textBerhasilHapusDataTipe;
 	}

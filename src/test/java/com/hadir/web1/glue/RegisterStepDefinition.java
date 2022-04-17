@@ -13,7 +13,6 @@ import com.hadir.web1.pages.RegisterPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -27,8 +26,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.spring.CucumberContextConfiguration;
-
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
 public class RegisterStepDefinition {
@@ -66,7 +63,7 @@ public class RegisterStepDefinition {
 
 	@AfterAll
 	public static void closeBrowser() {
-		//		driver.quit();
+		// driver.quit();
 	}
 
 	@Given("User mengakses url web")
@@ -84,25 +81,25 @@ public class RegisterStepDefinition {
 
 	@And("User klik menu register")
 	public void user_klik_menu_register() {
-		registerPage.go_to_Register_page();
+		registerPage.goToRegisterPage();
 		extentTest.log(LogStatus.PASS, "User klik menu register");
 	}
 
 	@And("User melakukan pencarian data karyawan")
 	public void user_melakukan_pencarian_data_karyawan() {
-		registerPage.search_data_karyawan();
+		registerPage.searchDataKaryawan();
 		extentTest.log(LogStatus.PASS, "User melakukan pencarian data karyawan");
 	}
 
 	@And("User melakukan perubahan data")
 	public void user_melakukan_perubahan_data() {
-		registerPage.edit_data_karyawan();
+		registerPage.editDataKaryawan();
 		extentTest.log(LogStatus.PASS, "User melakukan perubahan data");
 	}
 
 	@Then("User berhasil melakukan perubahan data")
 	public void user_berhasil_melakukan_perubahan_data() {
-		assertEquals(configurationProperties.getTxtRegisterPage(), registerPage.get_Txt_Register_Page());
+		assertEquals(configurationProperties.getTxtRegisterPage(), registerPage.getTextRegisterPage());
 		extentTest.log(LogStatus.PASS, "User berhasil melakukan perubahan data");
 
 	}

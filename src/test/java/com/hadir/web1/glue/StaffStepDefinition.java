@@ -22,7 +22,6 @@ import io.cucumber.java.AfterAll;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -79,29 +78,29 @@ public class StaffStepDefinition {
 
 	}
 
-	@And("Admin klik staff page")
+	@When("Admin klik staff page")
 	public void customer_klik_staff_page() {
-		staffPage.go_to_staff_page();
+		staffPage.goToStaffPage();
 		extentTest.log(LogStatus.PASS, "Admin klik staff page");
 	}
 
-	@And("Admin klik view history staff")
+	@When("Admin klik view history staff")
 	public void admin_klik_view_history_staff() {
 		staffPage.historyStaffPage();
 		extentTest.log(LogStatus.PASS, "Admin klik view history staff");
 	}
 
-	@And("Admin klik edit data staff")
+	@When("Admin klik edit data staff")
 	public void admin_klik_edit_data_staff() {
-		staffPage.go_to_staff_page();
-		staffPage.edit_data_staff();
-		staffPage.form_edit_staff();
+		staffPage.goToStaffPage();
+		staffPage.editDataStaff();
+		staffPage.formEditDataStaff();
 		extentTest.log(LogStatus.PASS, "Admin klik edit data staff");
 	}
 
 	@Then("Admin success go to view history staff page and edit data")
 	public void admin_success_go_to_view_history_staff_page_and_edit_data() {
-		assertEquals(configurationProperties.getTxtEditPage(), staffPage.get_Txt_Staff_page());
+		assertEquals(configurationProperties.getTxtEditPage(), staffPage.getTextStaffPage());
 		extentTest.log(LogStatus.PASS, "Admin success go to view history staff page and edit data");
 
 	}

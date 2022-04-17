@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
 import com.hadir.web1.pages.LoginPage;
-import com.hadir.web1.pages.RegisterPage;
+import com.hadir.web1.pages.ManagePosisiPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
@@ -28,13 +28,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
-public class RegisterStepDefinition {
+public class ManagePosisiStepDefination {
 
 	private static WebDriver driver;
 	private LoginPage loginPage;
-	private RegisterPage registerPage;
+	private ManagePosisiPage managePosisiPage;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportRegister.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportManagePosisi.html");
 
 	@Autowired
 	ConfigurationProperties configurationProperties;
@@ -43,8 +43,8 @@ public class RegisterStepDefinition {
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
-		registerPage = new RegisterPage();
-		extentTest = reports.startTest("Testing halaman register");
+		managePosisiPage = new ManagePosisiPage();
+		extentTest = reports.startTest("Testing halaman Manage Posisi");
 	}
 
 	@AfterStep
@@ -66,41 +66,47 @@ public class RegisterStepDefinition {
 		// driver.quit();
 	}
 
-	@Given("User mengakses url web")
-	public void user_mengakses_url_web() {
+	@Given("User masuk situs hadir")
+	public void user_masuk_situs_hadir() {
 		driver = DriverSingleton.getDriver();
 		driver.get(Constants.URL);
 		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
 	}
 
-	@When("User login ke halaman web")
-	public void user_login_ke_halaman_web() {
+	@When("Admin login ke halaman web")
+	public void admin_login_ke_halaman_web() {
 		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
-		extentTest.log(LogStatus.PASS, "User login ke halaman web");
+		extentTest.log(LogStatus.PASS, "Admin login ke halaman web");
 	}
 
-	@And("User klik menu register")
-	public void user_klik_menu_register() {
-		registerPage.goToRegisterPage();
-		extentTest.log(LogStatus.PASS, "User klik menu register");
+	@And("Admin klik menu manage posisi")
+	public void admin_klik_menu_manage_posisi() {
+		managePosisiPage.goToManagePosisi();
+		extentTest.log(LogStatus.PASS, "Admin klik menu manage posisi page");
 	}
 
-	@And("User melakukan pencarian data karyawan")
-	public void user_melakukan_pencarian_data_karyawan() {
-		registerPage.searchDataKaryawan();
-		extentTest.log(LogStatus.PASS, "User melakukan pencarian data karyawan");
+	@And("Admin klik tambah posisi")
+	public void admin_klik_tambah_posisi() {
+		managePosisiPage.tambahPosisi();
+		extentTest.log(LogStatus.PASS, "Admin klik tambah posisi");
 	}
 
-	@And("User melakukan perubahan data")
-	public void user_melakukan_perubahan_data() {
-		registerPage.editDataKaryawan();
-		extentTest.log(LogStatus.PASS, "User melakukan perubahan data");
+	@And("Admin klik ubah posisi")
+	public void admin_klik_ubah_posisi() {
+		managePosisiPage.ubahPosisi();
+		extentTest.log(LogStatus.PASS, "Admin klik ubah posisi");
 	}
 
-	@Then("User berhasil melakukan perubahan data")
-	public void user_berhasil_melakukan_perubahan_data() {
-		assertEquals(configurationProperties.getTxtRegisterPage(), registerPage.getTextRegisterPage());
-		extentTest.log(LogStatus.PASS, "User berhasil melakukan perubahan data");
+	@And("Admin klik hapus posisi")
+	public void admin_klik_hapus_posisi() {
+		driver.navigate().refresh();
+		managePosisiPage.hapusPosisi();
+		extentTest.log(LogStatus.PASS, "Admin klik hapus posisi");
+	}
 
+	@Then("Admin success go to tambah posisi and ubah posisi and hapus posisi")
+	public void Admin_success_go_to_tambah_posisi_and_ubah_posisi_and_hapus_posisi() {
+		assertEquals(configurationProperties.getTxtHapusPosisi(), managePosisiPage.getTextHapusPosisi());
+		extentTest.log(LogStatus.PASS, "Admin success go to tambah posisi and ubah posisi and hapus posisi");
 	}
 }

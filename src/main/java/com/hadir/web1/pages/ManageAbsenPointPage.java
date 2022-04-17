@@ -69,7 +69,6 @@ public class ManageAbsenPointPage {
 		btnAddDataAbsenPoint.click();
 		tunggu(2);
 		addAbsenLocation.get(0).sendKeys("Rumah");
-		;
 		tunggu(1);
 		addAbsenLocation.get(1).sendKeys("Banda Aceh");
 		tunggu(1);

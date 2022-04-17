@@ -100,7 +100,7 @@ public class StaffStepDefinition {
 
 	@Then("Admin success go to view history staff page and edit data")
 	public void admin_success_go_to_view_history_staff_page_and_edit_data() {
-		assertEquals(configurationProperties.getTxtEditPage(), staffPage.getTextStaffPage());
+		assertEquals(configurationProperties.getTextOk(), staffPage.getTextStaffPage());
 		extentTest.log(LogStatus.PASS, "Admin success go to view history staff page and edit data");
 
 	}

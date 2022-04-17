@@ -1,4 +1,5 @@
 package com.hadir.web1.glue;
+
 import static org.junit.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
@@ -8,11 +9,10 @@ import org.springframework.test.context.ContextConfiguration;
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
 import com.hadir.web1.pages.LoginPage;
-import com.hadir.web1.pages.ManageLevel;
+import com.hadir.web1.pages.ManageLevelPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -26,17 +26,16 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.spring.CucumberContextConfiguration;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
 
 public class ManageLevelStepDefination {
-	
+
 	private static WebDriver driver;
 	private LoginPage loginPage;
-	private ManageLevel manageLevel;
+	private ManageLevelPage manageLevel;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportManagePosisi.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportManageLevel.html");
 
 	@Autowired
 	ConfigurationProperties configurationProperties;
@@ -45,10 +44,10 @@ public class ManageLevelStepDefination {
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
-		manageLevel = new ManageLevel();
-		extentTest = reports.startTest("Testing halaman Manage Level");
+		manageLevel = new ManageLevelPage();
+		extentTest = reports.startTest("Testing Halaman Manage Level");
 	}
-	
+
 	@AfterStep
 	public void getResult(Scenario scenario) throws Exception {
 		if (scenario.isFailed()) {
@@ -65,11 +64,11 @@ public class ManageLevelStepDefination {
 
 	@AfterAll
 	public static void closeBrowser() {
-		//		driver.quit();
+		// driver.quit();
 	}
-	
+
 	@Given("User masuk situs hadir Web 1")
-	 public void user_masuk_situs_hadir() {
+	public void user_masuk_situs_hadir() {
 		driver = DriverSingleton.getDriver();
 		driver.get(Constants.URL);
 		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
@@ -80,37 +79,37 @@ public class ManageLevelStepDefination {
 		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
 		extentTest.log(LogStatus.PASS, "Admin login ke halaman web1");
 	}
+
 	@And("Admin klik menu manage level")
 	public void admin_klik_menu_manage_level() {
-		manageLevel.go_to_Manage_Level();
+		manageLevel.goToManageLevel();
 		extentTest.log(LogStatus.PASS, "Admin klik menu manage level");
 	}
-	
+
 	@And("Admin klik tambah level")
 	public void admin_klik_tambah_level() {
-		manageLevel.go_to_Manage_Level();
-		manageLevel.tambah_level();
+		manageLevel.tambahLevel();
 		extentTest.log(LogStatus.PASS, "Admin klik tambah level");
 	}
 
 	@And("Admin klik ubah level")
 	public void admin_klik_ubah_posisi() {
 		driver.navigate().refresh();
-		manageLevel.ubah_level();
+		manageLevel.ubahLevel();
 		extentTest.log(LogStatus.PASS, "Admin klik ubah level");
-		
+
 	}
+
 	@And("Admin klik hapus level")
 	public void admin_klik_hapus_posisi() {
 		driver.navigate().refresh();
-		manageLevel.hapus_Level();
+		manageLevel.hapusLevel();
 		extentTest.log(LogStatus.PASS, "Admin klik hapus level");
 	}
-	
+
 	@Then("Admin success go to tambah level and ubah level and hapus level")
 	public void Admin_success_go_to_tambah_level_and_ubah_level_and_hapus_level() {
-		assertEquals(configurationProperties.getTxtHapusPosisi(), manageLevel.get_Txt_Hapus_Level());
+		assertEquals(configurationProperties.getTextHapusData(), manageLevel.getTextHapusLevel());
 		extentTest.log(LogStatus.PASS, "Admin success go to tambah level and ubah level and hapus level");
 	}
 }
-

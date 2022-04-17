@@ -1,7 +1,5 @@
 package com.hadir.web1.pages;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,19 +7,20 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.hadir.web1.drivers.DriverSingleton;
 
-public class ManageLevel {
+public class ManageLevelPage {
 
 	WebDriver driver;
 
-	public ManageLevel() {
+	public ManageLevelPage() {
 		this.driver = DriverSingleton.getDriver();
 		PageFactory.initElements(driver, this);
 	}
+
 	// Manage Posisi Page
 	@FindBy(css = "#sidenav-main > div > div > ul > li:nth-child(15) > a")
 	WebElement btnManageLevel;
-	
-	//form tambah data
+
+	// Form Tambah Data
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > div > button")
 	WebElement btnTambahLevel;
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div")
@@ -33,7 +32,7 @@ public class ManageLevel {
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
 	WebElement txtManageLevel;
 
-	//form ubah data
+	// Form Ubah Data
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.table-responsive > table > tbody > tr:nth-child(1)")
 	WebElement pilihLevel;
 	@FindBy(css = "#t1")
@@ -46,9 +45,8 @@ public class ManageLevel {
 	WebElement btnSubmitUbahLevel;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
 	WebElement txtUbahLevel;
-	
-	
-	//hapus data
+
+	// Hapus Data
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.table-responsive > table > tbody > tr:nth-child(2)")
 	WebElement pilihLevel1;
 	@FindBy(css = "#t2")
@@ -60,48 +58,50 @@ public class ManageLevel {
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
 	WebElement txtHapusLevel;
 
-	
-	public void go_to_Manage_Level() {
+	public void goToManageLevel() {
 		btnManageLevel.click();
 		tunggu(2);
 	}
-	public void tambah_level() {
+
+	public void tambahLevel() {
 		btnTambahLevel.click();
 		tunggu(3);
 		inputMasukanLevel.sendKeys("Staff");
 		btnSumbitTambahLevel.click();
-		}
+	}
 
-	public void ubah_level() {
+	public void ubahLevel() {
 		btnUbahLevel.click();
 		tunggu(2);
 		inputUbahLevel.sendKeys("PKWT");
 		btnSubmitUbahLevel.click();
 	}
-	public void hapus_Level() {
+
+	public void hapusLevel() {
 		btnHapusLevel.click();
 		tunggu(2);
 		btnSubmitHapusLevel.click();
 	}
-	public String get_Txt_Tambah_Level() {
+
+	public String getTextTambahLevel() {
 		return txtManageLevel.getText();
-	
 	}
-	public String get_Txt_Ubah_Level() {
+
+	public String getTextUbahLevel() {
 		return txtUbahLevel.getText();
-		
 	}
-	public String get_Txt_Hapus_Level() {
+
+	public String getTextHapusLevel() {
 		return txtHapusLevel.getText();
-	
 	}
+
 	public void tunggu(int detik) {
 		try {
-			Thread.sleep(detik*1000);
+			Thread.sleep(detik * 1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			
+
 	}
 }

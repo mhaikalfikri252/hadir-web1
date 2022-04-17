@@ -6,7 +6,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports-manageshift.html" }, features = {
+@CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports-manage-shift.html" }, features = {
 		"src/main/resources/features/ManageShift.feature" })
 public class ManageShiftRunnerTest {
 

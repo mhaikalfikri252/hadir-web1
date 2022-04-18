@@ -1,6 +1,6 @@
 Feature: Admin Tambah Manage Level
 
- Scenario: Testing halaman Manage Posisi
+  Scenario: Testing halaman Manage Posisi
     Given User masuk situs hadir
     When Admin login ke halaman web
     And Admin klik menu manage posisi

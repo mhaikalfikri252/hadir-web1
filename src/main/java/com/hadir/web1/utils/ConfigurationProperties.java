@@ -11,9 +11,6 @@ public class ConfigurationProperties {
 	@Value("${browser}")
 	private String browser;
 
-	@Value("${email}")
-	private String email;
-
 	@Value("${usernamee}")
 	private String userName;
 
@@ -26,27 +23,23 @@ public class ConfigurationProperties {
 	@Value("${textDashboard}")
 	private String textDashboard;
 
-	@Value("${txtEditPage}")
-	private String txtEditPage;
+	@Value("${txtOk}")
+	private String textOk;
 
-	@Value("${txtRegisterPage}")
-	private String txtRegisterPage;
+	@Value("${textTambahData}")
+	private String textTambahData;
 
-	@Value("${txtBerhasilUpdateData}")
-	private String txtBerhasilUpdateData;
+	@Value("${textUpdateData}")
+	private String textUpdateData;
 
-	@Value("${txtHapusPosisi}")
-	private String txtHapusPosisi;
+	@Value("${textHapusData}")
+	private String textHapusData;
 
-	@Value("${txtShiftPage}")
-	private String txtShiftPage;
+	@Value("${textHapusAbsenPoint}")
+	private String textHapusAbsenPoint;
 
-	@Value("${textBerhasilHapusDataTipe}")
-	private String textBerhasilHapusDataTipe;
-
-	public String getTextBerhasilHapusDataTipe() {
-		return textBerhasilHapusDataTipe;
-	}
+	@Value("${textSuccessExport}")
+	private String textSuccessExport;
 
 	public String getBrowser() {
 		return browser;
@@ -68,23 +61,28 @@ public class ConfigurationProperties {
 		return textDashboard;
 	}
 
-	public String getTxtEditPage() {
-		return txtEditPage;
+	public String getTextOk() {
+		return textOk;
 	}
 
-	public String getTxtRegisterPage() {
-		return txtRegisterPage;
+	public String getTextTambahData() {
+		return textTambahData;
 	}
 
-	public String getTxtManagePosisiPage() {
-		return txtBerhasilUpdateData;
+	public String getTextUpdateData() {
+		return textUpdateData;
 	}
 
-	public String getTxtHapusPosisi() {
-		return txtHapusPosisi;
+	public String getTextHapusData() {
+		return textHapusData;
 	}
 
-	public String getTxtShiftPage() {
-		return txtShiftPage;
+	public String getTextHapusAbsenPoint() {
+		return textHapusAbsenPoint;
 	}
+
+	public String getTextSuccessExport() {
+		return textSuccessExport;
+	}
+
 }

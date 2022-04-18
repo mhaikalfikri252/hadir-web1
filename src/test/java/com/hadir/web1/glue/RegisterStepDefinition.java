@@ -44,7 +44,7 @@ public class RegisterStepDefinition {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
 		registerPage = new RegisterPage();
-		extentTest = reports.startTest("Testing halaman register");
+		extentTest = reports.startTest("Testing Halaman Register");
 	}
 
 	@AfterStep
@@ -99,7 +99,7 @@ public class RegisterStepDefinition {
 
 	@Then("User berhasil melakukan perubahan data")
 	public void user_berhasil_melakukan_perubahan_data() {
-		assertEquals(configurationProperties.getTxtRegisterPage(), registerPage.getTextRegisterPage());
+		assertEquals(configurationProperties.getTextUpdateData(), registerPage.getTextRegisterPage());
 		extentTest.log(LogStatus.PASS, "User berhasil melakukan perubahan data");
 
 	}

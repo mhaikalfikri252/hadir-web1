@@ -83,6 +83,10 @@ public class StaffPage {
 	@FindBy(css = "body > div.swal2-container.swal2-center.swal2-fade.swal2-shown > div > div.swal2-actions > button.swal2-confirm.swal2-styled")
 	WebElement PopUpSubmit;
 //		end form edit staff
+	
+	@FindBy(css = "#swal2-content")
+	WebElement textEndStaff;
+	
 
 	public void goToStaffPage() {
 		btnStaff.click();
@@ -101,9 +105,9 @@ public class StaffPage {
 		inputSearchStaff.sendKeys("meinida");
 		tunggu(2);
 		btnSerachStaff.click();
-		tunggu(2);
+		tunggu(5);
 		btnViewStaff.click();
-		tunggu(2);
+		tunggu(4);
 		driver.navigate().refresh();
 		filterBy.click();
 		tunggu(2);

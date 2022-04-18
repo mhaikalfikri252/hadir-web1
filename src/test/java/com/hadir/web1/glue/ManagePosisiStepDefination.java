@@ -106,7 +106,7 @@ public class ManagePosisiStepDefination {
 
 	@Then("Admin success go to tambah posisi and ubah posisi and hapus posisi")
 	public void Admin_success_go_to_tambah_posisi_and_ubah_posisi_and_hapus_posisi() {
-		assertEquals(configurationProperties.getTxtHapusPosisi(), managePosisiPage.getTextHapusPosisi());
+		assertEquals(configurationProperties.getTextHapusData(), managePosisiPage.getTextHapusPosisi());
 		extentTest.log(LogStatus.PASS, "Admin success go to tambah posisi and ubah posisi and hapus posisi");
 	}
 }

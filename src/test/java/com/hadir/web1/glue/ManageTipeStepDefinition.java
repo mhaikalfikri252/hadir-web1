@@ -107,7 +107,7 @@ public class ManageTipeStepDefinition {
 
 	@Then("User berhasil hapus data")
 	public void user_berhasil_hapus_data() {
-		assertEquals(configurationProperties.getTextBerhasilHapusDataTipe(), manageTipePage.getTextSuccessDeleteData());
+		assertEquals(configurationProperties.getTextHapusData(), manageTipePage.getTextSuccessDeleteData());
 		extentTest.log(LogStatus.PASS, "User berhasil melakukan hapus data tipe");
 	}
 

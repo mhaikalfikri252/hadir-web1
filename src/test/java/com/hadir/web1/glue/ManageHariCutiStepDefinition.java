@@ -107,7 +107,7 @@ public class ManageHariCutiStepDefinition {
 
 	@Then("User berhasil hapus data hari cuti")
 	public void user_berhasil_hapus_data_hari_cuti() {
-		assertEquals(configurationProperties.getTextBerhasilHapusDataTipe(),
+		assertEquals(configurationProperties.getTextHapusData(),
 				manageHariCutiPage.getTextSuccessDeleteData());
 		extentTest.log(LogStatus.PASS, "User berhasil melakukan hapus data hari cuti");
 	}

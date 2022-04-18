@@ -43,6 +43,13 @@ public class ConfigurationProperties {
 
 	@Value("${textBerhasilHapusDataTipe}")
 	private String textBerhasilHapusDataTipe;
+	
+	@Value("${TxtSuccessTambahData}")
+	private String TxtSuccessTambahData;
+
+	public String getTxtSuccessTambahData() {
+		return TxtSuccessTambahData;
+	}
 
 	public String getTextBerhasilHapusDataTipe() {
 		return textBerhasilHapusDataTipe;

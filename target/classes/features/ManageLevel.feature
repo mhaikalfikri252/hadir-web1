@@ -1,6 +1,6 @@
 Feature: Admin Tambah Manage Level
 
- Scenario: Testing halaman Manage Level
+  Scenario: Testing halaman Manage Level
     Given User masuk situs hadir Web 1
     When Admin login ke halaman web1
     And Admin klik menu manage level

@@ -33,7 +33,7 @@ public class ManageShiftStepDefinition {
 	private LoginPage loginPage;
 	private ManageShiftPage manageShiftPage;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportAprIZin.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportManageShift.html");
 
 	@Autowired
 	ConfigurationProperties configurationProperties;

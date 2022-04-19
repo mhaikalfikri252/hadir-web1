@@ -35,6 +35,7 @@ public class StaffStepDefinition {
 	private LoginPage loginPage;
 	ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportStaff.html");
+
 	@Autowired
 	ConfigurationProperties configurationProperties;
 

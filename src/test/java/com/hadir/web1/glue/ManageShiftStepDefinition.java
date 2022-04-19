@@ -22,6 +22,7 @@ import io.cucumber.java.AfterAll;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -78,25 +79,25 @@ public class ManageShiftStepDefinition {
 		extentTest.log(LogStatus.PASS, "Admin klik login button");
 	}
 
-	@When("Admin klik Manage Shift page")
+	@And("Admin klik Manage Shift page")
 	public void admin_klik_manage_shift_page() {
 		manageShiftPage.goToManageShift();
 		extentTest.log(LogStatus.PASS, "Admin add shift time");
 	}
 
-	@When("Admin add shift time")
+	@And("Admin add shift time")
 	public void admin_add_shift_time() {
 		manageShiftPage.addDataShift();
 		extentTest.log(LogStatus.PASS, "Admin klik Manage Shift page");
 	}
 
-	@When("Admin Search By Shift Code")
+	@And("Admin Search By Shift Code")
 	public void admin_search_by_shift_code() {
 		manageShiftPage.searchBy();
 		extentTest.log(LogStatus.PASS, "Admin Search By Shift Code");
 	}
 
-	@When("Admin edit shift time")
+	@And("Admin edit shift time")
 	public void admin_edit_shift_time() {
 		manageShiftPage.editDataShift();
 		extentTest.log(LogStatus.PASS, "Admin edit shift time");

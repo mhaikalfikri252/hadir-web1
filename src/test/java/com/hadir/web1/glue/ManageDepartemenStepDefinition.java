@@ -73,6 +73,7 @@ public class ManageDepartemenStepDefinition {
 
 	@When("User menampilkan manage departemen")
 	public void user_menampilkan_manage_departemen() {
+		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
 		tunggu();
 		extentTest.log(LogStatus.PASS, "User menampilkan manage departemen");
 	}

@@ -41,6 +41,9 @@ public class ConfigurationProperties {
 	@Value("${textSuccessExport}")
 	private String textSuccessExport;
 
+	@Value("${textSuccessMngSet}")
+	private String textSuccessMngSet;
+
 	public String getBrowser() {
 		return browser;
 	}
@@ -83,6 +86,10 @@ public class ConfigurationProperties {
 
 	public String getTextSuccessExport() {
 		return textSuccessExport;
+	}
+
+	public String getTextSuccessMngSet() {
+		return textSuccessMngSet;
 	}
 
 }

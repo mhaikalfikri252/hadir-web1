@@ -47,8 +47,15 @@ public class ConfigurationProperties {
 	@Value("${TxtSuccessTambahData}")
 	private String TxtSuccessTambahData;
 
+	@Value("${txtSuccessMngSet}")
+	private String txtSuccessMngSet;
+
 	public String getTxtSuccessTambahData() {
 		return TxtSuccessTambahData;
+	}
+	
+	public String getTxtSuccessMngSet() {
+		return txtSuccessMngSet;
 	}
 
 	public String getTextBerhasilHapusDataTipe() {

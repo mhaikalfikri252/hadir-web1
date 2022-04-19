@@ -11,38 +11,37 @@ import com.hadir.web1.drivers.DriverSingleton;
 
 public class ManageSettingPage {
 
-
 	WebDriver driver;
 
 	public ManageSettingPage() {
 		this.driver = DriverSingleton.getDriver();
 		PageFactory.initElements(driver, this);
 	}
-	
-	// menu manage setting
-	@FindBy(css="#root > div > div.mt--8.container-fluid > div > div > div.shadow.card > div.table-responsive > table > tbody > tr > td:nth-child(4) > div > div:nth-child(2)")
+
+	// Menu Manage Setting
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.shadow.card > div.table-responsive > table > tbody > tr > td:nth-child(4) > div > div:nth-child(2)")
 	WebElement switchLiveness;
-	@FindBy(id="t1")
+	@FindBy(id = "t1")
 	WebElement btnEditMngSetting;
-	@FindBy(css="#sidenav-main > div > div > ul > li:nth-child(16) > a")
+	@FindBy(css = "#sidenav-main > div > div > ul > li:nth-child(16) > a")
 	WebElement btnMngSetting;
-	@FindBy(xpath="//*[@id=\"root\"]/div/div[2]/div/div/div[1]/span")
+	@FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div/div/div[1]/span")
 	WebElement txtSuccessMngSet;
-	
-	//form edit manage setting
-	@FindBy(id= "zz1")
+
+	// Form Edit Manage Setting
+	@FindBy(id = "zz1")
 	List<WebElement> inputValidationTimer;
-	@FindBy(css= "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-primary")
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-primary")
 	WebElement btnSubmitMngSetting;
-	@FindBy(css="body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-secondary")
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-secondary")
 	WebElement btnClose;
-	
+
 	public void goToManageSetting() {
 		btnMngSetting.click();
 		tunggu(2);
 	}
-	
-	public void ubah_Data() {
+
+	public void ubahData() {
 		tunggu(5);
 		btnEditMngSetting.click();
 		tunggu(2);
@@ -58,17 +57,17 @@ public class ManageSettingPage {
 		tunggu(2);
 		btnClose.click();
 	}
-	
-	public void change_liveness() {
+
+	public void changeLiveness() {
 		tunggu(2);
 		switchLiveness.click();
 		tunggu(5);
 	}
-	
-	public String getTxtManageSettingPage() {
+
+	public String getTextManageSettingPage() {
 		return txtSuccessMngSet.getText();
 	}
-	
+
 	public void tunggu(int detik) {
 		try {
 			Thread.sleep(detik * 1000);

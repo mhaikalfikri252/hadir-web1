@@ -1,7 +1,5 @@
 package com.hadir.web1.glue;
 
-import static org.junit.Assert.assertEquals;
-
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -28,7 +26,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
-	public class ManageDepartemenStepDefinition {
+public class ManageDepartemenStepDefinition {
 
 	private static WebDriver driver;
 	private LoginPage loginPage;
@@ -46,7 +44,7 @@ import io.cucumber.java.en.When;
 		manageDepartemenPage = new ManageDepartemenPage();
 		extentTest = reports.startTest("Testing View Manage Departemen");
 	}
-	
+
 	@AfterStep
 	public void getResult(Scenario scenario) throws Exception {
 		if (scenario.isFailed()) {
@@ -63,7 +61,7 @@ import io.cucumber.java.en.When;
 
 	@AfterAll
 	public static void closeBrowser() {
-		//		driver.quit();
+		// driver.quit();
 	}
 
 	@Given("User mengakses web")
@@ -72,45 +70,48 @@ import io.cucumber.java.en.When;
 		driver.get(Constants.URL);
 		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
 	}
-	
+
 	@When("User menampilkan manage departemen")
 	public void user_menampilkan_manage_departemen() {
+		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
 		tunggu();
 		extentTest.log(LogStatus.PASS, "User menampilkan manage departemen");
 	}
 
 	@And("User klik menu manage departemen")
 	public void user_klik_menu_manage_departemen() {
-		manageDepartemenPage.go_to_ManageDepartemen_page();
+		manageDepartemenPage.goToManageDepartemen();
 		extentTest.log(LogStatus.PASS, "User klik menu manage departemen");
 	}
-	
+
 	@And("User tambah data departemen")
 	public void user_tambah_data() {
-		manageDepartemenPage.tambah_data_departemen();
+		manageDepartemenPage.tambahDataDepartemen();
 		extentTest.log(LogStatus.PASS, "User tambah data departemen");
 	}
-	
+
 	@And("User edit data departemen")
 	public void edit_data_departemen() {
-		manageDepartemenPage.edit_data_departemen();
+		manageDepartemenPage.editDataDepartemen();
 		driver.navigate().refresh();
 		extentTest.log(LogStatus.PASS, "User edit data departemen");
 	}
-	
+
 	@And("User hapus data departemen")
 	public void hapus_data_departemen() {
-		manageDepartemenPage.delete_data_departemen();
+		manageDepartemenPage.deleteDataDepartemen();
 		driver.navigate().refresh();
 		extentTest.log(LogStatus.PASS, "User hapus data departemen");
-	}	
-	
+	}
+
 	@Then("User berhasil melakukan tambah data departemen edit data departemen and hapus data departemen")
-	public void User_berhasil_melakukan_tambah_data_departemen_edit_data_departemen_and_hapus_data_epartemen() {
-		//assertEquals(configurationProperties.getTxtSuccessTambahData(), manageDepartemenPage.get_Txt_Tambah_ManageDepartemen_Page());
-		extentTest.log(LogStatus.PASS, "User berhasil melakukan tambah data departemen edit data departemen and hapus data departemen");
+	public void user_berhasil_melakukan_tambah_data_departemen_edit_data_departemen_and_hapus_data_departemen() {
+//		assertEquals(configurationProperties.getTextHapusData(), manageDepartemenPage.getTextHapusData());
+		extentTest.log(LogStatus.PASS,
+				"User berhasil melakukan tambah data departemen edit data departemen and hapus data departemen");
 
 	}
+
 	public static void tunggu() {
 		try {
 			Thread.sleep(1000);
@@ -118,4 +119,4 @@ import io.cucumber.java.en.When;
 			e.printStackTrace();
 		}
 	}
-	}
+}

@@ -108,7 +108,7 @@ public class ManageLevelStepDefination {
 	}
 
 	@Then("Admin success go to tambah level and ubah level and hapus level")
-	public void Admin_success_go_to_tambah_level_and_ubah_level_and_hapus_level() {
+	public void admin_success_go_to_tambah_level_and_ubah_level_and_hapus_level() {
 		assertEquals(configurationProperties.getTextHapusData(), manageLevel.getTextHapusLevel());
 		extentTest.log(LogStatus.PASS, "Admin success go to tambah level and ubah level and hapus level");
 	}

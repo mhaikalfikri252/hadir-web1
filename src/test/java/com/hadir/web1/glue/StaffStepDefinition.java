@@ -22,6 +22,7 @@ import io.cucumber.java.AfterAll;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -78,19 +79,19 @@ public class StaffStepDefinition {
 
 	}
 
-	@When("Admin klik staff page")
-	public void customer_klik_staff_page() {
+	@And("Admin klik staff page")
+	public void admin_klik_staff_page() {
 		staffPage.goToStaffPage();
 		extentTest.log(LogStatus.PASS, "Admin klik staff page");
 	}
 
-	@When("Admin klik view history staff")
+	@And("Admin klik view history staff")
 	public void admin_klik_view_history_staff() {
 		staffPage.historyStaffPage();
 		extentTest.log(LogStatus.PASS, "Admin klik view history staff");
 	}
 
-	@When("Admin klik edit data staff")
+	@And("Admin klik edit data staff")
 	public void admin_klik_edit_data_staff() {
 		staffPage.goToStaffPage();
 		staffPage.editDataStaff();
@@ -100,7 +101,7 @@ public class StaffStepDefinition {
 
 	@Then("Admin success go to view history staff page and edit data")
 	public void admin_success_go_to_view_history_staff_page_and_edit_data() {
-		assertEquals("OK", staffPage.getTextStaffPage());
+		assertEquals(configurationProperties.getTextOk(), staffPage.getTextStaffPage());
 		extentTest.log(LogStatus.PASS, "Admin success go to view history staff page and edit data");
 
 	}

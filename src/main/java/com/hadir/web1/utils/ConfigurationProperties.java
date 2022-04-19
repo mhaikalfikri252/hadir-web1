@@ -23,7 +23,7 @@ public class ConfigurationProperties {
 	@Value("${textDashboard}")
 	private String textDashboard;
 
-	@Value("${txtOk}")
+	@Value("${textOk}")
 	private String textOk;
 
 	@Value("${textTambahData}")
@@ -38,14 +38,11 @@ public class ConfigurationProperties {
 	@Value("${textHapusAbsenPoint}")
 	private String textHapusAbsenPoint;
 
-	@Value("${TxtSuccessTambahData}")
-	private String TxtSuccessTambahData;
-
-	@Value("${txtSuccessMngSet}")
-	private String txtSuccessMngSet;
-
 	@Value("${textSuccessExport}")
 	private String textSuccessExport;
+
+	@Value("${textSuccessMngSet}")
+	private String textSuccessMngSet;
 
 	public String getBrowser() {
 		return browser;
@@ -91,12 +88,8 @@ public class ConfigurationProperties {
 		return textSuccessExport;
 	}
 
-	public String getTxtSuccessTambahData() {
-		return TxtSuccessTambahData;
-	}
-
-	public String getTxtSuccessMngSet() {
-		return txtSuccessMngSet;
+	public String getTextSuccessMngSet() {
+		return textSuccessMngSet;
 	}
 
 }

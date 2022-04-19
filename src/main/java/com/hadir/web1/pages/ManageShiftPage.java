@@ -53,9 +53,9 @@ public class ManageShiftPage {
 	WebElement btnSubmitEditShift;
 	@FindBy(css = "body > div.swal2-container.swal2-center.swal2-fade.swal2-shown > div > div.swal2-actions > button.swal2-confirm.swal2-styled")
 	WebElement btnOk;
-//	End edit data shift
+//	End Edit Data Shift
 
-//	Add data shift
+//	Add Data Shift
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > div > a > button")
 	WebElement btnAddShift;
 	@FindBy(id = "input-posisi")

@@ -10,7 +10,6 @@ import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
 import com.hadir.web1.pages.LoginPage;
 import com.hadir.web1.pages.ManageSettingPage;
-
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
@@ -29,7 +28,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
-public class MangeSettingStepDefinition {
+public class ManageSettingStepDefinition {
 
 	private static WebDriver driver;
 	private LoginPage loginPage;
@@ -45,9 +44,9 @@ public class MangeSettingStepDefinition {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
 		manageSettingPage = new ManageSettingPage();
-		extentTest = reports.startTest("Testing menu manage setting");
+		extentTest = reports.startTest("Testing Halaman Manage Setting");
 	}
-	
+
 	@AfterStep
 	public void getResult(Scenario scenario) throws Exception {
 		if (scenario.isFailed()) {
@@ -66,36 +65,46 @@ public class MangeSettingStepDefinition {
 	public static void closeBrowser() {
 		// driver.quit();
 	}
-	
+
 	@Given("User akses url web")
-	public void user_mengakses_url_web() {
+	public void user_akses_url_web() {
 		driver = DriverSingleton.getDriver();
 		driver.get(Constants.URL);
 		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
 	}
-	
+
 	@When("User klik menu manage setting")
 	public void user_klik_menu_manage_setting() {
+		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
+		tunggu();
 		manageSettingPage.goToManageSetting();
 		extentTest.log(LogStatus.PASS, "User klik menu manage setting");
 	}
-	
+
 	@And("User klik ubah data")
 	public void user_klik_ubah_data() {
-		manageSettingPage.ubah_Data();
+		manageSettingPage.ubahData();
 		extentTest.log(LogStatus.PASS, "User klik ubah data");
 	}
-	
+
 	@And("User klik switch liveness")
-	public void user_kli_switch_liveness() {
-		manageSettingPage.change_liveness();
+	public void user_klik_switch_liveness() {
+		manageSettingPage.changeLiveness();
 		extentTest.log(LogStatus.PASS, "User klik switch liveness");
 	}
-	
+
 	@Then("User success go to manage setting and edit data validation timer")
-	public void User_success_go_to_manage_setting_and_edit_data_validation_timer() {
-	assertEquals(configurationProperties.getTxtSuccessMngSet(), manageSettingPage.getTxtManageSettingPage());
-	extentTest.log(LogStatus.PASS, "User success go to manage setting and edit data validation timer");
+	public void user_success_go_to_manage_setting_and_edit_data_validation_timer() {
+		assertEquals(configurationProperties.getTextSuccessMngSet(), manageSettingPage.getTextManageSettingPage());
+		extentTest.log(LogStatus.PASS, "User success go to manage setting and edit data validation timer");
 	}
-	
+
+	public static void tunggu() {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

@@ -35,9 +35,9 @@ public class StaffPage {
 	WebElement btnSerachStaff;
 	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.row > div:nth-child(1) > div > div.pt-0.pt-md-4.card-body > div > div.mt-2 > a:nth-child(2)")
 	WebElement btnEditStaff;
-//		end staff page
+//	End Staff Page
 
-//		view staff page
+//	View Staff Page
 	@FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div/div/div/div[1]/form/div/div[3]/div/div/div[2]/input")
 	WebElement startDate;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > form > div > div.col-md-3.col-sm-12 > div > div > div.rdt.rdtOpen > div > div > table > thead > tr:nth-child(1) > th.rdtSwitch")
@@ -56,9 +56,9 @@ public class StaffPage {
 	WebElement btn_Search_Filter_History;
 	@FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div/div/div/div[1]/form/div/div[3]/div/div/div[2]/div/div/table/tbody/tr[1]/td[5]")
 	WebElement selectDateHistory;
-//		end view staff page
+//	End View Staff Page
 
-//		form edit staff
+//	Form Edit Staff
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(2) > div:nth-child(1) > div > div > input")
 	WebElement btn_choose_file_edit_staff;
 	@FindBy(id = "input-email")
@@ -82,11 +82,10 @@ public class StaffPage {
 	WebElement btnSubmitEditStaff;
 	@FindBy(css = "body > div.swal2-container.swal2-center.swal2-fade.swal2-shown > div > div.swal2-actions > button.swal2-confirm.swal2-styled")
 	WebElement PopUpSubmit;
-//		end form edit staff
-	
+//	End Form Edit Staff
+
 	@FindBy(css = "#swal2-content")
 	WebElement textEndStaff;
-	
 
 	public void goToStaffPage() {
 		btnStaff.click();

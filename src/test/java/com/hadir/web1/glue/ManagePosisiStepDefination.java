@@ -44,7 +44,7 @@ public class ManagePosisiStepDefination {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
 		managePosisiPage = new ManagePosisiPage();
-		extentTest = reports.startTest("Testing halaman Manage Posisi");
+		extentTest = reports.startTest("Testing Halaman Manage Posisi");
 	}
 
 	@AfterStep
@@ -105,7 +105,7 @@ public class ManagePosisiStepDefination {
 	}
 
 	@Then("Admin success go to tambah posisi and ubah posisi and hapus posisi")
-	public void Admin_success_go_to_tambah_posisi_and_ubah_posisi_and_hapus_posisi() {
+	public void admin_success_go_to_tambah_posisi_and_ubah_posisi_and_hapus_posisi() {
 		assertEquals(configurationProperties.getTextHapusData(), managePosisiPage.getTextHapusPosisi());
 		extentTest.log(LogStatus.PASS, "Admin success go to tambah posisi and ubah posisi and hapus posisi");
 	}

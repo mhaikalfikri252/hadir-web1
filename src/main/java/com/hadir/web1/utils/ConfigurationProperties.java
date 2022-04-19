@@ -23,7 +23,7 @@ public class ConfigurationProperties {
 	@Value("${textDashboard}")
 	private String textDashboard;
 
-	@Value("${txtOk}")
+	@Value("${textOk}")
 	private String textOk;
 
 	@Value("${textTambahData}")

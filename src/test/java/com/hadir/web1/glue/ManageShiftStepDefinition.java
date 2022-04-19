@@ -105,7 +105,7 @@ public class ManageShiftStepDefinition {
 
 	@Then("Admin success go to add shift page and edit data")
 	public void admin_success_go_to_add_shift_page_and_edit_data() {
-		assertEquals(configurationProperties.getTextOk(), manageShiftPage.getTextManageShiftPage());
+		assertEquals(configurationProperties.getTextUpdateData(), manageShiftPage.getTextManageShiftPage());
 		extentTest.log(LogStatus.PASS, "Admin success go to add shift page and edit data");
 
 	}

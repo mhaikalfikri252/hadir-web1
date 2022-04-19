@@ -79,7 +79,7 @@ public class StaffStepDefinition {
 	}
 
 	@When("Admin klik staff page")
-	public void customer_klik_staff_page() {
+	public void admin_klik_staff_page() {
 		staffPage.goToStaffPage();
 		extentTest.log(LogStatus.PASS, "Admin klik staff page");
 	}
@@ -100,7 +100,7 @@ public class StaffStepDefinition {
 
 	@Then("Admin success go to view history staff page and edit data")
 	public void admin_success_go_to_view_history_staff_page_and_edit_data() {
-		assertEquals("OK", staffPage.getTextStaffPage());
+		assertEquals(configurationProperties.getTextOk(), staffPage.getTextStaffPage());
 		extentTest.log(LogStatus.PASS, "Admin success go to view history staff page and edit data");
 
 	}

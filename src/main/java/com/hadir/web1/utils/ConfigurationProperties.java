@@ -47,6 +47,12 @@ public class ConfigurationProperties {
 	@Value("${textManageTipe}")
 	private String textManageTipe;
 
+	@Value("${textManageLevel}")
+	private String textManageLevel;
+
+	@Value("${textManageAbsenPoint}")
+	private String textManageAbsenPoint;
+
 	public String getBrowser() {
 		return browser;
 	}
@@ -97,6 +103,14 @@ public class ConfigurationProperties {
 
 	public String getTextManageTipe() {
 		return textManageTipe;
+	}
+
+	public String getTextManageLevel() {
+		return textManageLevel;
+	}
+
+	public String getTextManageAbsenPoint() {
+		return textManageAbsenPoint;
 	}
 
 }

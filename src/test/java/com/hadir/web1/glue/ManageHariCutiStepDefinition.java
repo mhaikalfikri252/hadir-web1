@@ -87,27 +87,28 @@ public class ManageHariCutiStepDefinition {
 
 	@And("User tambah data hari cuti")
 	public void user_tambah_data_hari_cuti() {
-		manageHariCutiPage.addManageHariCuti();
+		manageHariCutiPage.addDataHariCuti();
 		extentTest.log(LogStatus.PASS, "User tambah data hari cuti");
 	}
 
 	@And("User edit data hari cuti")
 	public void user_edit_data_hari_cuti() {
-		manageHariCutiPage.editManageHariCuti();
-		driver.navigate().refresh();
+		manageHariCutiPage.editDataHariCuti();
 		extentTest.log(LogStatus.PASS, "User edit data hari cuti");
 
 	}
 
 	@And("User hapus data hari cuti")
 	public void user_hapus_data_hari_cuti() {
-		manageHariCutiPage.deleteManageHariCuti();
+		driver.navigate().refresh();
+		manageHariCutiPage.deleteDataHariCuti();
 		extentTest.log(LogStatus.PASS, "User hapus data hari cuti");
 	}
 
 	@Then("User berhasil hapus data hari cuti")
 	public void user_berhasil_hapus_data_hari_cuti() {
 		assertEquals(configurationProperties.getTextHapusData(), manageHariCutiPage.getTextSuccessDeleteData());
+		driver.navigate().refresh();
 		extentTest.log(LogStatus.PASS, "User berhasil melakukan hapus data hari cuti");
 	}
 

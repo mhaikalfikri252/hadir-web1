@@ -1,4 +1,4 @@
-Feature: Admin Tambah Manage Level
+Feature: Admin Tambah Manage Posisi
 
   Scenario: Testing halaman Manage Posisi
     Given User masuk situs hadir

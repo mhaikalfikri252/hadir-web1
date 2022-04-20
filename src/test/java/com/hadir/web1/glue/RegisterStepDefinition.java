@@ -52,7 +52,7 @@ public class RegisterStepDefinition {
 		if (scenario.isFailed()) {
 			String screenshotPath = Utils.getScreenshot(driver, scenario.getName().replace(" ", "_"));
 			extentTest.log(LogStatus.FAIL, "Screenshot:/n" + extentTest.addScreenCapture(screenshotPath));
-		}
+			}
 	}
 
 	@After

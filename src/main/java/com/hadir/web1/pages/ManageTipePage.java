@@ -1,5 +1,6 @@
 package com.hadir.web1.pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,8 +16,17 @@ public class ManageTipePage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(css = "#sidenav-main > div > div > ul > li:nth-child(11) > a")
+	@FindBy(linkText = "Manage Tipe")
 	WebElement btnManageTipe;
+
+	@FindBy(css = "#navbar-main > div > a")
+	WebElement textManageTipe;
+
+	@FindBy(css = "#navbar-main > div > form > div > div > input")
+	WebElement search;
+
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-header > button")
+	WebElement btnClosePopUp;
 
 	// Add Data Tipe
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > div > button")
@@ -50,28 +60,54 @@ public class ManageTipePage {
 		btnManageTipe.click();
 	}
 
-	public void addManageTipe() {
+	public void addDataTipe() {
 		tunggu(3);
 		btnAddDataTipe.click();
 		tunggu(2);
-		addTipe.sendKeys("Test");
+		addTipe.sendKeys("Magang");
 		tunggu(1);
 		btnSubmitAdd.click();
 	}
 
-	public void editManageTipe() {
+	public void addDataTipeInvalid() {
+		tunggu(3);
+		btnAddDataTipe.click();
+		tunggu(2);
+		btnSubmitAdd.click();
+		tunggu(2);
+		btnClosePopUp.click();
+	}
+
+	public void editDataTipe() {
 		tunggu(2);
 		btnEdit.click();
 		tunggu(2);
 		addTipe.clear();
 		tunggu(1);
-		addTipe.sendKeys("Test Edit");
+		addTipe.sendKeys("Internship");
 		tunggu(1);
 		btnSubmitEdit.click();
 	}
 
-	public void deleteManageTipe() {
-		tunggu(5);
+	public void editDataTipeInvalid() {
+		tunggu(2);
+		btnEdit.click();
+		tunggu(2);
+		addTipe.clear();
+		tunggu(2);
+		btnSubmitEdit.click();
+		tunggu(2);
+		btnClosePopUp.click();
+	}
+
+	public void searchDataTipe() {
+		tunggu(1);
+		search.sendKeys("Internship");
+		search.sendKeys(Keys.ENTER);
+	}
+
+	public void deleteDataTipe() {
+		tunggu(3);
 		btnDelete.click();
 		tunggu(2);
 		btnSubmitDelete.click();
@@ -79,6 +115,10 @@ public class ManageTipePage {
 
 	public String getTextSuccessDeleteData() {
 		return textSuccessDeleteData.getText();
+	}
+
+	public String getTextManageTipe() {
+		return textManageTipe.getText();
 	}
 
 	public void tunggu(int detik) {

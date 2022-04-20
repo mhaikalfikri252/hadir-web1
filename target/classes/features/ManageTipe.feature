@@ -6,5 +6,6 @@ Feature: User Akses Manage Tipe
     And User klik manage tipe
     And User tambah data tipe
     And User edit data tipe
+    And User search data tipe
     And User hapus data tipe
     Then User berhasil hapus data

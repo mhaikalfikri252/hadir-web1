@@ -7,7 +7,8 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports-manageabsenpoint.html" }, features = {
-		"src/main/resources/features/ManageAbsenPoint.feature" })
+		"src/main/resources/features/ManageAbsenPoint.feature",
+		"src/main/resources/features/ManageAbsenPointInvalid.feature" })
 
 public class ManageAbsenPointRunnerTest {
 

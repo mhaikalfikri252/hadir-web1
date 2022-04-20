@@ -12,11 +12,7 @@ Feature: Customer klik Staff
     Then Tampil data berdasarkan name
     When Admin search data by invalid name
     Then Tampil error data name tidak ditemukan
-     When Admin search data by leader
-    Then Tampil data berdasarkan leader
-    When Admin search data by invalid leader
-    Then Tampil error data leader tidak ditemukan
-     When Admin search data by divisi
+    When Admin search data by divisi
     Then Tampil data berdasarkan divisi
     When Admin search data by invalid divisi
     Then Tampil error data divisi tidak ditemukan

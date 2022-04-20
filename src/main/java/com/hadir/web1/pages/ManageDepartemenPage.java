@@ -1,6 +1,5 @@
 package com.hadir.web1.pages;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,14 +9,14 @@ import com.hadir.web1.drivers.DriverSingleton;
 
 public class ManageDepartemenPage {
 
-WebDriver driver;
-	
+	WebDriver driver;
+
 	public ManageDepartemenPage() {
 		this.driver = DriverSingleton.getDriver();
 		PageFactory.initElements(driver, this);
 	}
-	
-	//Manage Departemen page
+
+	// Manage Departemen Page
 	@FindBy(linkText = "Manage Departemen")
 	WebElement btnManageDepartemen;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > div > button")
@@ -26,46 +25,45 @@ WebDriver driver;
 	WebElement btnEditData;
 	@FindBy(id = "t2")
 	WebElement btnHapusData;
-	@FindBy(xpath="//*[@id=\"root\"]/div/div[2]/div/div/div[1]/span")
+	@FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div/div/div[1]/span")
 	WebElement TxtSuccessTambahData;
-	
-	
-	//Form Tambah Data
+
+	// Form Tambah Data
 	@FindBy(id = "zz1")
 	WebElement inputDepartemen;
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > button.btn.btn-secondary")
 	WebElement btnClose;
-	@FindBy(css="body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > button.btn.btn-primary")
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > button.btn.btn-primary")
 	WebElement btnSubmit;
-	
-	//Form Ubah Data
+
+	// Form Ubah Data
 	@FindBy(id = "zz1")
 	WebElement editDepartemen;
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-secondary")
 	WebElement btnCloseEdit;
-	@FindBy(css="body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-primary")
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-primary")
 	WebElement btnSubmitEdit;
-	
-	//Form Hapus Data
-	@FindBy(css="body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-footer > button.btn.btn-primary")
+
+	// Form Hapus Data
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-footer > button.btn.btn-primary")
 	WebElement btnSubmitHapus;
-	
-	@FindBy(css="body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-footer > button.btn.btn-secondary")
+
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-footer > button.btn.btn-secondary")
 	WebElement btnSubmitClose;
-	
-	public void go_to_ManageDepartemen_page() {
+
+	public void goToManageDepartemen() {
 		btnManageDepartemen.click();
 		tunggu(2);
 	}
-	
-	public void tambah_data_departemen() {
+
+	public void tambahDataDepartemen() {
 		btnTambahData.click();
 		tunggu(2);
 		inputDepartemen.sendKeys("IT Support");
 		btnSubmit.click();
 	}
-	
-	public void edit_data_departemen() {
+
+	public void editDataDepartemen() {
 		tunggu(5);
 		btnEditData.click();
 		tunggu(2);
@@ -74,27 +72,24 @@ WebDriver driver;
 		editDepartemen.sendKeys("Operasional");
 		tunggu(5);
 		btnSubmitEdit.click();
-		
+
 	}
-	
-	public void delete_data_departemen() {
+
+	public void deleteDataDepartemen() {
 		btnHapusData.click();
 		tunggu(2);
 		btnSubmitHapus.click();
 		tunggu(2);
 	}
-	
-	
-	
+
 	public void tunggu(int detik) {
 		try {
-			Thread.sleep(detik*1000);
+			Thread.sleep(detik * 1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
-
 
 }

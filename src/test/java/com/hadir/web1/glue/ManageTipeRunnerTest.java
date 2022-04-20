@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports-managetipe.html" }, features = {
-		"src/main/resources/features/ManageTipe.feature" })
+		"src/main/resources/features/ManageTipe.feature", "src/main/resources/features/ManageTipeInvalid.feature" })
 
 public class ManageTipeRunnerTest {
 

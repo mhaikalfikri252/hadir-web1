@@ -22,6 +22,7 @@ import io.cucumber.java.AfterAll;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -34,6 +35,7 @@ public class StaffStepDefinition {
 	private LoginPage loginPage;
 	ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportStaff.html");
+
 	@Autowired
 	ConfigurationProperties configurationProperties;
 
@@ -78,8 +80,8 @@ public class StaffStepDefinition {
 
 	}
 
-	@When("Admin klik staff page")
-	public void customer_klik_staff_page() {
+	@And("Admin klik staff page")
+	public void admin_klik_staff_page() {
 		staffPage.goToStaffPage();
 		extentTest.log(LogStatus.PASS, "Admin klik staff page");
 	}
@@ -135,70 +137,48 @@ public class StaffStepDefinition {
 	    extentTest.log(LogStatus.PASS,"Tampil error data name tidak ditemukan");
 	}
 
-	@When("Admin search data by leader")
-	public void admin_search_data_by_leader() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("Tampil data berdasarkan leader")
-	public void tampil_data_berdasarkan_leader() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@When("Admin search data by invalid leader")
-	public void admin_search_data_by_invalid_leader() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("Tampil error data leader tidak ditemukan")
-	public void tampil_error_data_leader_tidak_ditemukan() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
 	@When("Admin search data by divisi")
 	public void admin_search_data_by_divisi() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    staffPage.searchByDivisi();
+	    extentTest.log(LogStatus.PASS,"Admin search data by divisi");
 	}
 
 	@Then("Tampil data berdasarkan divisi")
 	public void tampil_data_berdasarkan_divisi() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		String expected = "Edit data";
+	    assertEquals(expected, staffPage.TextValidDivisi());
+	    extentTest.log(LogStatus.PASS,"Tampil error data name tidak ditemukan");
 	}
 
 	@When("Admin search data by invalid divisi")
 	public void admin_search_data_by_invalid_divisi() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		staffPage.searchByInvalidDivisi();
 	}
 
 	@Then("Tampil error data divisi tidak ditemukan")
 	public void tampil_error_data_divisi_tidak_ditemukan() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		String expected = "No staff found";
+	    assertEquals(expected, staffPage.textSearchInvalid());
+	    extentTest.log(LogStatus.PASS,"Tampil error data divisi tidak ditemukan");
+	}
+	
+	
+	@When("Admin klik view history staff")
+	public void admin_akses_view_hostory_staff() {
+		staffPage.btnViewHistory();
+		extentTest.log(LogStatus.PASS,"Admin klik view history staff");
 	}
 
 	@Then("Tampil halaman History Staff")
 	public void tampil_halaman_history_staff() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	
-
-	@When("Admin klik view history staff")
-	public void admin_klik_view_history_staff() {
-		staffPage.historyStaffPage();
-		extentTest.log(LogStatus.PASS, "Admin klik view history staff");
+		String expected = "Reporting";
+	    assertEquals(expected, staffPage.textHistoryPage());
+	    extentTest.log(LogStatus.PASS,"Tampil error data name tidak ditemukan");
 	}
 
-	@When("Admin klik edit data staff")
+
+	@And("Admin klik edit data staff")
 	public void admin_klik_edit_data_staff() {
-		staffPage.goToStaffPage();
 		staffPage.editDataStaff();
 		staffPage.formEditDataStaff();
 		extentTest.log(LogStatus.PASS, "Admin klik edit data staff");
@@ -206,7 +186,7 @@ public class StaffStepDefinition {
 
 	@Then("Admin success go to view history staff page and edit data")
 	public void admin_success_go_to_view_history_staff_page_and_edit_data() {
-		assertEquals("OK", staffPage.getTextStaffPage());
+		assertEquals(configurationProperties.getTextOk(), staffPage.getTextStaffPage());
 		extentTest.log(LogStatus.PASS, "Admin success go to view history staff page and edit data");
 
 	}

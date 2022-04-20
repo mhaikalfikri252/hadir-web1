@@ -6,5 +6,6 @@ Feature: User Akses Manage Hari Cuti
     And User klik manage hari cuti
     And User tambah data hari cuti
     And User edit data hari cuti
+    And User search data hari cuti
     And User hapus data hari cuti
     Then User berhasil hapus data hari cuti

@@ -1,5 +1,6 @@
 package com.hadir.web1.pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +18,9 @@ public class ManageHariCutiPage {
 
 	@FindBy(linkText = "Manage Hari Cuti")
 	WebElement btnManageHariCuti;
+
+	@FindBy(css = "#navbar-main > div > form > div > div > input")
+	WebElement search;
 
 	@FindBy(id = "exampleModalLabel")
 	WebElement textAddDaftarHariCuti;
@@ -112,6 +116,12 @@ public class ManageHariCutiPage {
 		btnDelete.click();
 		tunggu(2);
 		btnSubmitDelete.click();
+	}
+
+	public void searchDataHariCuti() {
+		tunggu(1);
+		search.sendKeys("14/04/2022");
+		search.sendKeys(Keys.ENTER);
 	}
 
 	public String getTextSuccessDeleteData() {

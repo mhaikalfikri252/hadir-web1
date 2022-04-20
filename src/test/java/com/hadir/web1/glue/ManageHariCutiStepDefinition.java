@@ -95,7 +95,12 @@ public class ManageHariCutiStepDefinition {
 	public void user_edit_data_hari_cuti() {
 		manageHariCutiPage.editDataHariCuti();
 		extentTest.log(LogStatus.PASS, "User edit data hari cuti");
+	}
 
+	@And("User search data hari cuti")
+	public void user_search_data_hari_cuti() {
+		manageHariCutiPage.searchDataHariCuti();
+		extentTest.log(LogStatus.PASS, "User search data hari cuti");
 	}
 
 	@And("User hapus data hari cuti")

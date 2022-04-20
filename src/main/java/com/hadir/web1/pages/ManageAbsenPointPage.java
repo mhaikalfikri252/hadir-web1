@@ -2,6 +2,7 @@ package com.hadir.web1.pages;
 
 import java.util.List;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +20,9 @@ public class ManageAbsenPointPage {
 
 	@FindBy(linkText = "Manage Absen Point")
 	WebElement btnManageAbsenPoint;
+
+	@FindBy(css = "#navbar-main > div > form > div > div > input")
+	WebElement search;
 
 	@FindBy(css = "#navbar-main > div > a")
 	WebElement textManageAbsenPoint;
@@ -135,6 +139,12 @@ public class ManageAbsenPointPage {
 		btnDelete.click();
 		tunggu(2);
 		btnSubmitDelete.click();
+	}
+
+	public void searchDataAbsenPoint() {
+		tunggu(1);
+		search.sendKeys("DIKA");
+		search.sendKeys(Keys.ENTER);
 	}
 
 	public String getTextSuccessDeleteData() {

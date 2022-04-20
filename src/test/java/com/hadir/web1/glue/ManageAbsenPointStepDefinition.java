@@ -99,6 +99,12 @@ public class ManageAbsenPointStepDefinition {
 
 	}
 
+	@And("User search data absen point")
+	public void user_search_data_absen_point() {
+		manageAbsenPointPage.searchDataAbsenPoint();
+		extentTest.log(LogStatus.PASS, "User search data absen point");
+	}
+
 	@And("User hapus data absen point")
 	public void user_hapus_data_absen_point() {
 		manageAbsenPointPage.deleteDataAbsenPoint();

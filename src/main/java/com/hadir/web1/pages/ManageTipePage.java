@@ -100,17 +100,17 @@ public class ManageTipePage {
 		btnClosePopUp.click();
 	}
 
-	public void searchDataTipe() {
-		tunggu(1);
-		search.sendKeys("Internship");
-		search.sendKeys(Keys.ENTER);
-	}
-
 	public void deleteDataTipe() {
 		tunggu(3);
 		btnDelete.click();
 		tunggu(2);
 		btnSubmitDelete.click();
+	}
+
+	public void searchDataTipe() {
+		tunggu(1);
+		search.sendKeys("Internship");
+		search.sendKeys(Keys.ENTER);
 	}
 
 	public String getTextSuccessDeleteData() {

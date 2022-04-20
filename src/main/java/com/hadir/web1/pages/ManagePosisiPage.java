@@ -17,7 +17,7 @@ public class ManagePosisiPage {
 	}
 
 	// Manage Posisi Page
-	@FindBy(css = "#sidenav-main > div > div > ul > li:nth-child(14) > a")
+	@FindBy(linkText = "Manage Posisi")
 	WebElement btnManagePosisi;
 
 	// Form Tambah Data
@@ -47,7 +47,7 @@ public class ManagePosisiPage {
 	WebElement txtUbahPosisi;
 
 	// Hapus Data
-	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.table-responsive > table > tbody > tr:nth-child(2)")
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.table-responsive > table > tbody > tr:nth-child(1)")
 	WebElement pilihPosisi1;
 	@FindBy(css = "#t2")
 	WebElement btnHapusData;

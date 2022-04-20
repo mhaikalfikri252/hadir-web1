@@ -17,7 +17,7 @@ public class ManageLevelPage {
 	}
 
 	// Manage Posisi Page
-	@FindBy(css = "#sidenav-main > div > div > ul > li:nth-child(15) > a")
+	@FindBy(linkText = "Manage Level")
 	WebElement btnManageLevel;
 
 	// Form Tambah Data

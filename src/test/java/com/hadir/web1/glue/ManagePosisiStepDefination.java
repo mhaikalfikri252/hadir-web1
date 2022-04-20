@@ -93,6 +93,7 @@ public class ManagePosisiStepDefination {
 
 	@And("Admin klik ubah posisi")
 	public void admin_klik_ubah_posisi() {
+		driver.navigate().refresh();
 		managePosisiPage.ubahPosisi();
 		extentTest.log(LogStatus.PASS, "Admin klik ubah posisi");
 	}

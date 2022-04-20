@@ -220,6 +220,7 @@ public class StaffPage {
 	
 	
 	public void btnViewHistory() {
+		tunggu(2);
 		drpdwnSearchBy.click();
 		tunggu(2);
 	drpdwnName.click();
@@ -241,6 +242,7 @@ public class StaffPage {
 	
 
 	public void historyStaffPage() {
+		tunggu(2);
 		filterBy.click();
 		tunggu(2);
 		for (int i = 1; i <= 2; i++) {

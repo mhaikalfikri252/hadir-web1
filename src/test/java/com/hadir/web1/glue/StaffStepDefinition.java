@@ -44,7 +44,7 @@ public class StaffStepDefinition {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		staffPage = new StaffPage();
 		loginPage = new LoginPage();
-		extentTest = reports.startTest("Testing View History Staff Page");
+		extentTest = reports.startTest("Testing Staff Page");
 	}
 
 	@AfterStep

@@ -74,10 +74,10 @@ public class ManageTipeInvalidStepDefinition {
 
 	}
 
-	@Then("User tidak berhasil tambah dan hapus data tipe")
-	public void user_tidak_berhasil_tambah_dan_hapus_data_tipe() {
+	@Then("User tidak berhasil tambah dan edit data tipe")
+	public void user_tidak_berhasil_tambah_dan_edit_data_tipe() {
 		assertEquals(configurationProperties.getTextManageTipe(), manageTipePage.getTextManageTipe());
-		extentTest.log(LogStatus.PASS, "User tidak berhasil tambah dan hapus data tipe");
+		extentTest.log(LogStatus.PASS, "User tidak berhasil tambah dan edit data tipe");
 	}
 
 }

@@ -17,8 +17,14 @@ public class ManageAbsenPointPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(css = "#sidenav-main > div > div > ul > li:nth-child(13) > a")
+	@FindBy(linkText = "Manage Absen Point")
 	WebElement btnManageAbsenPoint;
+
+	@FindBy(css = "#navbar-main > div > a")
+	WebElement textManageAbsenPoint;
+
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-header > button")
+	WebElement btnClosePopUp;
 
 	// Add Data Absen Point
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > div > button")
@@ -64,7 +70,7 @@ public class ManageAbsenPointPage {
 		btnManageAbsenPoint.click();
 	}
 
-	public void addManageAbsenPoint() {
+	public void addDataAbsenPoint() {
 		tunggu(3);
 		btnAddDataAbsenPoint.click();
 		tunggu(2);
@@ -77,9 +83,22 @@ public class ManageAbsenPointPage {
 		btnSubmitAdd.click();
 	}
 
-	public void editManageAbsenPoint() {
+	public void addDataAbsenPointInvalid() {
+		tunggu(3);
+		btnAddDataAbsenPoint.click();
+		tunggu(2);
+		btnSubmitAdd.click();
+		tunggu(2);
+		btnClosePopUp.click();
+	}
+
+	public void editDataAbsenPoint() {
 		tunggu(2);
 		btnEdit.click();
+		tunggu(2);
+		editAbsenLocation.clear();
+		EditLatitude.clear();
+		EditLongitude.clear();
 		tunggu(2);
 		editAbsenLocation.sendKeys("Kantor");
 		tunggu(1);
@@ -90,7 +109,28 @@ public class ManageAbsenPointPage {
 		btnSubmitEdit.click();
 	}
 
-	public void deleteManageAbsenPoint() {
+	public void editDataAbsenPointInvalid() {
+		tunggu(3);
+		btnEdit.click();
+		tunggu(2);
+		editAbsenLocation.clear();
+		EditLatitude.clear();
+		EditLongitude.clear();
+		tunggu(2);
+		btnSubmitEdit.click();
+		tunggu(2);
+		editAbsenLocation.sendKeys("Kantor");
+		tunggu(2);
+		btnSubmitEdit.click();
+		tunggu(2);
+		EditLatitude.sendKeys("098765");
+		tunggu(2);
+		btnSubmitEdit.click();
+		tunggu(2);
+		btnClosePopUp.click();
+	}
+
+	public void deleteDataAbsenPoint() {
 		tunggu(2);
 		btnDelete.click();
 		tunggu(2);
@@ -99,6 +139,10 @@ public class ManageAbsenPointPage {
 
 	public String getTextSuccessDeleteData() {
 		return textSuccessDeleteData.getText();
+	}
+
+	public String getTextManageAbsenPoint() {
+		return textManageAbsenPoint.getText();
 	}
 
 	public void tunggu(int detik) {

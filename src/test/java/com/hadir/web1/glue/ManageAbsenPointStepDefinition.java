@@ -87,21 +87,27 @@ public class ManageAbsenPointStepDefinition {
 
 	@And("User tambah data absen point")
 	public void user_tambah_data_absen_point() {
-		manageAbsenPointPage.addManageAbsenPoint();
+		manageAbsenPointPage.addDataAbsenPoint();
 		extentTest.log(LogStatus.PASS, "User add manage absen point");
 	}
 
 	@And("User edit data absen point")
 	public void user_edit_data_absen_point() {
-		manageAbsenPointPage.editManageAbsenPoint();
+		manageAbsenPointPage.editDataAbsenPoint();
 		driver.navigate().refresh();
 		extentTest.log(LogStatus.PASS, "User edit manage absen point");
 
 	}
 
+	@And("User search data absen point")
+	public void user_search_data_absen_point() {
+		manageAbsenPointPage.searchDataAbsenPoint();
+		extentTest.log(LogStatus.PASS, "User search data absen point");
+	}
+
 	@And("User hapus data absen point")
 	public void user_hapus_data_absen_point() {
-		manageAbsenPointPage.deleteManageAbsenPoint();
+		manageAbsenPointPage.deleteDataAbsenPoint();
 		extentTest.log(LogStatus.PASS, "User delete manage tipe");
 	}
 

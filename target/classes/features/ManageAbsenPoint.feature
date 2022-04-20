@@ -6,5 +6,6 @@ Feature: User Akses Manage Absen Point
     And User klik manage absen point
     And User tambah data absen point
     And User edit data absen point
+    And User search data absen point
     And User hapus data absen point
     Then User berhasil hapus data absen point

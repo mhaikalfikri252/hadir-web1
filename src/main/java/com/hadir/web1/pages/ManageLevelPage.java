@@ -17,8 +17,15 @@ public class ManageLevelPage {
 	}
 
 	// Manage Posisi Page
-	@FindBy(css = "#sidenav-main > div > div > ul > li:nth-child(15) > a")
+	@FindBy(linkText = "Manage Level")
 	WebElement btnManageLevel;
+	@FindBy(css = "#navbar-main > div > a")
+	WebElement textManageLevel;
+	@FindBy(css = "#navbar-main > div > form > div > div > input")
+	WebElement search;
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-header > button")
+	WebElement btnClosePopUp;
+
 
 	// Form Tambah Data
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > div > button")
@@ -58,6 +65,7 @@ public class ManageLevelPage {
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
 	WebElement txtHapusLevel;
 
+	
 	public void goToManageLevel() {
 		btnManageLevel.click();
 		tunggu(2);
@@ -69,12 +77,31 @@ public class ManageLevelPage {
 		inputMasukanLevel.sendKeys("Staff");
 		btnSumbitTambahLevel.click();
 	}
+	public void tambahDataLevelInvalid() {
+		tunggu(3);
+		btnTambahLevel.click();
+		tunggu(2);
+		btnSumbitTambahLevel.click();
+		tunggu(2);
+		btnClosePopUp.click();
+	}
 
 	public void ubahLevel() {
 		btnUbahLevel.click();
 		tunggu(2);
 		inputUbahLevel.sendKeys("PKWT");
 		btnSubmitUbahLevel.click();
+		
+	}
+	public void ubahDataLevelInvalid() {
+		tunggu(2);
+		btnUbahLevel.click();
+		tunggu(2);
+		inputUbahLevel.clear();
+		tunggu(2);
+		btnSubmitUbahLevel.click();
+		tunggu(2);
+		btnClosePopUp.click();
 	}
 
 	public void hapusLevel() {

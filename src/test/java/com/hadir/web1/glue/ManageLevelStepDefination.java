@@ -89,13 +89,14 @@ public class ManageLevelStepDefination {
 	@And("Admin klik tambah level")
 	public void admin_klik_tambah_level() {
 		manageLevel.tambahLevel();
+		driver.navigate().refresh();
 		extentTest.log(LogStatus.PASS, "Admin klik tambah level");
 	}
 
 	@And("Admin klik ubah level")
 	public void admin_klik_ubah_posisi() {
-		driver.navigate().refresh();
 		manageLevel.ubahLevel();
+		driver.navigate().refresh();
 		extentTest.log(LogStatus.PASS, "Admin klik ubah level");
 
 	}

@@ -36,7 +36,7 @@ public class SelfRegistStepDefinition {
 	private SelfRegistPage selfRegist;
 	private LoginPage loginPage;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportStaff.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportSelfRegistration.html");
 
 	@Autowired
 	ConfigurationProperties configurationProperties;
@@ -91,8 +91,44 @@ public class SelfRegistStepDefinition {
 	public void tampil_halaman_self_registration() {
 		String expected = "Self registration request";
 	    assertEquals(expected, selfRegist.TextHome());
-	    extentTest.log(LogStatus.PASS,"Tampil data berdasarkan NIK"); 
+	    extentTest.log(LogStatus.PASS,"Tampil halaman Self Registration"); 
 	}
 	
+	@When("Klik edit data")
+	public void klik_edit_data() {
+	    selfRegist.goToForm();
+	    extentTest.log(LogStatus.PASS,"Klik edit data");
+	}
+
+	@Then("Tampil halaman edit data")
+	public void tampil_halaman_edit_data() {
+		String expected = "USER INFORMATION";
+	    assertEquals(expected, selfRegist.TextEdit());
+	    extentTest.log(LogStatus.PASS,"Tampil halaman Self Registration"); 
+	}
+
+	@When("edit data staff")
+	public void edit_data_staff() {
+	    selfRegist.editData();
+	}
+
+	@Then("Data berhasil Diedit")
+	public void data_berhasil_diedit() {
+		String expected = "OK";
+	    assertEquals(expected, selfRegist.TextSubmit());
+	    extentTest.log(LogStatus.PASS,"Data berhasil Diedit"); 
+	}
+
+//	@When("Reject data karyawan")
+//	public void reject_data_karyawan() {
+//	   selfRegist.reject();
+//	   extentTest.log(LogStatus.PASS,"Reject data karyawan"); 
+//	}
+//
+//	@Then("Data berhasil di reject")
+//	public void data_berhasil_di_reject() {
+//		assertEquals(configurationProperties.getTextReject(), selfRegist.TextSubmit());
+//	    extentTest.log(LogStatus.PASS,"Data berhasil di reject"); 
+//	}
 
 }

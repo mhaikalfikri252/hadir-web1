@@ -88,19 +88,19 @@ public class ManagePosisiStepDefination {
 	@And("Admin klik tambah posisi")
 	public void admin_klik_tambah_posisi() {
 		managePosisiPage.tambahPosisi();
+		driver.navigate().refresh();
 		extentTest.log(LogStatus.PASS, "Admin klik tambah posisi");
 	}
 
 	@And("Admin klik ubah posisi")
 	public void admin_klik_ubah_posisi() {
-		driver.navigate().refresh();
 		managePosisiPage.ubahPosisi();
+		driver.navigate().refresh();
 		extentTest.log(LogStatus.PASS, "Admin klik ubah posisi");
 	}
 
 	@And("Admin klik hapus posisi")
 	public void admin_klik_hapus_posisi() {
-		driver.navigate().refresh();
 		managePosisiPage.hapusPosisi();
 		extentTest.log(LogStatus.PASS, "Admin klik hapus posisi");
 	}

@@ -46,6 +46,9 @@ public class ConfigurationProperties {
 
 	@Value("${textManageTipe}")
 	private String textManageTipe;
+	
+	@Value("${textManageLevel}")
+	private String textManageLevel;
 
 	public String getBrowser() {
 		return browser;
@@ -97,6 +100,10 @@ public class ConfigurationProperties {
 
 	public String getTextManageTipe() {
 		return textManageTipe;
+	}
+
+	public String getTextManageLevel() {
+		return textManageLevel;
 	}
 
 }

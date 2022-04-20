@@ -74,6 +74,7 @@ public class ManagePosisiPage {
 		btnUbahData.click();
 		tunggu(2);
 		inputUbahPosisi.sendKeys("Dummy");
+		tunggu(2);
 		btnSubmitUbahPosisi.click();
 	}
 

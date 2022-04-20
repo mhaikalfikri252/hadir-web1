@@ -82,26 +82,104 @@ public class StaffPage {
 	WebElement btnSubmitEditStaff;
 	@FindBy(css = "body > div.swal2-container.swal2-center.swal2-fade.swal2-shown > div > div.swal2-actions > button.swal2-confirm.swal2-styled")
 	WebElement PopUpSubmit;
-//		end form edit staff
+//		Search Staff
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.row > div")
+	WebElement searchByNik;
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div.col-sm-2 > button")
+	WebElement btnSubmitSearch;
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div:nth-child(2) > div > select")
+	WebElement drpdwnSearchBy;
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div:nth-child(2) > div > select > option:nth-child(2)")
+	WebElement selectByNik;
 	
+	
+//	Text Assert
 	@FindBy(css = "#swal2-content")
 	WebElement textEndStaff;
-	
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.row > div")
+	WebElement textInvalidSearch;
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.row > div > div > div.pt-0.pt-md-4.card-body > div > div.h5.font-weight-300")
+	WebElement textValidNik;
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.row > div > div > div.pt-0.pt-md-4.card-body > div > h3")
+	WebElement textSearchName;
 
 	public void goToStaffPage() {
 		btnStaff.click();
 		tunggu(2);
 
 	}
+	
+	public void searchByNik() {
+		drpdwnSearchBy.click();
+		tunggu(1);
+		drpdwnSearchBy.sendKeys(Keys.DOWN);
+		drpdwnSearchBy.sendKeys(Keys.ENTER);
+		inputSearchStaff.sendKeys("D6180259");
+		tunggu(1);
+		btnSubmitSearch.click();
+		tunggu(4);
+	}
+	
+	public String TextValidNik() {
+		return textValidNik.getText();
+	}
+	
+	public void searchByInvalidNik() {
+		tunggu(1);
+		inputSearchStaff.sendKeys(Keys.CONTROL, "a");
+		inputSearchStaff.sendKeys("D61802590");
+		tunggu(1);
+		btnSubmitSearch.click();
+		tunggu(5);
+	}
+	
+	public String textSearchInvalid() {
+		return textInvalidSearch.getText();		
+	}
+	
+	
+	public void searchByName() {
+		drpdwnSearchBy.click();
+		tunggu(1);
+		drpdwnSearchBy.sendKeys(Keys.DOWN);
+		drpdwnSearchBy.sendKeys(Keys.ENTER);
+		inputSearchStaff.sendKeys(Keys.CONTROL, "a");
+		inputSearchStaff.sendKeys("Meinida");
+		tunggu(1);
+		btnSubmitSearch.click();
+		tunggu(4);
+	}
+	
+	public String TextValidName() {
+		return textSearchName.getText();
+	}
+	
+	public void searchByInvalidName() {
+		tunggu(1);
+		drpdwnSearchBy.click();
+		tunggu(1);
+		inputSearchStaff.sendKeys(Keys.CONTROL, "a");
+		inputSearchStaff.sendKeys("Meinidaa");
+		tunggu(1);
+		btnSubmitSearch.click();
+		tunggu(5);
+	}
+	
+	public String textSearchByNameInvalid() {
+		return textInvalidSearch.getText();		
+	}
+	
+	
+	
 
 	public void historyStaffPage() {
 		searchBy.click();
 		tunggu(2);
-		for (int i = 1; i <= 2; i++) {
-			searchBy.sendKeys(Keys.DOWN);
-		}
+		searchBy.sendKeys(Keys.DOWN);
 		searchBy.sendKeys(Keys.ENTER);
 		tunggu(2);
+		inputSearchStaff.sendKeys(Keys.CONTROL, "a");
+		tunggu(3);
 		inputSearchStaff.sendKeys("meinida");
 		tunggu(2);
 		btnSerachStaff.click();

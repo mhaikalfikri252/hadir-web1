@@ -83,6 +83,112 @@ public class StaffStepDefinition {
 		staffPage.goToStaffPage();
 		extentTest.log(LogStatus.PASS, "Admin klik staff page");
 	}
+	
+	@When("Admin search data by NIK")
+	public void admin_search_data_by_nik() {
+	    staffPage.searchByNik();
+	    extentTest.log(LogStatus.PASS,"Admin search data by NIK");
+	}
+	
+	@Then("Tampil data berdasarkan NIK")
+	public void tampil_data_berdasarkan_nik() {
+		String expected = "D6180259";
+	    assertEquals(expected, staffPage.TextValidNik());
+	    extentTest.log(LogStatus.PASS,"Tampil data berdasarkan NIK");
+	}
+
+	@When("Admin search data by invalid NIK")
+	public void admin_search_data_by_ivalid_nik() {
+		staffPage.searchByInvalidNik();
+		 extentTest.log(LogStatus.PASS,"Admin search data by invalid NIK");
+	}
+
+	@Then("Tampil error data NIK tidak ditemukan")
+	public void tampil_error_data_tidak_ditemukan() {
+		String expected = "No staff found";
+	    assertEquals(expected, staffPage.textSearchInvalid());
+	    extentTest.log(LogStatus.PASS,"Tampil error data NIK tidak ditemukan");
+	}
+	
+	@When("Admin search data by name")
+	public void admin_search_data_by_name() {
+		staffPage.searchByName();
+	}
+
+	@Then("Tampil data berdasarkan name")
+	public void tampil_data_berdasarkan_name() {
+		String expected = "Meinida Cindy";
+	    assertEquals(expected, staffPage.TextValidName());
+	    extentTest.log(LogStatus.PASS,"Tampil error data NIK tidak ditemukan");
+	}
+
+	@When("Admin search data by invalid name")
+	public void admin_search_data_by_invalid_name() {
+	    staffPage.searchByInvalidName();
+	    extentTest.log(LogStatus.PASS,"Admin search data by invalid name");
+	}
+
+	@Then("Tampil error data name tidak ditemukan")
+	public void tampil_error_data_name_tidak_ditemukan() {
+		String expected = "No staff found";
+	    assertEquals(expected, staffPage.textSearchInvalid());
+	    extentTest.log(LogStatus.PASS,"Tampil error data name tidak ditemukan");
+	}
+
+	@When("Admin search data by leader")
+	public void admin_search_data_by_leader() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Tampil data berdasarkan leader")
+	public void tampil_data_berdasarkan_leader() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Admin search data by invalid leader")
+	public void admin_search_data_by_invalid_leader() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Tampil error data leader tidak ditemukan")
+	public void tampil_error_data_leader_tidak_ditemukan() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Admin search data by divisi")
+	public void admin_search_data_by_divisi() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Tampil data berdasarkan divisi")
+	public void tampil_data_berdasarkan_divisi() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Admin search data by invalid divisi")
+	public void admin_search_data_by_invalid_divisi() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Tampil error data divisi tidak ditemukan")
+	public void tampil_error_data_divisi_tidak_ditemukan() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Tampil halaman History Staff")
+	public void tampil_halaman_history_staff() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
 
 	@When("Admin klik view history staff")
 	public void admin_klik_view_history_staff() {

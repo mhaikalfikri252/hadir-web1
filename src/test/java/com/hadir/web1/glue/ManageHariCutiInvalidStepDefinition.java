@@ -8,7 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
-import com.hadir.web1.pages.ManageTipePage;
+import com.hadir.web1.pages.ManageHariCutiPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Utils;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -20,17 +20,16 @@ import io.cucumber.java.AfterAll;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
-public class ManageTipeInvalidStepDefinition {
+public class ManageHariCutiInvalidStepDefinition {
 
 	private static WebDriver driver;
-	private ManageTipePage manageTipePage;
+	private ManageHariCutiPage manageHariCutiPage;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportManageTipeInvalid.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportManageHariCutiInvalid.html");
 
 	@Autowired
 	ConfigurationProperties configurationProperties;
@@ -38,8 +37,8 @@ public class ManageTipeInvalidStepDefinition {
 	@Before
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
-		manageTipePage = new ManageTipePage();
-		extentTest = reports.startTest("Testing Halaman Manage Tipe Invalid");
+		manageHariCutiPage = new ManageHariCutiPage();
+		extentTest = reports.startTest("Testing Halaman Manage Hari Cuti Invalid");
 	}
 
 	@AfterStep
@@ -61,23 +60,16 @@ public class ManageTipeInvalidStepDefinition {
 		// driver.quit();
 	}
 
-	@When("User tambah data tipe invalid")
-	public void user_tambah_data_tipe_invalid() {
-		manageTipePage.addDataTipeInvalid();
-		extentTest.log(LogStatus.PASS, "User tambah data tipe invalid");
+	@When("User tambah data hari cuti invalid")
+	public void user_tambah_data_hari_cuti_invalid() {
+		manageHariCutiPage.addDataHariCutiInvalid();
+		extentTest.log(LogStatus.PASS, "User tambah data hari cuti invalid");
 	}
 
-	@And("User edit data tipe invalid")
-	public void user_edit_data_tipe_invalid() {
-		manageTipePage.editDataTipeInvalid();
-		extentTest.log(LogStatus.PASS, "User edit data tipe invalid");
-
-	}
-
-	@Then("User tidak berhasil tambah dan edit data tipe")
-	public void user_tidak_berhasil_tambah_dan_edit_data_tipe() {
-		assertEquals(configurationProperties.getTextManageTipe(), manageTipePage.getTextManageTipe());
-		extentTest.log(LogStatus.PASS, "User tidak berhasil tambah dan edit data tipe");
+	@Then("User tidak berhasil tambah data hari cuti")
+	public void user_tidak_berhasil_tambah_data_hari_cuti() {
+		assertEquals("Gagal tambah data, coba lagi", manageHariCutiPage.getTextFailedAddData());
+		extentTest.log(LogStatus.PASS, "User tidak berhasil tambah data hari cuti");
 	}
 
 }

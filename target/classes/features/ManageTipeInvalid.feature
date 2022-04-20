@@ -1,6 +1,6 @@
-Feature: User Akses Manage Tipe
+Feature: User Akses Manage Tipe Invalid
 
   Scenario: Testing Menu Manage Tipe Invalid
     When User tambah data tipe invalid
     And User edit data tipe invalid
-    Then User tidak berhasil tambah dan hapus data tipe
+    Then User tidak berhasil tambah dan edit data tipe

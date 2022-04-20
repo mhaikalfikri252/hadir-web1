@@ -44,6 +44,9 @@ public class ConfigurationProperties {
 	@Value("${textSuccessMngSet}")
 	private String textSuccessMngSet;
 
+	@Value("${textManageTipe}")
+	private String textManageTipe;
+
 	public String getBrowser() {
 		return browser;
 	}
@@ -90,6 +93,10 @@ public class ConfigurationProperties {
 
 	public String getTextSuccessMngSet() {
 		return textSuccessMngSet;
+	}
+
+	public String getTextManageTipe() {
+		return textManageTipe;
 	}
 
 }

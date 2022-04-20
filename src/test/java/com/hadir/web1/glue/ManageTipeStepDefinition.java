@@ -87,21 +87,26 @@ public class ManageTipeStepDefinition {
 
 	@And("User tambah data tipe")
 	public void user_tambah_data_tipe() {
-		manageTipePage.addManageTipe();
+		manageTipePage.addDataTipe();
 		extentTest.log(LogStatus.PASS, "User add manage tipe");
 	}
 
 	@And("User edit data tipe")
 	public void user_edit_data_tipe() {
-		manageTipePage.editManageTipe();
-		driver.navigate().refresh();
+		manageTipePage.editDataTipe();
 		extentTest.log(LogStatus.PASS, "User edit manage tipe");
 
 	}
 
+	@And("User search data tipe")
+	public void user_search_data_tipe() {
+		manageTipePage.searchDataTipe();
+		extentTest.log(LogStatus.PASS, "User search data tipe");
+	}
+
 	@And("User hapus data tipe")
 	public void user_hapus_data_tipe() {
-		manageTipePage.deleteManageTipe();
+		manageTipePage.deleteDataTipe();
 		extentTest.log(LogStatus.PASS, "User delete manage tipe");
 	}
 

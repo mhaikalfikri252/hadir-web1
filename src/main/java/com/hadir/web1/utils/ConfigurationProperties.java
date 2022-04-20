@@ -52,6 +52,9 @@ public class ConfigurationProperties {
 
 	@Value("${textManageAbsenPoint}")
 	private String textManageAbsenPoint;
+	
+	@Value("${textReject}")
+	private String textReject;
 
 	public String getBrowser() {
 		return browser;
@@ -112,5 +115,11 @@ public class ConfigurationProperties {
 	public String getTextManageAbsenPoint() {
 		return textManageAbsenPoint;
 	}
+
+	public String getTextReject() {
+		return textReject;
+	}
+	
+	
 
 }

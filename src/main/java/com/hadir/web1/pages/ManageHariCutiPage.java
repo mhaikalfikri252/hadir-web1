@@ -15,11 +15,14 @@ public class ManageHariCutiPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(css = "#sidenav-main > div > div > ul > li:nth-child(12) > a")
+	@FindBy(linkText = "Manage Hari Cuti")
 	WebElement btnManageHariCuti;
 
 	@FindBy(id = "exampleModalLabel")
 	WebElement textAddDaftarHariCuti;
+
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-header > button")
+	WebElement btnClosePopUp;
 
 	// Add Data Tipe
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > div > button")
@@ -51,12 +54,15 @@ public class ManageHariCutiPage {
 	@FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div/div/div[1]/span")
 	WebElement textSuccessDeleteData;
 
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-danger.alert-dismissible.show > span")
+	WebElement textFailedAddData;
+
 	public void goToManageHariCuti() {
 		tunggu(2);
 		btnManageHariCuti.click();
 	}
 
-	public void addManageHariCuti() {
+	public void addDataHariCuti() {
 		tunggu(3);
 		btnAddDataHariCut.click();
 		tunggu(2);
@@ -69,7 +75,16 @@ public class ManageHariCutiPage {
 		btnSubmitAdd.click();
 	}
 
-	public void editManageHariCuti() {
+	public void addDataHariCutiInvalid() {
+		tunggu(3);
+		btnAddDataHariCut.click();
+		tunggu(2);
+		btnSubmitAdd.click();
+		tunggu(2);
+		btnClosePopUp.click();
+	}
+
+	public void editDataHariCuti() {
 		tunggu(2);
 		btnEdit.click();
 		tunggu(2);
@@ -82,8 +97,18 @@ public class ManageHariCutiPage {
 		btnSubmitAdd.click();
 	}
 
-	public void deleteManageHariCuti() {
-		tunggu(5);
+	public void editDataHariCutiInvalid() {
+		tunggu(2);
+		btnEdit.click();
+		tunggu(2);
+		addDateHariCuti.clear();
+		tunggu(3);
+		btnSubmitAdd.click();
+		tunggu(2);
+	}
+
+	public void deleteDataHariCuti() {
+		tunggu(3);
 		btnDelete.click();
 		tunggu(2);
 		btnSubmitDelete.click();
@@ -91,6 +116,10 @@ public class ManageHariCutiPage {
 
 	public String getTextSuccessDeleteData() {
 		return textSuccessDeleteData.getText();
+	}
+
+	public String getTextFailedAddData() {
+		return textFailedAddData.getText();
 	}
 
 	public void tunggu(int detik) {

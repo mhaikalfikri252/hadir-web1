@@ -241,20 +241,6 @@ public class StaffPage {
 	
 
 	public void historyStaffPage() {
-		searchBy.click();
-		tunggu(2);
-		searchBy.sendKeys(Keys.DOWN);
-		searchBy.sendKeys(Keys.ENTER);
-		tunggu(2);
-		inputSearchStaff.sendKeys(Keys.CONTROL, "a");
-		tunggu(3);
-		inputSearchStaff.sendKeys("meinida");
-		tunggu(2);
-		btnSerachStaff.click();
-		tunggu(5);
-		btnViewStaff.click();
-		tunggu(4);
-		driver.navigate().refresh();
 		filterBy.click();
 		tunggu(2);
 		for (int i = 1; i <= 2; i++) {
@@ -277,6 +263,8 @@ public class StaffPage {
 	}
 
 	public void editDataStaff() {
+		btnStaff.click();
+		tunggu(2);
 		searchBy.click();
 		tunggu(2);
 		for (int i = 1; i <= 2; i++) {

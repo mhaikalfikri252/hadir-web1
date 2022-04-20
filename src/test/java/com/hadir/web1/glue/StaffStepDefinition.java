@@ -115,13 +115,14 @@ public class StaffStepDefinition {
 	@When("Admin search data by name")
 	public void admin_search_data_by_name() {
 		staffPage.searchByName();
+		extentTest.log(LogStatus.PASS,"Admin search data by name");
 	}
 
 	@Then("Tampil data berdasarkan name")
 	public void tampil_data_berdasarkan_name() {
 		String expected = "Meinida Cindy";
 	    assertEquals(expected, staffPage.TextValidName());
-	    extentTest.log(LogStatus.PASS,"Tampil error data NIK tidak ditemukan");
+	    extentTest.log(LogStatus.PASS,"Tampil data berdasarkan name");
 	}
 
 	@When("Admin search data by invalid name")
@@ -147,12 +148,13 @@ public class StaffStepDefinition {
 	public void tampil_data_berdasarkan_divisi() {
 		String expected = "Edit data";
 	    assertEquals(expected, staffPage.TextValidDivisi());
-	    extentTest.log(LogStatus.PASS,"Tampil error data name tidak ditemukan");
+	    extentTest.log(LogStatus.PASS,"Tampil data berdasarkan divisi");
 	}
 
 	@When("Admin search data by invalid divisi")
 	public void admin_search_data_by_invalid_divisi() {
 		staffPage.searchByInvalidDivisi();
+		extentTest.log(LogStatus.PASS,"Admin search data by invalid divisi");
 	}
 
 	@Then("Tampil error data divisi tidak ditemukan")
@@ -173,15 +175,20 @@ public class StaffStepDefinition {
 	public void tampil_halaman_history_staff() {
 		String expected = "Reporting";
 	    assertEquals(expected, staffPage.textHistoryPage());
-	    extentTest.log(LogStatus.PASS,"Tampil error data name tidak ditemukan");
+	    extentTest.log(LogStatus.PASS,"Tampil halaman History Staff");
 	}
+	
+   @When("Admin eksport data history staff")
+   public void admin_import_data_history_staff() {
+	   staffPage.historyStaffPage();
+	   extentTest.log(LogStatus.PASS,"Admin eksport data history staff");
+   }
 
-
-	@And("Admin klik edit data staff")
+	@When("Admin edit data staff")
 	public void admin_klik_edit_data_staff() {
 		staffPage.editDataStaff();
 		staffPage.formEditDataStaff();
-		extentTest.log(LogStatus.PASS, "Admin klik edit data staff");
+		extentTest.log(LogStatus.PASS, "Admin edit data staff");
 	}
 
 	@Then("Admin success go to view history staff page and edit data")

@@ -18,5 +18,6 @@ Feature: Customer klik Staff
     Then Tampil error data divisi tidak ditemukan
     When Admin klik view history staff
     Then Tampil halaman History Staff
-    When Admin klik edit data staff
+    When Admin eksport data history staff
+    When Admin edit data staff
     Then Admin success go to view history staff page and edit data

@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.hadir.web1.drivers.DriverSingleton;
 
-
 public class SelfRegistPage {
 
 	private WebDriver driver;
@@ -17,13 +16,14 @@ public class SelfRegistPage {
 		this.driver = DriverSingleton.getDriver();
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	@FindBy(linkText = "Self Registration")
 	WebElement btnSelfRegist;
-	
+
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > h3")
 	WebElement textHome;
-//	edit data
+
+//	Edit Data
 	@FindBy(id = "t4")
 	WebElement btnGoToForm;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div > select")
@@ -48,39 +48,39 @@ public class SelfRegistPage {
 	WebElement selectDrpdwnjamKerja;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(9) > div > div > button")
 	WebElement btnSubmit;
-	
-//	reject data
+
+//	Reject Data
 	@FindBy(id = "t2")
 	WebElement btnReject;
 	@FindBy(id = "exampleFormControlInput1")
 	WebElement alasanReject;
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > button.btn.btn-primary")
 	WebElement submitReject;
-	
-//	assert Text
+
+//	Assert Text
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > h6:nth-child(1)")
 	WebElement TextEditPage;
 	@FindBy(css = "body > div.swal2-container.swal2-center.swal2-fade.swal2-shown > div > div.swal2-actions > button.swal2-confirm.swal2-styled")
 	WebElement textEditSubmit;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-danger.alert-dismissible.show > span")
 	WebElement textReject;
-	
-	
-	public void aksesSelfregist() {
+
+	public void goToSelfRegistration() {
 		btnSelfRegist.click();
 	}
-	
-	public String TextHome() {
-		return textHome.getText();		
+
+	public String getTextHome() {
+		return textHome.getText();
 	}
-	
+
 	public void goToForm() {
 		btnGoToForm.click();
 	}
-	
-	public String TextEdit() {
-		return TextEditPage.getText();		
+
+	public String textEdit() {
+		return TextEditPage.getText();
 	}
+
 	public void editData() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", drpdwnLevel);
@@ -89,7 +89,6 @@ public class SelfRegistPage {
 		tunggu(2);
 		drpdwnTipeKaryawan.click();
 		selectDrpdwnTipeKaryawan.click();
-
 		drpdwnDeptname.click();
 		selectDrpdwnDeptName.click();
 		drpdwnInpPosisi.click();
@@ -99,12 +98,12 @@ public class SelfRegistPage {
 		btnSubmit.click();
 		tunggu(5);
 	}
-	
-	public String TextSubmit() {
-		return textEditSubmit.getText();		
+
+	public String getTextSubmit() {
+		return textEditSubmit.getText();
 	}
-	
-	public void reject() {
+
+	public void Reject() {
 		tunggu(3);
 		textEditSubmit.click();
 		driver.navigate().back();
@@ -113,14 +112,13 @@ public class SelfRegistPage {
 		alasanReject.sendKeys("Data Sudah Ada");
 		tunggu(2);
 		submitReject.click();
-		
+
 	}
-	
-	
-	public String TextReject() {
-		return textReject.getText();		
+
+	public String getTextReject() {
+		return textReject.getText();
 	}
-	
+
 	public void tunggu(int detik) {
 		try {
 			Thread.sleep(detik * 1000);
@@ -130,6 +128,5 @@ public class SelfRegistPage {
 		}
 
 	}
-
 
 }

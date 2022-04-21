@@ -10,7 +10,6 @@ import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
 import com.hadir.web1.pages.LoginPage;
 import com.hadir.web1.pages.SelfRegistPage;
-import com.hadir.web1.pages.StaffPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
@@ -23,17 +22,16 @@ import io.cucumber.java.AfterAll;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
 
-public class SelfRegistStepDefinition {
-	
+public class SelfRegistrationStepDefinition {
+
 	private static WebDriver driver;
-	private SelfRegistPage selfRegist;
+	private SelfRegistPage selfRegistPage;
 	private LoginPage loginPage;
 	ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportSelfRegistration.html");
@@ -44,7 +42,7 @@ public class SelfRegistStepDefinition {
 	@Before
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
-		selfRegist = new SelfRegistPage();
+		selfRegistPage = new SelfRegistPage();
 		loginPage = new LoginPage();
 		extentTest = reports.startTest("Testing Menu Self Registration");
 	}
@@ -83,40 +81,39 @@ public class SelfRegistStepDefinition {
 
 	@When("User klik Self Registration")
 	public void user_klik_self_registration() {
-	    selfRegist.aksesSelfregist();
-	    extentTest.log(LogStatus.PASS,"User klik Self Registration"); 
+		selfRegistPage.aksesSelfregist();
+		extentTest.log(LogStatus.PASS, "User klik Self Registration");
 	}
 
 	@Then("Tampil halaman Self Registration")
 	public void tampil_halaman_self_registration() {
 		String expected = "Self registration request";
-	    assertEquals(expected, selfRegist.TextHome());
-	    extentTest.log(LogStatus.PASS,"Tampil halaman Self Registration"); 
+		assertEquals(expected, selfRegistPage.TextHome());
+		extentTest.log(LogStatus.PASS, "Tampil halaman Self Registration");
 	}
-	
+
 	@When("Klik edit data")
 	public void klik_edit_data() {
-	    selfRegist.goToForm();
-	    extentTest.log(LogStatus.PASS,"Klik edit data");
+		selfRegistPage.goToForm();
+		extentTest.log(LogStatus.PASS, "Klik edit data");
 	}
 
 	@Then("Tampil halaman edit data")
 	public void tampil_halaman_edit_data() {
 		String expected = "USER INFORMATION";
-	    assertEquals(expected, selfRegist.TextEdit());
-	    extentTest.log(LogStatus.PASS,"Tampil halaman Self Registration"); 
+		assertEquals(expected, selfRegistPage.TextEdit());
+		extentTest.log(LogStatus.PASS, "Tampil halaman Self Registration");
 	}
 
 	@When("edit data staff")
 	public void edit_data_staff() {
-	    selfRegist.editData();
+		selfRegistPage.editData();
 	}
 
 	@Then("Data berhasil Diedit")
 	public void data_berhasil_diedit() {
-		String expected = "OK";
-	    assertEquals(expected, selfRegist.TextSubmit());
-	    extentTest.log(LogStatus.PASS,"Data berhasil Diedit"); 
+		assertEquals(configurationProperties.getTextOk(), selfRegistPage.TextSubmit());
+		extentTest.log(LogStatus.PASS, "Data berhasil Diedit");
 	}
 
 //	@When("Reject data karyawan")

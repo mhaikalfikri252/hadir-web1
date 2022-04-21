@@ -4,5 +4,5 @@ Feature: User Akses Form Register
     Given Admin akses url web hadir
     When Admin akses loginn
     And User klik Form Registration
-    And edit data staff
+    And Masukkan form Registrasi
     Then Data berhasil di upload

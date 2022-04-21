@@ -87,13 +87,6 @@ public class FormRegistrationStepDefinition {
 	    extentTest.log(LogStatus.PASS, "User klik Form Registration");
 	}
 
-	@Then("Tampil halaman Form Registration")
-	public void tampil_halaman_form_registration() {
-	   String expect = "Daftarin anggota karyawanmu disini!";
-	   assertEquals(expect, formRegist.textHome());
-	   extentTest.log(LogStatus.PASS, "Tampil halaman Form Registration");
-	}
-
 	@When("Masukkan form Registrasi")
 	public void masukkan_valid_form() {
 		formRegist.inputForm();

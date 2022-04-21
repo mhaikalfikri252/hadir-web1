@@ -19,7 +19,13 @@ public class ManagePosisiPage {
 	// Manage Posisi Page
 	@FindBy(linkText = "Manage Posisi")
 	WebElement btnManagePosisi;
-
+	@FindBy(css = "#navbar-main > div > a")
+	WebElement textManagePosisi;
+	@FindBy(css = "#navbar-main > div > form > div > div > input")
+	WebElement search;
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-header > button")
+	WebElement btnClosePopUp;
+	
 	// Form Tambah Data
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > div > button")
 	WebElement btnTambahPosisi;
@@ -69,6 +75,15 @@ public class ManagePosisiPage {
 		inputMasukanPosisi.sendKeys("Regen");
 		btnSumbitTambahPosisi.click();
 	}
+	
+	public void tambahDataPosisiInvalid() {
+		tunggu(3);
+		btnTambahPosisi.click();
+		tunggu(2);
+		btnSumbitTambahPosisi.click();
+		tunggu(2);
+		btnClosePopUp.click();
+	}
 
 	public void ubahPosisi() {
 		btnUbahData.click();
@@ -76,6 +91,16 @@ public class ManagePosisiPage {
 		inputUbahPosisi.sendKeys("Dummy");
 		tunggu(2);
 		btnSubmitUbahPosisi.click();
+	}
+	public void ubahDataPosisiInvalid() {
+		tunggu(2);
+		btnUbahData.click();
+		tunggu(2);
+		inputUbahPosisi.clear();
+		tunggu(2);
+		btnSubmitUbahPosisi.click();
+		tunggu(2);
+		btnClosePopUp.click();
 	}
 
 	public void hapusPosisi() {

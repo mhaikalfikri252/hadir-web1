@@ -5,9 +5,5 @@ Feature: User Akses Form Register
     When Admin akses loginn
     And User klik Form Registration
     Then Tampil halaman Form Registration
-    When Masukkan invalid foto
-    Then Tampil pesan error
-    When Masukkan valid foto
-    Then Tampil pesan wajah terdeteksi
-    When Masukkan valid form
+    When Masukkan form Registrasi
     Then Data berhasil di upload

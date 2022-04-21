@@ -10,11 +10,11 @@ import com.hadir.web1.drivers.DriverSingleton;
 
 import io.cucumber.messages.internal.com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
-public class FormRegistPage {
+public class FormRegistrationPage {
 
 	private WebDriver driver;
 
-	public FormRegistPage() {
+	public FormRegistrationPage() {
 		this.driver = DriverSingleton.getDriver();
 		PageFactory.initElements(driver, this);
 	}
@@ -110,7 +110,11 @@ public class FormRegistPage {
 	}
 	
 	public void inputForm() {
+		tunggu(3);
+		inputFotoWajah.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\fotoku.png");
+		tunggu(5);
 		inputUsername.sendKeys("DummyDatatiga");
+		tunggu(3);
 		inputEmail.sendKeys("dummydua@gmail.com");
 		inputFullName.sendKeys("Data Dummyy tiga");
 		JavascriptExecutor js = (JavascriptExecutor) driver;

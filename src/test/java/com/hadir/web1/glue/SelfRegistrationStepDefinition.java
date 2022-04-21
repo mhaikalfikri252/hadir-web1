@@ -1,3 +1,4 @@
+
 package com.hadir.web1.glue;
 
 import static org.junit.Assert.assertEquals;
@@ -8,7 +9,6 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
-import com.hadir.web1.pages.FormRegistrationPage;
 import com.hadir.web1.pages.LoginPage;
 import com.hadir.web1.pages.SelfRegistrationPage;
 import com.hadir.web1.utils.ConfigurationProperties;
@@ -28,14 +28,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
-public class FormRegistrationStepDefinition {
 
-	
+public class SelfRegistrationStepDefinition {
+
 	private static WebDriver driver;
-	private FormRegistrationPage formRegist;
+	private SelfRegistrationPage selfRegistPage;
 	private LoginPage loginPage;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportFormRegistration.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportSelfRegistration.html");
 
 	@Autowired
 	ConfigurationProperties configurationProperties;
@@ -43,9 +43,9 @@ public class FormRegistrationStepDefinition {
 	@Before
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
-		formRegist = new FormRegistrationPage();
+		selfRegistPage = new SelfRegistrationPage();
 		loginPage = new LoginPage();
-		extentTest = reports.startTest("Testing Menu Form Registration");
+		extentTest = reports.startTest("Testing Menu Self Registration");
 	}
 
 	@AfterStep
@@ -66,45 +66,54 @@ public class FormRegistrationStepDefinition {
 	public static void closeBrowser() {
 //		driver.quit();
 	}
-	
-	@Given("Admin akses url web hadir")
-	public void admin_akses_url_web_hadir() {
+
+	@Given("User akses url web hadir")
+	public void user_akses_url_web_hadir() {
 		driver = DriverSingleton.getDriver();
 		driver.get(Constants.URL);
 		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
 	}
 
-	@When("Admin akses loginn")
-	public void admin_akses_loginn() {
+	@When("User melakukan login di web hadir")
+	public void user_melakukan_login_di_web_hadir() {
 		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
 		extentTest.log(LogStatus.PASS, "Admin klik login button");
-
-	}
-	
-	@When("User klik Form Registration")
-	public void user_klik_form_registration() {
-	    formRegist.goToFormRegist();
-	    extentTest.log(LogStatus.PASS, "User klik Form Registration");
 	}
 
-	@Then("Tampil halaman Form Registration")
-	public void tampil_halaman_form_registration() {
-	   String expect = "Daftarin anggota karyawanmu disini!";
-	   assertEquals(expect, formRegist.textHome());
-	   extentTest.log(LogStatus.PASS, "Tampil halaman Form Registration");
+	@When("User klik Self Registration")
+	public void user_klik_self_registration() {
+		selfRegistPage.aksesSelfregist();
+		extentTest.log(LogStatus.PASS, "User klik Self Registration");
 	}
 
-	@When("Masukkan form Registrasi")
-	public void masukkan_valid_form() {
-		formRegist.inputForm();
-		extentTest.log(LogStatus.PASS, "Isi form registration");
+
+	@When("Klik edit data")
+	public void klik_edit_data() {
+		selfRegistPage.goToForm();
+		extentTest.log(LogStatus.PASS, "Klik edit data");
 	}
 
-	@Then("Data berhasil di upload")
-	public void data_berhasil_di_upload() {
-		
-		assertEquals(configurationProperties.getTextOk(), formRegist.TextSuccess());
-		extentTest.log(LogStatus.PASS, "Data berhasil di upload");
+
+	@When("edit data staff")
+	public void edit_data_staff() {
+		selfRegistPage.editData();
 	}
 
+	@Then("Data berhasil Diedit")
+	public void data_berhasil_diedit() {
+		assertEquals(configurationProperties.getTextOk(), selfRegistPage.TextSubmit());
+		extentTest.log(LogStatus.PASS, "Data berhasil Diedit");
+	}
+
+//	@When("Reject data karyawan")
+//	public void reject_data_karyawan() {
+//	   selfRegist.reject();
+//	   extentTest.log(LogStatus.PASS,"Reject data karyawan"); 
+//	}
+//
+//	@Then("Data berhasil di reject")
+//	public void data_berhasil_di_reject() {
+//		assertEquals(configurationProperties.getTextReject(), selfRegist.TextSubmit());
+//	    extentTest.log(LogStatus.PASS,"Data berhasil di reject"); 
+//	}
 }

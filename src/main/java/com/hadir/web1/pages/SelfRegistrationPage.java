@@ -9,11 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 import com.hadir.web1.drivers.DriverSingleton;
 
 
-public class SelfRegistPage {
+public class SelfRegistrationPage {
 
 	private WebDriver driver;
 
-	public SelfRegistPage() {
+	public SelfRegistrationPage() {
 		this.driver = DriverSingleton.getDriver();
 		PageFactory.initElements(driver, this);
 	}

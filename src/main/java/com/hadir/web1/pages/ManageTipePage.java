@@ -128,6 +128,6 @@ public class ManageTipePage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
+
 }

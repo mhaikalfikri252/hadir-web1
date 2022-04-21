@@ -32,7 +32,7 @@ import io.cucumber.java.en.When;
 public class SelfRegistrationStepDefinition {
 
 	private static WebDriver driver;
-	private SelfRegistrationPage selfRegistPage;
+	private SelfRegistrationPage selfRegistrationPage;
 	private LoginPage loginPage;
 	ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportSelfRegistration.html");
@@ -43,7 +43,7 @@ public class SelfRegistrationStepDefinition {
 	@Before
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
-		selfRegistPage = new SelfRegistrationPage();
+		selfRegistrationPage = new SelfRegistrationPage();
 		loginPage = new LoginPage();
 		extentTest = reports.startTest("Testing Menu Self Registration");
 	}
@@ -82,26 +82,24 @@ public class SelfRegistrationStepDefinition {
 
 	@When("User klik Self Registration")
 	public void user_klik_self_registration() {
-		selfRegistPage.aksesSelfregist();
+		selfRegistrationPage.goToSelfRegistration();
 		extentTest.log(LogStatus.PASS, "User klik Self Registration");
 	}
 
-
 	@When("Klik edit data")
 	public void klik_edit_data() {
-		selfRegistPage.goToForm();
+		selfRegistrationPage.goToForm();
 		extentTest.log(LogStatus.PASS, "Klik edit data");
 	}
 
-
 	@When("edit data staff")
 	public void edit_data_staff() {
-		selfRegistPage.editData();
+		selfRegistrationPage.editData();
 	}
 
 	@Then("Data berhasil Diedit")
 	public void data_berhasil_diedit() {
-		assertEquals(configurationProperties.getTextOk(), selfRegistPage.TextSubmit());
+		assertEquals(configurationProperties.getTextOk(), selfRegistrationPage.getTextSubmit());
 		extentTest.log(LogStatus.PASS, "Data berhasil Diedit");
 	}
 

@@ -30,7 +30,7 @@ public class ManagePosisiPage {
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > button.btn.btn-primary")
 	WebElement btnSumbitTambahPosisi;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
-	WebElement txtManagePosisi;
+	WebElement textManagePosisi;
 
 	// Form Ubah Data
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.table-responsive > table > tbody > tr:nth-child(1)")
@@ -44,7 +44,7 @@ public class ManagePosisiPage {
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-primary")
 	WebElement btnSubmitUbahPosisi;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
-	WebElement txtUbahPosisi;
+	WebElement textUbahPosisi;
 
 	// Hapus Data
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.table-responsive > table > tbody > tr:nth-child(1)")
@@ -56,7 +56,7 @@ public class ManagePosisiPage {
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-footer > button.btn.btn-primary")
 	WebElement btnSubmitHapusPosisi;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
-	WebElement txtHapusPosisi;
+	WebElement textHapusPosisi;
 
 	public void goToManagePosisi() {
 		btnManagePosisi.click();
@@ -85,15 +85,15 @@ public class ManagePosisiPage {
 	}
 
 	public String getTextTambahPosisi() {
-		return txtManagePosisi.getText();
+		return textManagePosisi.getText();
 	}
 
 	public String getTextUbahPosisi() {
-		return txtUbahPosisi.getText();
+		return textUbahPosisi.getText();
 	}
 
 	public String getTextHapusPosisi() {
-		return txtHapusPosisi.getText();
+		return textHapusPosisi.getText();
 	}
 
 	public void tunggu(int detik) {
@@ -104,4 +104,5 @@ public class ManagePosisiPage {
 			e.printStackTrace();
 		}
 	}
+
 }

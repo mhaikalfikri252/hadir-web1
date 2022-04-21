@@ -23,16 +23,15 @@ public class ReportPage {
 
 	// Search By
 	@FindBy(css = "#root > div > div.mt--7.container-fluid > div > div > div.shadow.card > div.border-0.card-header > form > div > div:nth-child(2) > div > select")
-	WebElement dropdown_search;
+	WebElement dropDownSearch;
 
 	@FindBy(css = "#root > div > div.mt--7.container-fluid > div > div > div.shadow.card > div.border-0.card-header > form > div > div.col-lg-4 > div > input")
-	WebElement input_keyword;
+	WebElement inputKeyword;
 
 	@FindBy(css = "#root > div > div.mt--7.container-fluid > div > div > div.shadow.card > div.border-0.card-header > form > div > div.col-sm-2 > button")
 	WebElement btnSearch;
 
 	// Hasil
-
 	@FindBy(css = "#ekspor > tbody > tr > td:nth-child(1) > input[type=checkbox]")
 	WebElement checkbox;
 
@@ -41,7 +40,7 @@ public class ReportPage {
 
 	// Dialog Box
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > div > div.col-md-2.col-sm-12 > div > div > select")
-	WebElement dropdown_pilihWaktu;
+	WebElement dropDownPilihWaktu;
 
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > div > div.col-md-3.col-sm-12 > div > div > div.rdt > input")
 	WebElement datepicker;
@@ -56,7 +55,7 @@ public class ReportPage {
 	WebElement btnSiapExport;
 
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > div.progress-info > div.progress-label > span")
-	WebElement txtSuccessExport;
+	WebElement textSuccessExport;
 
 	public void goToReportPage() {
 		btnReport.click();
@@ -64,31 +63,28 @@ public class ReportPage {
 	}
 
 	public void searchDataReport() {
-		dropdown_search.click();
+		dropDownSearch.click();
 		for (int i = 1; i <= 1; i++) {
-			dropdown_search.sendKeys(Keys.DOWN);
+			dropDownSearch.sendKeys(Keys.DOWN);
 		}
-		dropdown_search.sendKeys(Keys.ENTER);
+		dropDownSearch.sendKeys(Keys.ENTER);
 		tunggu(2);
-		input_keyword.sendKeys("D6190141");
+		inputKeyword.sendKeys("D6190141");
 		btnSearch.click();
 		tunggu(2);
 	}
 
 	public void exportData() {
-
 		checkbox.click();
 		tunggu(2);
 		btnExport.click();
 		tunggu(2);
-
-		dropdown_pilihWaktu.click();
+		dropDownPilihWaktu.click();
 		for (int i = 1; i <= 3; i++) {
-			dropdown_pilihWaktu.sendKeys(Keys.DOWN);
+			dropDownPilihWaktu.sendKeys(Keys.DOWN);
 		}
-		dropdown_pilihWaktu.sendKeys(Keys.ENTER);
+		dropDownPilihWaktu.sendKeys(Keys.ENTER);
 		tunggu(2);
-
 		datepicker.click();
 		tunggu(2);
 		pilih_bulan.click();
@@ -97,11 +93,10 @@ public class ReportPage {
 		tunggu(2);
 		btnSiapExport.click();
 		tunggu(2);
-
 	}
 
 	public String getTextReportPage() {
-		return txtSuccessExport.getText();
+		return textSuccessExport.getText();
 	}
 
 	public void tunggu(int detik) {
@@ -111,6 +106,6 @@ public class ReportPage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
+
 }

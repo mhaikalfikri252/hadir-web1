@@ -6,8 +6,9 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports-FormRegistration.html" }, features = {
+@CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports-formregistration.html" }, features = {
 		"src/main/resources/features/FormRegistration.feature" })
+
 public class FormRegistrationRunnerTest {
 
 }

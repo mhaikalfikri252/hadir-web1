@@ -52,7 +52,7 @@ public class ManageLevelPage {
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
 	WebElement textUbahLevel;
 
-	// Hapus Data
+	// Form Hapus Data
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.table-responsive > table > tbody > tr:nth-child(2)")
 	WebElement pilihLevel1;
 	@FindBy(css = "#t2")

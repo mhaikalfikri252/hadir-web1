@@ -8,9 +8,9 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
-import com.hadir.web1.pages.FormRegistPage;
+import com.hadir.web1.pages.FormRegistrationPage;
 import com.hadir.web1.pages.LoginPage;
-import com.hadir.web1.pages.SelfRegistPage;
+
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
@@ -32,7 +32,7 @@ public class FormRegistrationStepDefinition {
 
 	
 	private static WebDriver driver;
-	private FormRegistPage formRegist;
+	private FormRegistrationPage formRegist;
 	private LoginPage loginPage;
 	ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportFormRegistration.html");
@@ -43,7 +43,7 @@ public class FormRegistrationStepDefinition {
 	@Before
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
-		formRegist = new FormRegistPage();
+		formRegist = new FormRegistrationPage();
 		loginPage = new LoginPage();
 		extentTest = reports.startTest("Testing Menu Form Registration");
 	}

@@ -10,11 +10,11 @@ import com.hadir.web1.drivers.DriverSingleton;
 
 import io.cucumber.messages.internal.com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
-public class FormRegistPage {
+public class FormRegistrationPage {
 
 	private WebDriver driver;
 
-	public FormRegistPage() {
+	public FormRegistrationPage() {
 		this.driver = DriverSingleton.getDriver();
 		PageFactory.initElements(driver, this);
 	}

@@ -110,7 +110,11 @@ public class FormRegistrationPage {
 	}
 	
 	public void inputForm() {
+		tunggu(3);
+		inputFotoWajah.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\fotoku.png");
+		tunggu(5);
 		inputUsername.sendKeys("DummyDatatiga");
+		tunggu(3);
 		inputEmail.sendKeys("dummydua@gmail.com");
 		inputFullName.sendKeys("Data Dummyy tiga");
 		JavascriptExecutor js = (JavascriptExecutor) driver;

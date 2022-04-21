@@ -8,9 +8,9 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
-import com.hadir.web1.pages.FormRegistPage;
+import com.hadir.web1.pages.FormRegistrationPage;
 import com.hadir.web1.pages.LoginPage;
-import com.hadir.web1.pages.SelfRegistPage;
+import com.hadir.web1.pages.SelfRegistrationPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
@@ -32,7 +32,7 @@ public class FormRegistrationStepDefinition {
 
 	
 	private static WebDriver driver;
-	private FormRegistPage formRegist;
+	private FormRegistrationPage formRegist;
 	private LoginPage loginPage;
 	ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportFormRegistration.html");
@@ -43,7 +43,7 @@ public class FormRegistrationStepDefinition {
 	@Before
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
-		formRegist = new FormRegistPage();
+		formRegist = new FormRegistrationPage();
 		loginPage = new LoginPage();
 		extentTest = reports.startTest("Testing Menu Form Registration");
 	}
@@ -94,34 +94,7 @@ public class FormRegistrationStepDefinition {
 	   extentTest.log(LogStatus.PASS, "Tampil halaman Form Registration");
 	}
 
-	@When("Masukkan invalid foto")
-	public void masukkan_invalid_foto() {
-	    formRegist.invalidFoto();
-	    extentTest.log(LogStatus.PASS, "Masukkan invalid foto");
-	}
-	
-
-	@Then("Tampil pesan error")
-	public void tampil_pesan_error() {
-		String expect = "✖️ wajah tidak terdeteksi";
-		   assertEquals(expect, formRegist.textInvalidFoto());
-		   extentTest.log(LogStatus.PASS, "Tampil pesan erro");
-	}
-
-	@When("Masukkan valid foto")
-	public void masukkan_valid_foto() {
-	    formRegist.validFoto();
-	    extentTest.log(LogStatus.PASS, "Masukkan valid foto");
-	}
-
-	@Then("Tampil pesan wajah terdeteksi")
-	public void tampil_pesan_wajah_terdeteksi() {
-		String expect = "✔️ wajah terdeteksi";
-		assertEquals(expect, formRegist.textInvalidFoto());
-		extentTest.log(LogStatus.PASS, "Tampil pesan wajah terdeteksi");
-	}
-
-	@When("Masukkan valid form")
+	@When("Masukkan form Registrasi")
 	public void masukkan_valid_form() {
 		formRegist.inputForm();
 		extentTest.log(LogStatus.PASS, "Isi form registration");
@@ -129,8 +102,8 @@ public class FormRegistrationStepDefinition {
 
 	@Then("Data berhasil di upload")
 	public void data_berhasil_di_upload() {
-		String expect = "OK";
-		assertEquals(expect, formRegist.TextSuccess());
+		
+		assertEquals(configurationProperties.getTextOk(), formRegist.TextSuccess());
 		extentTest.log(LogStatus.PASS, "Data berhasil di upload");
 	}
 

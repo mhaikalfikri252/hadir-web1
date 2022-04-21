@@ -26,7 +26,7 @@ public class ManageDepartemenPage {
 	@FindBy(id = "t2")
 	WebElement btnHapusData;
 	@FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div/div/div[1]/span")
-	WebElement TxtSuccessTambahData;
+	WebElement textSuccessTambahData;
 
 	// Form Tambah Data
 	@FindBy(id = "zz1")
@@ -72,7 +72,6 @@ public class ManageDepartemenPage {
 		editDepartemen.sendKeys("Operasional");
 		tunggu(5);
 		btnSubmitEdit.click();
-
 	}
 
 	public void deleteDataDepartemen() {
@@ -89,7 +88,6 @@ public class ManageDepartemenPage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 }

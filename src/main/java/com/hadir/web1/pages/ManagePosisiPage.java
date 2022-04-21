@@ -25,7 +25,7 @@ public class ManagePosisiPage {
 	WebElement search;
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-header > button")
 	WebElement btnClosePopUp;
-	
+
 	// Form Tambah Data
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > div > button")
 	WebElement btnTambahPosisi;
@@ -36,7 +36,7 @@ public class ManagePosisiPage {
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > button.btn.btn-primary")
 	WebElement btnSumbitTambahPosisi;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
-	WebElement txtManagePosisi;
+	WebElement textManagePosisi2;
 
 	// Form Ubah Data
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.table-responsive > table > tbody > tr:nth-child(1)")
@@ -50,9 +50,9 @@ public class ManagePosisiPage {
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-primary")
 	WebElement btnSubmitUbahPosisi;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
-	WebElement txtUbahPosisi;
+	WebElement textUbahPosisi;
 
-	// Hapus Data
+	// Form Hapus Data
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.table-responsive > table > tbody > tr:nth-child(1)")
 	WebElement pilihPosisi1;
 	@FindBy(css = "#t2")
@@ -62,7 +62,7 @@ public class ManagePosisiPage {
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-footer > button.btn.btn-primary")
 	WebElement btnSubmitHapusPosisi;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
-	WebElement txtHapusPosisi;
+	WebElement textHapusPosisi;
 
 	public void goToManagePosisi() {
 		btnManagePosisi.click();
@@ -75,7 +75,7 @@ public class ManagePosisiPage {
 		inputMasukanPosisi.sendKeys("Regen");
 		btnSumbitTambahPosisi.click();
 	}
-	
+
 	public void tambahDataPosisiInvalid() {
 		tunggu(3);
 		btnTambahPosisi.click();
@@ -92,6 +92,7 @@ public class ManagePosisiPage {
 		tunggu(2);
 		btnSubmitUbahPosisi.click();
 	}
+
 	public void ubahDataPosisiInvalid() {
 		tunggu(2);
 		btnUbahData.click();
@@ -110,15 +111,15 @@ public class ManagePosisiPage {
 	}
 
 	public String getTextTambahPosisi() {
-		return txtManagePosisi.getText();
+		return textManagePosisi2.getText();
 	}
 
 	public String getTextUbahPosisi() {
-		return txtUbahPosisi.getText();
+		return textUbahPosisi.getText();
 	}
 
 	public String getTextHapusPosisi() {
-		return txtHapusPosisi.getText();
+		return textHapusPosisi.getText();
 	}
 
 	public void tunggu(int detik) {
@@ -129,4 +130,5 @@ public class ManagePosisiPage {
 			e.printStackTrace();
 		}
 	}
+
 }

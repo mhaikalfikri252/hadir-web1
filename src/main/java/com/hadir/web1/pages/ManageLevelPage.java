@@ -26,7 +26,6 @@ public class ManageLevelPage {
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-header > button")
 	WebElement btnClosePopUp;
 
-
 	// Form Tambah Data
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > div > button")
 	WebElement btnTambahLevel;
@@ -37,7 +36,7 @@ public class ManageLevelPage {
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > button.btn.btn-primary")
 	WebElement btnSumbitTambahLevel;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
-	WebElement txtManageLevel;
+	WebElement textManageLevel2;
 
 	// Form Ubah Data
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.table-responsive > table > tbody > tr:nth-child(1)")
@@ -51,7 +50,7 @@ public class ManageLevelPage {
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-primary")
 	WebElement btnSubmitUbahLevel;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
-	WebElement txtUbahLevel;
+	WebElement textUbahLevel;
 
 	// Hapus Data
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.table-responsive > table > tbody > tr:nth-child(2)")
@@ -63,9 +62,8 @@ public class ManageLevelPage {
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-footer > button.btn.btn-primary")
 	WebElement btnSubmitHapusLevel;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
-	WebElement txtHapusLevel;
+	WebElement textHapusLevel;
 
-	
 	public void goToManageLevel() {
 		btnManageLevel.click();
 		tunggu(2);
@@ -77,6 +75,7 @@ public class ManageLevelPage {
 		inputMasukanLevel.sendKeys("Staff");
 		btnSumbitTambahLevel.click();
 	}
+
 	public void tambahDataLevelInvalid() {
 		tunggu(3);
 		btnTambahLevel.click();
@@ -91,8 +90,9 @@ public class ManageLevelPage {
 		tunggu(2);
 		inputUbahLevel.sendKeys("PKWT");
 		btnSubmitUbahLevel.click();
-		
+
 	}
+
 	public void ubahDataLevelInvalid() {
 		tunggu(2);
 		btnUbahLevel.click();
@@ -111,15 +111,15 @@ public class ManageLevelPage {
 	}
 
 	public String getTextTambahLevel() {
-		return txtManageLevel.getText();
+		return textManageLevel2.getText();
 	}
 
 	public String getTextUbahLevel() {
-		return txtUbahLevel.getText();
+		return textUbahLevel.getText();
 	}
 
 	public String getTextHapusLevel() {
-		return txtHapusLevel.getText();
+		return textHapusLevel.getText();
 	}
 
 	public void tunggu(int detik) {
@@ -129,6 +129,6 @@ public class ManageLevelPage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
+
 }

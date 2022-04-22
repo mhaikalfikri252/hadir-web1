@@ -22,17 +22,17 @@ public class ManageSettingPage {
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.shadow.card > div.table-responsive > table > tbody > tr > td:nth-child(4) > div > div:nth-child(2)")
 	WebElement switchLiveness;
 	@FindBy(id = "t1")
-	WebElement btnEditMngSetting;
+	WebElement btnEditManageSetting;
 	@FindBy(css = "#sidenav-main > div > div > ul > li:nth-child(16) > a")
 	WebElement btnMngSetting;
 	@FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div/div/div[1]/span")
-	WebElement txtSuccessMngSet;
+	WebElement textSuccessManageSet;
 
 	// Form Edit Manage Setting
 	@FindBy(id = "zz1")
 	List<WebElement> inputValidationTimer;
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-primary")
-	WebElement btnSubmitMngSetting;
+	WebElement btnSubmitManageSetting;
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-secondary")
 	WebElement btnClose;
 
@@ -43,7 +43,7 @@ public class ManageSettingPage {
 
 	public void ubahData() {
 		tunggu(5);
-		btnEditMngSetting.click();
+		btnEditManageSetting.click();
 		tunggu(2);
 		inputValidationTimer.get(0).clear();
 		tunggu(2);
@@ -53,7 +53,7 @@ public class ManageSettingPage {
 		tunggu(2);
 		inputValidationTimer.get(1).sendKeys("100");
 		tunggu(2);
-		btnSubmitMngSetting.click();
+		btnSubmitManageSetting.click();
 		tunggu(2);
 		btnClose.click();
 	}
@@ -65,7 +65,7 @@ public class ManageSettingPage {
 	}
 
 	public String getTextManageSettingPage() {
-		return txtSuccessMngSet.getText();
+		return textSuccessManageSet.getText();
 	}
 
 	public void tunggu(int detik) {

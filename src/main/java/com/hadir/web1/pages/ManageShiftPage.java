@@ -19,13 +19,13 @@ public class ManageShiftPage {
 
 //	Manage Shift Page
 	@FindBy(linkText = "Manage Shift")
-	WebElement btnMngShift;
+	WebElement btnManageShift;
 
 //	Search Manage Shift
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > form > div:nth-child(1) > div:nth-child(2) > div > select")
 	WebElement btnSearchBy;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > form > div:nth-child(1) > div.col-lg-4 > div > select")
-	WebElement dropdwnShiftCode;
+	WebElement dropDownShiftCode;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > form > div:nth-child(1) > div.col-lg-4 > div > select > option:nth-child(5)")
 	WebElement selectShift1;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > form > div:nth-child(1) > div.col-sm-2 > button")
@@ -34,13 +34,13 @@ public class ManageShiftPage {
 
 //	Edit Data Shift
 	@FindBy(id = "t4")
-	WebElement btnEditMngShift;
+	WebElement btnEditManageShift;
 	@FindBy(id = "input-code_kelas_shift")
 	WebElement inputCodeShift;
 	@FindBy(css = "#input-posisi > option:nth-child(2)")
 	WebElement selectDropDwnCode;
 	@FindBy(id = "input-shift_hari")
-	WebElement DrpdwnDay;
+	WebElement dropDownDay;
 	@FindBy(xpath = "//*[@id=\"input-code_kelas_shift\"]/option[4]")
 	WebElement inputDay;
 	@FindBy(id = "input-shift_masuk")
@@ -59,11 +59,11 @@ public class ManageShiftPage {
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > div > a > button")
 	WebElement btnAddShift;
 	@FindBy(id = "input-posisi")
-	WebElement drpDwnPosisi;
+	WebElement dropDownPosisi;
 	@FindBy(css = "#input-posisi > option:nth-child(2)")
 	WebElement inputCode;
 	@FindBy(id = "input-hari")
-	WebElement drpDwnAddDay;
+	WebElement dropDownAddDay;
 	@FindBy(css = "#input-hari > option:nth-child(4)")
 	WebElement inputDayAddShift;
 	@FindBy(id = "shift_masuk")
@@ -79,7 +79,7 @@ public class ManageShiftPage {
 
 	public void goToManageShift() {
 		tunggu(2);
-		btnMngShift.click();
+		btnManageShift.click();
 	}
 
 	public void searchBy() {
@@ -89,7 +89,7 @@ public class ManageShiftPage {
 		tunggu(1);
 		btnSearchBy.sendKeys(Keys.ENTER);
 		tunggu(1);
-		dropdwnShiftCode.click();
+		dropDownShiftCode.click();
 		tunggu(1);
 		selectShift1.click();
 		tunggu(1);
@@ -98,13 +98,13 @@ public class ManageShiftPage {
 	}
 
 	public void editDataShift() {
-		btnEditMngShift.click();
+		btnEditManageShift.click();
 		tunggu(1);
 //		inputCodeShift.click();
 //		tunggu(1);
 //		selectDropDwnCode.click();
 //		tunggu(1);
-		DrpdwnDay.click();
+		dropDownDay.click();
 		tunggu(1);
 		inputDay.click();
 		tunggu(3);
@@ -123,15 +123,13 @@ public class ManageShiftPage {
 		tunggu(1);
 		inputCode.click();
 		tunggu(1);
-
-//		drpDwnAddDay.click();
+//		dropDownAddDay.click();
 //		for(int i = 1; i <=4 ;i++) {
-//			drpDwnAddDay.sendKeys(Keys.DOWN);
+//			dropDownAddDay.sendKeys(Keys.DOWN);
 //		}
-//		drpDwnAddDay.click();
+//		dropDownAddDay.click();
 //		tunggu(1);
-
-		drpDwnAddDay.click();
+		dropDownAddDay.click();
 		tunggu(1);
 		inputDayAddShift.click();
 		tunggu(2);
@@ -145,7 +143,7 @@ public class ManageShiftPage {
 		tunggu(1);
 		btnOkAddShift.click();
 		tunggu(2);
-		btnMngShift.click();
+		btnManageShift.click();
 	}
 
 	public String getTextManageShiftPage() {
@@ -159,6 +157,6 @@ public class ManageShiftPage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
+
 }

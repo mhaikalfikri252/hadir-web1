@@ -41,8 +41,8 @@ public class ConfigurationProperties {
 	@Value("${textSuccessExport}")
 	private String textSuccessExport;
 
-	@Value("${textSuccessMngSet}")
-	private String textSuccessMngSet;
+	@Value("${textSuccessManageSetting}")
+	private String textSuccessManageSetting;
 
 	@Value("${textManageTipe}")
 	private String textManageTipe;
@@ -52,24 +52,18 @@ public class ConfigurationProperties {
 
 	@Value("${textManageAbsenPoint}")
 	private String textManageAbsenPoint;
-	
+
 	@Value("${textReject}")
 	private String textReject;
-	
-	@Value("${textSuccessTambahData}")
-	private String textSuccessTambahData;
-	
+
 	@Value("${textManageDepartemen}")
 	private String textManageDepartemen;
 
-	
-	public String getTextManageDepartemen() {
-		return textManageDepartemen;
-	}
+	@Value("${textInvalidFormStaff}")
+	private String textInvalidFormStaff;
 
-	public String getTextSuccessTambahData() {
-		return textSuccessTambahData;
-	}
+	@Value("${textInvalidFormRegistration}")
+	private String textInvalidFormRegistration;
 
 	public String getBrowser() {
 		return browser;
@@ -115,8 +109,8 @@ public class ConfigurationProperties {
 		return textSuccessExport;
 	}
 
-	public String getTextSuccessMngSet() {
-		return textSuccessMngSet;
+	public String getTextSuccessManageSetting() {
+		return textSuccessManageSetting;
 	}
 
 	public String getTextManageTipe() {
@@ -134,7 +128,17 @@ public class ConfigurationProperties {
 	public String getTextReject() {
 		return textReject;
 	}
-	
-	
+
+	public String getTextInvalidFormStaff() {
+		return textInvalidFormStaff;
+	}
+
+	public String getTextInvalidFormRegistration() {
+		return textInvalidFormRegistration;
+	}
+
+	public String getTextManageDepartemen() {
+		return textManageDepartemen;
+	}
 
 }

@@ -137,6 +137,7 @@ public class FormRegistrationPage {
 		tunggu(1);
 		js.executeScript("arguments[0].scrollIntoView();", btnSubmit);
 		btnSubmit.click();
+		tunggu(5);
 //		dropDownLeader.click();
 //		selectDropdownLeader.click();
 	}
@@ -144,6 +145,15 @@ public class FormRegistrationPage {
 	public String getTextSuccess() {
 		return textOK.getText();
 	}
+	
+	
+	public void goToFormRegistrationInvalid() {
+		
+		textOK.click();
+		btnFormRegistration.click();
+	}
+	
+	
 
 	public void tunggu(int detik) {
 		try {

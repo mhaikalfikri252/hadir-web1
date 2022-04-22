@@ -84,6 +84,26 @@ public class StaffPage {
 	WebElement popUpSubmit;
 //	End Form Edit Staff
 
+//	Search Staff
+@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.row > div")
+WebElement searchByNik;
+@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div.col-sm-2 > button")
+WebElement btnSubmitSearch;
+@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div:nth-child(2) > div > select")
+WebElement dropdownSearchBy;
+@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div:nth-child(2) > div > select > option:nth-child(2)")
+WebElement selectByNik;
+@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div:nth-child(2) > div > select > option:nth-child(3)")
+WebElement selectByName;
+@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div:nth-child(2) > div > select > option:nth-child(5)")
+WebElement selectByDivisi;
+@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div.col-lg-4 > div > select")
+WebElement drpdwnDivisi;
+@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div.col-lg-4 > div > select > option:nth-child(13)")
+WebElement selectDivisifromSearch;
+@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(2) > div:nth-child(2) > div > div > label")
+WebElement textInvalidFormStaff;
+
 	public void goToStaffPage() {
 		btnStaff.click();
 		tunggu(2);
@@ -96,33 +116,25 @@ public class StaffPage {
 			searchBy.sendKeys(Keys.DOWN);
 		}
 		searchBy.sendKeys(Keys.ENTER);
-		tunggu(2);
 		inputSearchStaff.sendKeys("meinida");
-		tunggu(2);
 		btnSerachStaff.click();
 		tunggu(2);
 		btnViewStaff.click();
 		tunggu(2);
-		driver.navigate().refresh();
 		filterBy.click();
 		tunggu(2);
 		for (int i = 1; i <= 2; i++) {
 			filterBy.sendKeys(Keys.DOWN);
 		}
 		filterBy.sendKeys(Keys.ENTER);
-		tunggu(2);
 		startDate.click();
-		tunggu(2);
 		for (int i = 1; i <= 7; i++) {
 			rdtSwitch.click();
 		}
 		tunggu(1);
 		selectDateHistory.click();
-		tunggu(2);
 		btnSearchFilterHistory.click();
-		tunggu(2);
 		eksportHistory.click();
-		tunggu(2);
 	}
 
 	public void editDataStaff() {
@@ -132,9 +144,7 @@ public class StaffPage {
 			searchBy.sendKeys(Keys.DOWN);
 		}
 		searchBy.sendKeys(Keys.ENTER);
-		tunggu(2);
 		inputSearchStaff.sendKeys("meinida");
-		tunggu(2);
 		btnSerachStaff.click();
 		tunggu(2);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -144,6 +154,7 @@ public class StaffPage {
 
 	public void formEditStaff() {
 		btnChooseFileEditStaff.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\bango.jpg");
+		tunggu(1);
 		inputEmailEditDataStaff.sendKeys(Keys.CONTROL, "a");
 		inputEmailEditDataStaff.sendKeys("cindymeinidaprtw@gmail.com");
 		inputFullNameEditDataStaff.sendKeys(Keys.CONTROL, "a");
@@ -177,6 +188,60 @@ public class StaffPage {
 		tunggu(5);
 		return popUpSubmit.getText();
 	}
+	
+	
+//	invalid staff
+	public void goToStaffPageInvalid() {
+		popUpSubmit.click();
+		tunggu(2);
+		btnStaff.click();
+		tunggu(2);
+	}
+	
+	public void searchInvalidStaff() {
+		dropdownSearchBy.click();
+		tunggu(1);
+		selectByNik.click();
+		tunggu(1);
+		inputSearchStaff.sendKeys("90909");
+		btnSerachStaff.click();
+		
+		dropdownSearchBy.click();
+		tunggu(1);
+		selectByName.click();
+		tunggu(1);
+		inputSearchStaff.sendKeys("90909");
+		btnSerachStaff.click();
+		
+		dropdownSearchBy.click();
+		tunggu(1);
+		selectByName.click();
+		tunggu(1);
+		inputSearchStaff.sendKeys(Keys.CONTROL, "a");
+		inputSearchStaff.sendKeys("meinida");
+		tunggu(1);
+		btnSerachStaff.click();
+		tunggu(2);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", btnEdit);
+		btnEditStaff.click();
+		
+	}
+	
+	
+	public void invalidEditData() {
+		inputEmailEditDataStaff.sendKeys(Keys.CONTROL, "a");
+		tunggu(1);
+		inputEmailEditDataStaff.sendKeys("cindymeinidaprtw");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", btnSubmitEditStaff);
+		btnSubmitEditStaff.click();
+	}
+	
+	public String TextInvalid() {
+		return textInvalidFormStaff.getText();
+	}
+	
 
 	public void tunggu(int detik) {
 		try {

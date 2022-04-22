@@ -55,6 +55,12 @@ public class ConfigurationProperties {
 	
 	@Value("${textReject}")
 	private String textReject;
+	
+	@Value("${textInvalidFormStaff}")
+	private String textInvalidFormStaff;
+	
+	@Value("${textInvalidFormRegistration}")
+	private String textInvalidFormRegistration;
 
 	public String getBrowser() {
 		return browser;
@@ -118,6 +124,14 @@ public class ConfigurationProperties {
 
 	public String getTextReject() {
 		return textReject;
+	}
+
+	public String getTextInvalidFormStaff() {
+		return textInvalidFormStaff;
+	}
+
+	public String getTextInvalidFormRegistration() {
+		return textInvalidFormRegistration;
 	}
 	
 	

@@ -139,6 +139,6 @@ public class ManageHariCutiPage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
+
 }

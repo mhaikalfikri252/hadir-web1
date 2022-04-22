@@ -40,7 +40,6 @@ public class LoginPage {
 		userName.sendKeys(usernamee);
 		userPassword.sendKeys(password);
 		btnLogin.click();
-
 	}
 
 	public void logoutAction() {
@@ -67,4 +66,5 @@ public class LoginPage {
 			e.printStackTrace();
 		}
 	}
+
 }

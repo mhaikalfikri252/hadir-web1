@@ -8,7 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
-import com.hadir.web1.pages.ManageHariCutiPage;
+import com.hadir.web1.pages.ManageSettingPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Utils;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -24,12 +24,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
-public class ManageHariCutiInvalidStepDefinition {
+public class ManageSettingInvalidStepDefinition {
 
 	private static WebDriver driver;
-	private ManageHariCutiPage manageHariCutiPage;
+	private ManageSettingPage manageSettingPage;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportManageHariCutiInvalid.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportManageSettingInvalid.html");
 
 	@Autowired
 	ConfigurationProperties configurationProperties;
@@ -37,8 +37,8 @@ public class ManageHariCutiInvalidStepDefinition {
 	@Before
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
-		manageHariCutiPage = new ManageHariCutiPage();
-		extentTest = reports.startTest("Testing Halaman Manage Hari Cuti Invalid");
+		manageSettingPage = new ManageSettingPage();
+		extentTest = reports.startTest("Testing Halaman Manage Setting Invalid");
 	}
 
 	@AfterStep
@@ -60,16 +60,16 @@ public class ManageHariCutiInvalidStepDefinition {
 		// driver.quit();
 	}
 
-	@When("User tambah data hari cuti invalid")
-	public void user_tambah_data_hari_cuti_invalid() {
-		manageHariCutiPage.addDataHariCutiInvalid();
-		extentTest.log(LogStatus.PASS, "User tambah data hari cuti invalid");
+	@When("User ubah data setting invalid")
+	public void user_ubah_data_setting_invalid() {
+		manageSettingPage.ubahDataInvalid();
+		extentTest.log(LogStatus.PASS, "User ubah data setting invalid");
 	}
 
-	@Then("User tidak berhasil tambah data hari cuti")
+	@Then("User tidak berhasil ubah data setting")
 	public void user_tidak_berhasil_tambah_data_hari_cuti() {
-		assertEquals(configurationProperties.getTextReject(), manageHariCutiPage.getTextFailedAddData());
-		extentTest.log(LogStatus.PASS, "User tidak berhasil tambah data hari cuti");
+		assertEquals(configurationProperties.getTextManageSetting(), manageSettingPage.getTextManageSetting());
+		extentTest.log(LogStatus.PASS, "User tidak berhasil ubah data setting");
 	}
 
 }

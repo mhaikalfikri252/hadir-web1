@@ -22,7 +22,7 @@ public class SelfRegistrationPage {
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > h3")
 	WebElement textHome;
 
-//	Edit Data
+	// Edit Data
 	@FindBy(id = "t4")
 	WebElement btnGoToForm;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div > select")
@@ -48,7 +48,7 @@ public class SelfRegistrationPage {
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(9) > div > div > button")
 	WebElement btnSubmit;
 
-//	Reject Data
+	// Reject Data
 	@FindBy(id = "t2")
 	WebElement btnReject;
 	@FindBy(id = "exampleFormControlInput1")
@@ -56,7 +56,7 @@ public class SelfRegistrationPage {
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > button.btn.btn-primary")
 	WebElement submitReject;
 
-//	Assert Text
+	// Assert Text
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > h6:nth-child(1)")
 	WebElement textEditPage;
 	@FindBy(css = "body > div.swal2-container.swal2-center.swal2-fade.swal2-shown > div > div.swal2-actions > button.swal2-confirm.swal2-styled")

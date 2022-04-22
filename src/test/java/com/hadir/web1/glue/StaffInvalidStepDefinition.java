@@ -8,10 +8,8 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
-import com.hadir.web1.pages.LoginPage;
 import com.hadir.web1.pages.StaffPage;
 import com.hadir.web1.utils.ConfigurationProperties;
-import com.hadir.web1.utils.Constants;
 import com.hadir.web1.utils.Utils;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -23,7 +21,6 @@ import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -32,7 +29,6 @@ public class StaffInvalidStepDefinition {
 
 	private static WebDriver driver;
 	private StaffPage staffPage;
-	private LoginPage loginPage;
 	ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportStaffInvalid.html");
 
@@ -43,7 +39,6 @@ public class StaffInvalidStepDefinition {
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		staffPage = new StaffPage();
-		loginPage = new LoginPage();
 		extentTest = reports.startTest("Testing Menu Staff Invalid");
 	}
 
@@ -71,22 +66,23 @@ public class StaffInvalidStepDefinition {
 		staffPage.goToStaffPageInvalid();
 		extentTest.log(LogStatus.PASS, "Admin klik staff page");
 	}
-	
+
 	@And("Admin search data staff invalid")
 	public void admin_search_data_staff_invalid() {
 		staffPage.searchInvalidStaff();
-		extentTest.log(LogStatus.PASS, "Admin search data staff invalid");		
+		extentTest.log(LogStatus.PASS, "Admin search data staff invalid");
 	}
-	
+
 	@And("Admin edit data staff invalid")
 	public void admin_edit_data_staff_invalid() {
 		staffPage.invalidEditData();
-		extentTest.log(LogStatus.PASS, "Admin edit data staff invalid");	
+		extentTest.log(LogStatus.PASS, "Admin edit data staff invalid");
 	}
-	
+
 	@Then("Admin tidak berhasil tambah dan ubah data staff")
 	public void admin_tidak_berhaisl_tambah_dan_ubah_data_staff() {
 		assertEquals(configurationProperties.getTextInvalidFormStaff(), staffPage.TextInvalid());
-		extentTest.log(LogStatus.PASS, "Admin tidak berhasil tambah dan ubah data staff");	
+		extentTest.log(LogStatus.PASS, "Admin tidak berhasil tambah dan ubah data staff");
 	}
+
 }

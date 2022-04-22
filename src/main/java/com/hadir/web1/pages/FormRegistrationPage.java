@@ -69,7 +69,7 @@ public class FormRegistrationPage {
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(8) > div:nth-child(1) > div:nth-child(1) > div > select > option:nth-child(2)")
 	WebElement selectDropdownLeader;
 
-//	Assert Text
+	// Assert Text
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.bg-white.border-0.card-header > div > div.col-8 > h3")
 	WebElement textHome;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(2) > div:nth-child(1) > div > div > small")
@@ -145,15 +145,12 @@ public class FormRegistrationPage {
 	public String getTextSuccess() {
 		return textOK.getText();
 	}
-	
-	
+
 	public void goToFormRegistrationInvalid() {
-		
+
 		textOK.click();
 		btnFormRegistration.click();
 	}
-	
-	
 
 	public void tunggu(int detik) {
 		try {

@@ -17,11 +17,11 @@ public class ManageShiftPage {
 		PageFactory.initElements(driver, this);
 	}
 
-//	Manage Shift Page
+	// Manage Shift Page
 	@FindBy(linkText = "Manage Shift")
 	WebElement btnManageShift;
 
-//	Search Manage Shift
+	// Search Manage Shift
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > form > div:nth-child(1) > div:nth-child(2) > div > select")
 	WebElement btnSearchBy;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > form > div:nth-child(1) > div.col-lg-4 > div > select")
@@ -30,9 +30,9 @@ public class ManageShiftPage {
 	WebElement selectShift1;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > form > div:nth-child(1) > div.col-sm-2 > button")
 	WebElement btnSearch;
-//	End Search Manage Shift
+	// End Search Manage Shift
 
-//	Edit Data Shift
+	// Edit Data Shift
 	@FindBy(id = "t4")
 	WebElement btnEditManageShift;
 	@FindBy(id = "input-code_kelas_shift")
@@ -53,9 +53,9 @@ public class ManageShiftPage {
 	WebElement btnSubmitEditShift;
 	@FindBy(css = "body > div.swal2-container.swal2-center.swal2-fade.swal2-shown > div > div.swal2-actions > button.swal2-confirm.swal2-styled")
 	WebElement btnOk;
-//	End Edit Data Shift
+	// End Edit Data Shift
 
-//	Add Data Shift
+	// Add Data Shift
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > div > a > button")
 	WebElement btnAddShift;
 	@FindBy(id = "input-posisi")

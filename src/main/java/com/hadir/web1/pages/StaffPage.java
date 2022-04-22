@@ -35,9 +35,9 @@ public class StaffPage {
 	WebElement btnSerachStaff;
 	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.row > div:nth-child(1) > div > div.pt-0.pt-md-4.card-body > div > div.mt-2 > a:nth-child(2)")
 	WebElement btnEditStaff;
-//	End Staff Page
+	// End Staff Page
 
-//	View Staff Page
+	// View Staff Page
 	@FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div/div/div/div[1]/form/div/div[3]/div/div/div[2]/input")
 	WebElement startDate;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div > div.border-0.card-header > form > div > div.col-md-3.col-sm-12 > div > div > div.rdt.rdtOpen > div > div > table > thead > tr:nth-child(1) > th.rdtSwitch")
@@ -56,9 +56,9 @@ public class StaffPage {
 	WebElement btnSearchFilterHistory;
 	@FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div/div/div/div[1]/form/div/div[3]/div/div/div[2]/div/div/table/tbody/tr[1]/td[5]")
 	WebElement selectDateHistory;
-//	End View Staff Page
+	// End View Staff Page
 
-//	Form Edit Staff
+	// Form Edit Staff
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(2) > div:nth-child(1) > div > div > input")
 	WebElement btnChooseFileEditStaff;
 	@FindBy(id = "input-email")
@@ -82,27 +82,27 @@ public class StaffPage {
 	WebElement btnSubmitEditStaff;
 	@FindBy(css = "body > div.swal2-container.swal2-center.swal2-fade.swal2-shown > div > div.swal2-actions > button.swal2-confirm.swal2-styled")
 	WebElement popUpSubmit;
-//	End Form Edit Staff
+	// End Form Edit Staff
 
-//	Search Staff
-@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.row > div")
-WebElement searchByNik;
-@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div.col-sm-2 > button")
-WebElement btnSubmitSearch;
-@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div:nth-child(2) > div > select")
-WebElement dropdownSearchBy;
-@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div:nth-child(2) > div > select > option:nth-child(2)")
-WebElement selectByNik;
-@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div:nth-child(2) > div > select > option:nth-child(3)")
-WebElement selectByName;
-@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div:nth-child(2) > div > select > option:nth-child(5)")
-WebElement selectByDivisi;
-@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div.col-lg-4 > div > select")
-WebElement drpdwnDivisi;
-@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div.col-lg-4 > div > select > option:nth-child(13)")
-WebElement selectDivisifromSearch;
-@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(2) > div:nth-child(2) > div > div > label")
-WebElement textInvalidFormStaff;
+	// Search Staff
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.row > div")
+	WebElement searchByNik;
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div.col-sm-2 > button")
+	WebElement btnSubmitSearch;
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div:nth-child(2) > div > select")
+	WebElement dropdownSearchBy;
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div:nth-child(2) > div > select > option:nth-child(2)")
+	WebElement selectByNik;
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div:nth-child(2) > div > select > option:nth-child(3)")
+	WebElement selectByName;
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div:nth-child(2) > div > select > option:nth-child(5)")
+	WebElement selectByDivisi;
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div.col-lg-4 > div > select")
+	WebElement drpdwnDivisi;
+	@FindBy(css = "#root > div > div.mt-2.container-fluid > div > div.border-0.p-1.ml-2.card-header > form > div > div.col-lg-4 > div > select > option:nth-child(13)")
+	WebElement selectDivisifromSearch;
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(2) > div:nth-child(2) > div > div > label")
+	WebElement textInvalidFormStaff;
 
 	public void goToStaffPage() {
 		btnStaff.click();
@@ -188,16 +188,15 @@ WebElement textInvalidFormStaff;
 		tunggu(5);
 		return popUpSubmit.getText();
 	}
-	
-	
-//	invalid staff
+
+	// Invalid Staff
 	public void goToStaffPageInvalid() {
 		popUpSubmit.click();
 		tunggu(2);
 		btnStaff.click();
 		tunggu(2);
 	}
-	
+
 	public void searchInvalidStaff() {
 		dropdownSearchBy.click();
 		tunggu(1);
@@ -205,14 +204,14 @@ WebElement textInvalidFormStaff;
 		tunggu(1);
 		inputSearchStaff.sendKeys("90909");
 		btnSerachStaff.click();
-		
+
 		dropdownSearchBy.click();
 		tunggu(1);
 		selectByName.click();
 		tunggu(1);
 		inputSearchStaff.sendKeys("90909");
 		btnSerachStaff.click();
-		
+
 		dropdownSearchBy.click();
 		tunggu(1);
 		selectByName.click();
@@ -225,10 +224,9 @@ WebElement textInvalidFormStaff;
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnEdit);
 		btnEditStaff.click();
-		
+
 	}
-	
-	
+
 	public void invalidEditData() {
 		inputEmailEditDataStaff.sendKeys(Keys.CONTROL, "a");
 		tunggu(1);
@@ -237,11 +235,10 @@ WebElement textInvalidFormStaff;
 		js.executeScript("arguments[0].scrollIntoView();", btnSubmitEditStaff);
 		btnSubmitEditStaff.click();
 	}
-	
+
 	public String TextInvalid() {
 		return textInvalidFormStaff.getText();
 	}
-	
 
 	public void tunggu(int detik) {
 		try {

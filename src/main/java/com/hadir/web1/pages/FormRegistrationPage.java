@@ -89,7 +89,8 @@ public class FormRegistrationPage {
 
 	public void invalidFoto() {
 		tunggu(2);
-		inputFotoWajah.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\random1.png");
+//		inputFotoWajah.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\random1.png");
+		inputFotoWajah.sendKeys("C:\\Users\\M Haikal Fikri\\Pictures\\Sticker Logo\\Flutter.png");
 	}
 
 	public String textInvalidFoto() {
@@ -99,7 +100,8 @@ public class FormRegistrationPage {
 
 	public void validFoto() {
 		tunggu(2);
-		inputFotoWajah.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\fotoku.png");
+//		inputFotoWajah.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\fotoku.png");
+		inputFotoWajah.sendKeys("C:\\Users\\M Haikal Fikri\\Pictures\\Sticker Logo\\git.png");
 	}
 
 	public String textValidFoto() {
@@ -109,7 +111,8 @@ public class FormRegistrationPage {
 
 	public void inputForm() {
 		tunggu(3);
-		inputFotoWajah.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\fotoku.png");
+//		inputFotoWajah.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\fotoku.png");
+		inputFotoWajah.sendKeys("C:\\Users\\M Haikal Fikri\\Pictures\\Sticker Logo\\git.png");
 		tunggu(5);
 		inputUsername.sendKeys("DummyDatatiga");
 		tunggu(3);
@@ -147,7 +150,6 @@ public class FormRegistrationPage {
 	}
 
 	public void goToFormRegistrationInvalid() {
-
 		textOK.click();
 		btnFormRegistration.click();
 	}

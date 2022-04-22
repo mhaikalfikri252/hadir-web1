@@ -102,6 +102,6 @@ public class StaffStepDefinition {
 	public void admin_success_go_to_view_history_staff_page_and_edit_data() {
 		assertEquals(configurationProperties.getTextOk(), staffPage.getTextStaffPage());
 		extentTest.log(LogStatus.PASS, "Admin success go to view history staff page and edit data");
-
 	}
+
 }

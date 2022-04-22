@@ -95,7 +95,8 @@ public class ManageSettingStepDefinition {
 
 	@Then("User success go to manage setting and edit data validation timer")
 	public void user_success_go_to_manage_setting_and_edit_data_validation_timer() {
-		assertEquals(configurationProperties.getTextSuccessMngSet(), manageSettingPage.getTextManageSettingPage());
+		assertEquals(configurationProperties.getTextSuccessManageSetting(),
+				manageSettingPage.getTextManageSettingPage());
 		extentTest.log(LogStatus.PASS, "User success go to manage setting and edit data validation timer");
 	}
 

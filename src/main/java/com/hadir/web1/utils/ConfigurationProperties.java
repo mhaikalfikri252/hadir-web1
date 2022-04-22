@@ -41,8 +41,8 @@ public class ConfigurationProperties {
 	@Value("${textSuccessExport}")
 	private String textSuccessExport;
 
-	@Value("${textSuccessMngSet}")
-	private String textSuccessMngSet;
+	@Value("${textSuccessManageSetting}")
+	private String textSuccessManageSetting;
 
 	@Value("${textManageTipe}")
 	private String textManageTipe;
@@ -52,13 +52,16 @@ public class ConfigurationProperties {
 
 	@Value("${textManageAbsenPoint}")
 	private String textManageAbsenPoint;
-	
+
 	@Value("${textReject}")
 	private String textReject;
-	
+
+	@Value("${textManageDepartemen}")
+	private String textManageDepartemen;
+
 	@Value("${textInvalidFormStaff}")
 	private String textInvalidFormStaff;
-	
+
 	@Value("${textInvalidFormRegistration}")
 	private String textInvalidFormRegistration;
 
@@ -106,8 +109,8 @@ public class ConfigurationProperties {
 		return textSuccessExport;
 	}
 
-	public String getTextSuccessMngSet() {
-		return textSuccessMngSet;
+	public String getTextSuccessManageSetting() {
+		return textSuccessManageSetting;
 	}
 
 	public String getTextManageTipe() {
@@ -133,7 +136,9 @@ public class ConfigurationProperties {
 	public String getTextInvalidFormRegistration() {
 		return textInvalidFormRegistration;
 	}
-	
-	
+
+	public String getTextManageDepartemen() {
+		return textManageDepartemen;
+	}
 
 }

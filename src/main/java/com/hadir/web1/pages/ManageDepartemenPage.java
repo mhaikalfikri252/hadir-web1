@@ -27,6 +27,8 @@ public class ManageDepartemenPage {
 	WebElement btnHapusData;
 	@FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div/div/div[1]/span")
 	WebElement textSuccessTambahData;
+	@FindBy(css = "#navbar-main > div > a")
+	WebElement textManageDepartemen;
 
 	// Form Tambah Data
 	@FindBy(id = "zz1")
@@ -35,6 +37,8 @@ public class ManageDepartemenPage {
 	WebElement btnClose;
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > button.btn.btn-primary")
 	WebElement btnSubmit;
+	@FindBy(css = "body > div:nth-child(7) > div > div.modal.fade.show > div > div > div.modal-header > button > span")
+	WebElement btnPopupTambah;
 
 	// Form Ubah Data
 	@FindBy(id = "zz1")
@@ -43,6 +47,8 @@ public class ManageDepartemenPage {
 	WebElement btnCloseEdit;
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-primary")
 	WebElement btnSubmitEdit;
+	@FindBy(css = "body > div:nth-child(7) > div > div.modal.fade.show > div > div > div.modal-header > button > span")
+	WebElement btnPopupUbah;
 
 	// Form Hapus Data
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-footer > button.btn.btn-primary")
@@ -79,6 +85,33 @@ public class ManageDepartemenPage {
 		tunggu(2);
 		btnSubmitHapus.click();
 		tunggu(2);
+	}
+
+	public void tambahDataDepartemenInvalid() {
+		btnTambahData.click();
+		tunggu(2);
+		btnSubmit.click();
+		tunggu(2);
+		btnPopupTambah.click();
+	}
+
+	public void editDataDepartemenInvalid() {
+		tunggu(5);
+		btnEditData.click();
+		tunggu(2);
+		editDepartemen.clear();
+		tunggu(2);
+		btnSubmitEdit.click();
+		tunggu(2);
+		btnPopupUbah.click();
+	}
+
+	public String getTextSuccessTambahData() {
+		return textSuccessTambahData.getText();
+	}
+
+	public String getTextManageDepartemen() {
+		return textManageDepartemen.getText();
 	}
 
 	public void tunggu(int detik) {

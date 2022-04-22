@@ -103,6 +103,8 @@ public class StaffPage {
 	WebElement selectDivisifromSearch;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(2) > div:nth-child(2) > div > div > label")
 	WebElement textInvalidFormStaff;
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(2) > div:nth-child(4) > div:nth-child(1) > div > label")
+	WebElement textInvalidEditStaff;
 
 	public void goToStaffPage() {
 		btnStaff.click();
@@ -153,8 +155,8 @@ public class StaffPage {
 	}
 
 	public void formEditStaff() {
-//		btnChooseFileEditStaff.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\bango.jpg");
-		btnChooseFileEditStaff.sendKeys("C:\\Users\\M Haikal Fikri\\Pictures\\Sticker Logo\\Android.png");
+		btnChooseFileEditStaff.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\bango.jpg");
+//		btnChooseFileEditStaff.sendKeys("C:\\Users\\M Haikal Fikri\\Pictures\\Sticker Logo\\Android.png");
 		tunggu(1);
 		inputEmailEditDataStaff.sendKeys(Keys.CONTROL, "a");
 		inputEmailEditDataStaff.sendKeys("cindymeinidaprtw@gmail.com");
@@ -228,12 +230,14 @@ public class StaffPage {
 	}
 
 	public void invalidEditData() {
+		tunggu(1);
 		inputEmailEditDataStaff.sendKeys(Keys.CONTROL, "a");
 		tunggu(1);
 		inputEmailEditDataStaff.sendKeys("cindymeinidaprtw");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnSubmitEditStaff);
 		btnSubmitEditStaff.click();
+		tunggu(2);
 	}
 
 //	public void closePopUp() {
@@ -242,7 +246,7 @@ public class StaffPage {
 //	}
 
 	public String TextInvalid() {
-		return textInvalidFormStaff.getText();
+		return textInvalidEditStaff.getText();
 	}
 
 	public void tunggu(int detik) {

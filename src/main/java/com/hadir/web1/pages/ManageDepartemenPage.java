@@ -2,7 +2,6 @@ package com.hadir.web1.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.internal.WebElementToJsonConverter;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -50,8 +49,7 @@ public class ManageDepartemenPage {
 	WebElement btnSubmitEdit;
 	@FindBy(css = "body > div:nth-child(7) > div > div.modal.fade.show > div > div > div.modal-header > button > span")
 	WebElement btnPopupUbah;
-	
-	
+
 	// Form Hapus Data
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-footer > button.btn.btn-primary")
 	WebElement btnSubmitHapus;
@@ -88,7 +86,7 @@ public class ManageDepartemenPage {
 		btnSubmitHapus.click();
 		tunggu(2);
 	}
-	
+
 	public void tambahDataDepartemenInvalid() {
 		btnTambahData.click();
 		tunggu(2);
@@ -96,7 +94,7 @@ public class ManageDepartemenPage {
 		tunggu(2);
 		btnPopupTambah.click();
 	}
-	
+
 	public void editDataDepartemenInvalid() {
 		tunggu(5);
 		btnEditData.click();
@@ -107,10 +105,11 @@ public class ManageDepartemenPage {
 		tunggu(2);
 		btnPopupUbah.click();
 	}
-	
+
 	public String getTextSuccessTambahData() {
 		return textSuccessTambahData.getText();
 	}
+
 	public String getTextManageDepartemen() {
 		return textManageDepartemen.getText();
 	}

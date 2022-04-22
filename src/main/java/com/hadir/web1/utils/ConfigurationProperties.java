@@ -53,6 +53,9 @@ public class ConfigurationProperties {
 	@Value("${textManageAbsenPoint}")
 	private String textManageAbsenPoint;
 
+	@Value("${textManageSetting}")
+	private String textManageSetting;
+
 	@Value("${textReject}")
 	private String textReject;
 
@@ -123,6 +126,10 @@ public class ConfigurationProperties {
 
 	public String getTextManageAbsenPoint() {
 		return textManageAbsenPoint;
+	}
+
+	public String getTextManageSetting() {
+		return textManageSetting;
 	}
 
 	public String getTextReject() {

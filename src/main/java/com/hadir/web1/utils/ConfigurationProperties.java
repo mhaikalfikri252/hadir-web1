@@ -55,6 +55,21 @@ public class ConfigurationProperties {
 	
 	@Value("${textReject}")
 	private String textReject;
+	
+	@Value("${textSuccessTambahData}")
+	private String textSuccessTambahData;
+	
+	@Value("${textManageDepartemen}")
+	private String textManageDepartemen;
+
+	
+	public String getTextManageDepartemen() {
+		return textManageDepartemen;
+	}
+
+	public String getTextSuccessTambahData() {
+		return textSuccessTambahData;
+	}
 
 	public String getBrowser() {
 		return browser;

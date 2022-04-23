@@ -44,6 +44,9 @@ public class ConfigurationProperties {
 	@Value("${textSuccessManageSetting}")
 	private String textSuccessManageSetting;
 
+	@Value("${textReportingKaryawan}")
+	private String textReportingKaryawan;
+
 	@Value("${textManageTipe}")
 	private String textManageTipe;
 
@@ -114,6 +117,10 @@ public class ConfigurationProperties {
 
 	public String getTextSuccessManageSetting() {
 		return textSuccessManageSetting;
+	}
+
+	public String getTextReportingKaryawan() {
+		return textReportingKaryawan;
 	}
 
 	public String getTextManageTipe() {

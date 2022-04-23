@@ -21,6 +21,9 @@ public class ReportPage {
 	@FindBy(linkText = "Reporting karyawan")
 	WebElement btnReport;
 
+	@FindBy(css = "#navbar-main > div > a")
+	WebElement textReportingKaryawan;
+
 	// Search By
 	@FindBy(css = "#root > div > div.mt--7.container-fluid > div > div > div.shadow.card > div.border-0.card-header > form > div > div:nth-child(2) > div > select")
 	WebElement dropDownSearch;
@@ -57,6 +60,9 @@ public class ReportPage {
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > div.progress-info > div.progress-label > span")
 	WebElement textSuccessExport;
 
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > div.modal-footer > button")
+	WebElement btnClosePopUp;
+
 	public void goToReportPage() {
 		btnReport.click();
 		tunggu(2);
@@ -92,11 +98,16 @@ public class ReportPage {
 		btnSearch2.click();
 		tunggu(2);
 		btnSiapExport.click();
-		tunggu(2);
+		tunggu(3);
+		btnClosePopUp.click();
 	}
 
 	public String getTextReportPage() {
 		return textSuccessExport.getText();
+	}
+
+	public String getTextReportingKaryawan() {
+		return textReportingKaryawan.getText();
 	}
 
 	public void tunggu(int detik) {

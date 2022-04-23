@@ -155,8 +155,8 @@ public class StaffPage {
 	}
 
 	public void formEditStaff() {
-		btnChooseFileEditStaff.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\bango.jpg");
-//		btnChooseFileEditStaff.sendKeys("C:\\Users\\M Haikal Fikri\\Pictures\\Sticker Logo\\Android.png");
+//		btnChooseFileEditStaff.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\bango.jpg");
+		btnChooseFileEditStaff.sendKeys("C:\\Users\\M Haikal Fikri\\Pictures\\test\\android.png");
 		tunggu(1);
 		inputEmailEditDataStaff.sendKeys(Keys.CONTROL, "a");
 		inputEmailEditDataStaff.sendKeys("cindymeinidaprtw@gmail.com");

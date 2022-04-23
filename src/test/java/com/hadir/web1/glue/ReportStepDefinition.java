@@ -99,7 +99,7 @@ public class ReportStepDefinition {
 
 	@Then("User berhasil melakukan export data")
 	public void user_berhasil_melakukan_export_data() {
-		assertEquals(configurationProperties.getTextSuccessExport(), reportPage.getTextReportPage());
+		assertEquals(configurationProperties.getTextReportingKaryawan(), reportPage.getTextReportingKaryawan());
 		extentTest.log(LogStatus.PASS, "User berhasil melakukan perubahan data");
 	}
 

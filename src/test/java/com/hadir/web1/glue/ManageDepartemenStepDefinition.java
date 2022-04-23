@@ -106,10 +106,10 @@ public class ManageDepartemenStepDefinition {
 
 	@Then("User berhasil melakukan tambah data departemen edit data departemen and hapus data departemen")
 	public void user_berhasil_melakukan_tambah_data_departemen_edit_data_departemen_and_hapus_data_departemen() {
-//		assertEquals(configurationProperties.getTextHapusData(), manageDepartemenPage.getTextHapusData());
+		// assertEquals(configurationProperties.getTextHapusData(),
+		// manageDepartemenPage.getTextHapusData());
 		extentTest.log(LogStatus.PASS,
 				"User berhasil melakukan tambah data departemen edit data departemen and hapus data departemen");
-
 	}
 
 	public static void tunggu() {
@@ -119,4 +119,5 @@ public class ManageDepartemenStepDefinition {
 			e.printStackTrace();
 		}
 	}
+
 }

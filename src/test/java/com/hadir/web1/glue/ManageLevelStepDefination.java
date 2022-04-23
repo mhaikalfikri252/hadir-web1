@@ -94,15 +94,14 @@ public class ManageLevelStepDefination {
 	}
 
 	@And("Admin klik ubah level")
-	public void admin_klik_ubah_posisi() {
+	public void admin_klik_ubah_level() {
 		manageLevel.ubahLevel();
 		driver.navigate().refresh();
 		extentTest.log(LogStatus.PASS, "Admin klik ubah level");
-
 	}
 
 	@And("Admin klik hapus level")
-	public void admin_klik_hapus_posisi() {
+	public void admin_klik_hapus_level() {
 		driver.navigate().refresh();
 		manageLevel.hapusLevel();
 		extentTest.log(LogStatus.PASS, "Admin klik hapus level");
@@ -113,4 +112,5 @@ public class ManageLevelStepDefination {
 		assertEquals(configurationProperties.getTextHapusData(), manageLevel.getTextHapusLevel());
 		extentTest.log(LogStatus.PASS, "Admin success go to tambah level and ubah level and hapus level");
 	}
+
 }

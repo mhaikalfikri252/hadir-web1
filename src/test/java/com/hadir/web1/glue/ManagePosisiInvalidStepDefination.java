@@ -1,4 +1,5 @@
 package com.hadir.web1.glue;
+
 import static org.junit.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
@@ -25,7 +26,6 @@ import io.cucumber.java.en.When;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
 public class ManagePosisiInvalidStepDefination {
-
 
 	private static WebDriver driver;
 	private ManagePosisiPage managePosisiPage;
@@ -71,7 +71,6 @@ public class ManagePosisiInvalidStepDefination {
 	public void user_edit_data_posisi_invalid() {
 		managePosisiPage.ubahDataPosisiInvalid();
 		extentTest.log(LogStatus.PASS, "User edit data posisi invalid");
-
 	}
 
 	@Then("Admin tidak berhasil tambah dan ubah data posisi")
@@ -79,4 +78,5 @@ public class ManagePosisiInvalidStepDefination {
 		assertEquals(configurationProperties.getTextHapusData(), managePosisiPage.getTextUbahPosisi());
 		extentTest.log(LogStatus.PASS, "admin tidak berhasil tambah dan ubah data posisi");
 	}
+
 }

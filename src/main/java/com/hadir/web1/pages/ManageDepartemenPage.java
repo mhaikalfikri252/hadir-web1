@@ -29,15 +29,15 @@ public class ManageDepartemenPage {
 	WebElement textSuccessTambahData;
 	@FindBy(css = "#navbar-main > div > a")
 	WebElement textManageDepartemen;
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-header > button")
+	WebElement btnClosePoUp;
 
 	// Form Tambah Data
 	@FindBy(id = "zz1")
 	WebElement inputDepartemen;
-	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > button.btn.btn-secondary")
-	WebElement btnClose;
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > button.btn.btn-primary")
 	WebElement btnSubmit;
-	@FindBy(css = "body > div:nth-child(7) > div > div.modal.fade.show > div > div > div.modal-header > button > span")
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > button.btn.btn-primary")
 	WebElement btnPopupTambah;
 
 	// Form Ubah Data
@@ -47,7 +47,7 @@ public class ManageDepartemenPage {
 	WebElement btnCloseEdit;
 	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-primary")
 	WebElement btnSubmitEdit;
-	@FindBy(css = "body > div:nth-child(7) > div > div.modal.fade.show > div > div > div.modal-header > button > span")
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > div > form > button.btn.btn-secondary")
 	WebElement btnPopupUbah;
 
 	// Form Hapus Data
@@ -69,6 +69,14 @@ public class ManageDepartemenPage {
 		btnSubmit.click();
 	}
 
+	public void tambahDataDepartemenInvalid() {
+		btnTambahData.click();
+		tunggu(2);
+		btnSubmit.click();
+		tunggu(2);
+		btnClosePoUp.click();
+	}
+
 	public void editDataDepartemen() {
 		tunggu(5);
 		btnEditData.click();
@@ -80,21 +88,6 @@ public class ManageDepartemenPage {
 		btnSubmitEdit.click();
 	}
 
-	public void deleteDataDepartemen() {
-		btnHapusData.click();
-		tunggu(2);
-		btnSubmitHapus.click();
-		tunggu(2);
-	}
-
-	public void tambahDataDepartemenInvalid() {
-		btnTambahData.click();
-		tunggu(2);
-		btnSubmit.click();
-		tunggu(2);
-		btnPopupTambah.click();
-	}
-
 	public void editDataDepartemenInvalid() {
 		tunggu(5);
 		btnEditData.click();
@@ -103,7 +96,14 @@ public class ManageDepartemenPage {
 		tunggu(2);
 		btnSubmitEdit.click();
 		tunggu(2);
-		btnPopupUbah.click();
+		btnClosePoUp.click();
+	}
+
+	public void deleteDataDepartemen() {
+		btnHapusData.click();
+		tunggu(2);
+		btnSubmitHapus.click();
+		tunggu(2);
 	}
 
 	public String getTextSuccessTambahData() {

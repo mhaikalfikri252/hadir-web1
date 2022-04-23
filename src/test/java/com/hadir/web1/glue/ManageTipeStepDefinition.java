@@ -95,7 +95,6 @@ public class ManageTipeStepDefinition {
 	public void user_edit_data_tipe() {
 		manageTipePage.editDataTipe();
 		extentTest.log(LogStatus.PASS, "User edit manage tipe");
-
 	}
 
 	@And("User search data tipe")

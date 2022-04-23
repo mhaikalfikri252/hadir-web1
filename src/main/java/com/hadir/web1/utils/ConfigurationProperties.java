@@ -35,14 +35,11 @@ public class ConfigurationProperties {
 	@Value("${textHapusData}")
 	private String textHapusData;
 
-	@Value("${textHapusAbsenPoint}")
-	private String textHapusAbsenPoint;
-
 	@Value("${textSuccessExport}")
 	private String textSuccessExport;
 
-	@Value("${textSuccessManageSetting}")
-	private String textSuccessManageSetting;
+	@Value("${textReportingKaryawan}")
+	private String textReportingKaryawan;
 
 	@Value("${textManageTipe}")
 	private String textManageTipe;
@@ -104,16 +101,12 @@ public class ConfigurationProperties {
 		return textHapusData;
 	}
 
-	public String getTextHapusAbsenPoint() {
-		return textHapusAbsenPoint;
-	}
-
 	public String getTextSuccessExport() {
 		return textSuccessExport;
 	}
 
-	public String getTextSuccessManageSetting() {
-		return textSuccessManageSetting;
+	public String getTextReportingKaryawan() {
+		return textReportingKaryawan;
 	}
 
 	public String getTextManageTipe() {

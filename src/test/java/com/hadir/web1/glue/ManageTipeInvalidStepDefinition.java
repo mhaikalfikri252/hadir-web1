@@ -71,7 +71,6 @@ public class ManageTipeInvalidStepDefinition {
 	public void user_edit_data_tipe_invalid() {
 		manageTipePage.editDataTipeInvalid();
 		extentTest.log(LogStatus.PASS, "User edit data tipe invalid");
-
 	}
 
 	@Then("User tidak berhasil tambah dan edit data tipe")

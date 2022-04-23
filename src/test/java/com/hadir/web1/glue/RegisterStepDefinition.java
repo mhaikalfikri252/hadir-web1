@@ -52,7 +52,7 @@ public class RegisterStepDefinition {
 		if (scenario.isFailed()) {
 			String screenshotPath = Utils.getScreenshot(driver, scenario.getName().replace(" ", "_"));
 			extentTest.log(LogStatus.FAIL, "Screenshot:/n" + extentTest.addScreenCapture(screenshotPath));
-			}
+		}
 	}
 
 	@After
@@ -101,6 +101,6 @@ public class RegisterStepDefinition {
 	public void user_berhasil_melakukan_perubahan_data() {
 		assertEquals(configurationProperties.getTextUpdateData(), registerPage.getTextRegisterPage());
 		extentTest.log(LogStatus.PASS, "User berhasil melakukan perubahan data");
-
 	}
+
 }

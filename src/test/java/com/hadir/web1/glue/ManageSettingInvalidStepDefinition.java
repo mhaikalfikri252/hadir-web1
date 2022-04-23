@@ -67,7 +67,7 @@ public class ManageSettingInvalidStepDefinition {
 	}
 
 	@Then("User tidak berhasil ubah data setting")
-	public void user_tidak_berhasil_tambah_data_hari_cuti() {
+	public void user_tidak_berhasil_ubah_data_setting() {
 		assertEquals(configurationProperties.getTextManageSetting(), manageSettingPage.getTextManageSetting());
 		extentTest.log(LogStatus.PASS, "User tidak berhasil ubah data setting");
 	}

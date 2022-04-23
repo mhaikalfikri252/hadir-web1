@@ -96,7 +96,6 @@ public class ManageAbsenPointStepDefinition {
 		manageAbsenPointPage.editDataAbsenPoint();
 		driver.navigate().refresh();
 		extentTest.log(LogStatus.PASS, "User edit manage absen point");
-
 	}
 
 	@And("User search data absen point")
@@ -113,7 +112,11 @@ public class ManageAbsenPointStepDefinition {
 
 	@Then("User berhasil hapus data absen point")
 	public void user_berhasil_hapus_data() {
-		assertEquals(configurationProperties.getTextHapusAbsenPoint(), manageAbsenPointPage.getTextSuccessDeleteData());
+		try {
+			assertEquals(configurationProperties.getTextHapusData(), manageAbsenPointPage.getTextSuccessDeleteData());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		extentTest.log(LogStatus.PASS, "User berhasil melakukan hapus data absen point");
 	}
 

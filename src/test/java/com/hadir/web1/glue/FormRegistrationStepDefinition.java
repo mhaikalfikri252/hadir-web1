@@ -22,6 +22,7 @@ import io.cucumber.java.AfterAll;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -79,7 +80,7 @@ public class FormRegistrationStepDefinition {
 
 	}
 
-	@When("User klik Form Registration")
+	@And("User klik Form Registration")
 	public void user_klik_form_registration() {
 		formRegistrationPage.goToFormRegistration();
 		extentTest.log(LogStatus.PASS, "User klik Form Registration");
@@ -92,7 +93,7 @@ public class FormRegistrationStepDefinition {
 		extentTest.log(LogStatus.PASS, "Tampil halaman Form Registration");
 	}
 
-	@When("Masukkan form Registrasi")
+	@And("Masukkan form Registrasi")
 	public void masukkan_valid_form() {
 		formRegistrationPage.inputForm();
 		extentTest.log(LogStatus.PASS, "Isi form registration");

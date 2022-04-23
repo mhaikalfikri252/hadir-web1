@@ -35,9 +35,9 @@ public class ManageSettingPage {
 	// Form Edit Manage Setting
 	@FindBy(id = "zz1")
 	List<WebElement> inputValidationTimer;
-	@FindBy(css = "body > div:nth-child(7) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-primary")
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-primary")
 	WebElement btnSubmitManageSetting;
-	@FindBy(css = "body > div:nth-child(7) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-secondary")
+	@FindBy(css = "body > div:nth-child(6) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-secondary")
 	WebElement btnClose;
 
 	public void goToManageSetting() {
@@ -84,7 +84,7 @@ public class ManageSettingPage {
 		tunggu(5);
 	}
 
-	public String getTextManageSettingPage() {
+	public String getTextSuccessManageSetting() {
 		return textSuccessManageSetting.getText();
 	}
 

@@ -41,7 +41,6 @@ public class LoginInvalidStepDefinition {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		loginPage = new LoginPage();
 		extentTest = reports.startTest("Testing User Login Invalid");
-
 	}
 
 	@AfterStep

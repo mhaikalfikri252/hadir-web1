@@ -101,7 +101,7 @@ public class FormRegistrationPage {
 	public void validFoto() {
 		tunggu(2);
 //		inputFotoWajah.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\fotoku.png");
-		inputFotoWajah.sendKeys("C:\\Users\\M Haikal Fikri\\Pictures\\Sticker Logo\\git.png");
+		inputFotoWajah.sendKeys("C:\\Users\\M Haikal Fikri\\Pictures\\test\\foto.jpg");
 	}
 
 	public String textValidFoto() {
@@ -112,7 +112,7 @@ public class FormRegistrationPage {
 	public void inputForm() {
 		tunggu(3);
 //		inputFotoWajah.sendKeys("C:\\Users\\Roby\\Pictures\\Saved Pictures\\fotoku.png");
-		inputFotoWajah.sendKeys("C:\\Users\\M Haikal Fikri\\Pictures\\Sticker Logo\\git.png");
+		inputFotoWajah.sendKeys("C:\\Users\\M Haikal Fikri\\Pictures\\test\\foto.jpg");
 		tunggu(5);
 		inputUsername.sendKeys("DummyDatatiga");
 		tunggu(3);

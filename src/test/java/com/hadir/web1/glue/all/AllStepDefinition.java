@@ -62,7 +62,7 @@ public class AllStepDefinition {
 	private ManageSettingPage manageSettingPage;
 	private ManageDepartemenPage manageDepartemenPage;
 	ExtentTest extentTest;
-	static ExtentReports reports = new ExtentReports("src/main/resources/TestReport.html");
+	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportHadir.html");
 
 	@Autowired
 	ConfigurationProperties configurationProperties;

@@ -42,7 +42,7 @@ public class SelfRegistrationPage {
 	@FindBy(css = "#input-posisi > option:nth-child(2)")
 	WebElement selectDropDownInputPosisi;
 	@FindBy(id = "input-jam-kerja")
-	WebElement drpdwnJamKerja;
+	WebElement dropDownJamKerja;
 	@FindBy(css = "#input-jam-kerja > option:nth-child(2)")
 	WebElement selectDropDownJamKerja;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(9) > div > div > button")
@@ -88,12 +88,16 @@ public class SelfRegistrationPage {
 		tunggu(2);
 		dropDownTipeKaryawan.click();
 		selectDropDownTipeKaryawan.click();
+		tunggu(2);
 		dropDownDepartemenName.click();
 		selectdropDownDepartemenName.click();
+		tunggu(2);
 		dropDownInputPosisi.click();
 		selectDropDownInputPosisi.click();
-		drpdwnJamKerja.click();
+		tunggu(2);
+		dropDownJamKerja.click();
 		selectDropDownJamKerja.click();
+		tunggu(2);
 		btnSubmit.click();
 		tunggu(5);
 	}

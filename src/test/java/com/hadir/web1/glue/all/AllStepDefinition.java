@@ -334,28 +334,44 @@ public class AllStepDefinition {
 
 	// Self Registration
 
-//	@When("User klik Self Registration")
-//	public void user_klik_self_registration() {
-//		selfRegistrationPage.goToSelfRegistration();
-//		extentTest.log(LogStatus.PASS, "User klik Self Registration");
-//	}
-//
-//	@And("Klik edit data")
-//	public void klik_edit_data() {
-//		selfRegistrationPage.goToForm();
-//		extentTest.log(LogStatus.PASS, "Klik edit data");
-//	}
-//
-//	@And("edit data staff")
-//	public void edit_data_staff() {
-//		selfRegistrationPage.editData();
-//	}
-//
-//	@Then("Data berhasil Diedit")
-//	public void data_berhasil_diedit() {
-//		assertEquals(configurationProperties.getTextOk(), selfRegistrationPage.getTextSubmit());
-//		extentTest.log(LogStatus.PASS, "Data berhasil Diedit");
-//	}
+	@When("User klik Self Registration")
+	public void user_klik_self_registration() {
+		try {
+			selfRegistrationPage.goToSelfRegistration();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		extentTest.log(LogStatus.PASS, "User klik Self Registration");
+	}
+
+	@And("Klik edit data")
+	public void klik_edit_data() {
+		try {
+			selfRegistrationPage.goToForm();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		extentTest.log(LogStatus.PASS, "Klik edit data");
+	}
+
+	@And("edit data staff")
+	public void edit_data_staff() {
+		try {
+			selfRegistrationPage.editData();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Then("Data berhasil Diedit")
+	public void data_berhasil_diedit() {
+		try {
+			assertEquals(configurationProperties.getTextOk(), selfRegistrationPage.getTextSubmit());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		extentTest.log(LogStatus.PASS, "Data berhasil Diedit");
+	}
 
 	// Manage Tipe
 

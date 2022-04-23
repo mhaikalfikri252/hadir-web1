@@ -1,4 +1,4 @@
-Feature: Admin Tambah Manage Posisi
+Feature: User Access Manage Posisi Page
 
   Scenario: Testing halaman Manage Posisi
     # Given User masuk situs hadir

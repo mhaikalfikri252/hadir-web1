@@ -146,11 +146,14 @@ public class StaffPage {
 			searchBy.sendKeys(Keys.DOWN);
 		}
 		searchBy.sendKeys(Keys.ENTER);
+		tunggu(1);
 		inputSearchStaff.sendKeys("meinida");
+		tunggu(1);
 		btnSearchStaff.click();
 		tunggu(2);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnEdit);
+		tunggu(1);
 		btnEditStaff.click();
 	}
 
@@ -160,6 +163,7 @@ public class StaffPage {
 		tunggu(1);
 		inputEmailEditDataStaff.sendKeys(Keys.CONTROL, "a");
 		inputEmailEditDataStaff.sendKeys("cindymeinidaprtw@gmail.com");
+		tunggu(1);
 		inputFullNameEditDataStaff.sendKeys(Keys.CONTROL, "a");
 		inputFullNameEditDataStaff.sendKeys("Meinida Cindy Pratiwi");
 		tunggu(2);
@@ -229,9 +233,9 @@ public class StaffPage {
 	}
 
 	public void invalidEditData() {
-		tunggu(1);
+		tunggu(2);
 		inputEmailEditDataStaff.sendKeys(Keys.CONTROL, "a");
-		tunggu(1);
+		tunggu(2);
 		inputEmailEditDataStaff.sendKeys("cindymeinidaprtw");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnSubmitEditStaff);

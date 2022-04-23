@@ -1,4 +1,4 @@
-Feature: User cek to Dashboard
+Feature: User Access Dashboard Page
 
   Scenario: Testing View Dashboard Page
     #    Given User mengakses url web hadir

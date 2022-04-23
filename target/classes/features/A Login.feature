@@ -1,4 +1,4 @@
-Feature: User Login to Hadir
+Feature: User Access Login Page
 
   Scenario: Testing Login Customer Valid
     Given User mengakses url

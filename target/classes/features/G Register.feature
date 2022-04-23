@@ -1,4 +1,4 @@
-Feature: User mengakses halaman Register
+Feature: User Access Register Page
 
   Scenario: Testing halaman register
     # Given User mengakses url web

@@ -1,4 +1,4 @@
-Feature: User akses manage setting
+Feature: User Access Manage Setting Page
 
   Scenario: Testing menu manage setting
     # Given User akses url web

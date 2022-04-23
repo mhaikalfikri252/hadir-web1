@@ -1,4 +1,4 @@
-Feature: User Akses Form Register
+Feature: User Access Form Registration Page
 
   Scenario: Testing Menu Form Registration
     #  Given Admin akses url web hadir

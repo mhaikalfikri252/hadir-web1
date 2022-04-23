@@ -1,4 +1,4 @@
-Feature: User Akses Self Registration
+Feature: User Access Self Registration Page
 
   Scenario: Testing Menu Self Registration
     # Given User akses url web hadir

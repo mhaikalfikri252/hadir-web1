@@ -1,4 +1,4 @@
-Feature: User melakukan export data karyawan
+Feature: User Access Report Page
 
   Scenario: Testing halaman report
     # Given User mengakses halaman web

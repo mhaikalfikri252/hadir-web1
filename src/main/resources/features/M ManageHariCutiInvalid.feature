@@ -1,4 +1,4 @@
-Feature: User Akses Manage Hari Cuti Invalid
+Feature: User Access Manage Hari Cuti Invalid Page
 
   Scenario: Testing Menu Manage Hari Cuti Invalid
     When User tambah data hari cuti invalid

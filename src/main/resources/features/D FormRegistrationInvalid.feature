@@ -1,4 +1,4 @@
-Feature: User Akses Form Registration
+Feature: User Access Form Registration Invalid Page
 
   Scenario: Testing Menu Form Registration Invalid
     When Admin Klik Halaman Form Registration

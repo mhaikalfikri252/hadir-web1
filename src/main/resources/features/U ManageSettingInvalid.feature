@@ -1,4 +1,4 @@
-Feature: User Akses Manage Setting Invalid
+Feature: User Access Manage Setting Invalid Page
 
   Scenario: Testing Menu Manage Setting Invalid
     When User ubah data setting invalid

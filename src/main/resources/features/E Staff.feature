@@ -1,4 +1,4 @@
-Feature: Customer klik Staff
+Feature: User Access Staff Page
 
   Scenario: Testing Staff Page
     # Given Admin akses url

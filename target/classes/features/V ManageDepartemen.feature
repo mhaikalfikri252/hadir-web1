@@ -1,4 +1,4 @@
-Feature: User mengakses menu manage departemen
+Feature: User Access Manage Departemen Page
 
   Scenario: Testing menu departemen
     # Given User mengakses web

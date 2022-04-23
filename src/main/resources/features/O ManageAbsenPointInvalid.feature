@@ -1,4 +1,4 @@
-Feature: User Akses Manage Absen Point Invalid
+Feature: User Access Manage Absen Point Invalid Page
 
   Scenario: Testing Menu Manage Absen Point Invalid
     When User tambah data absen point invalid

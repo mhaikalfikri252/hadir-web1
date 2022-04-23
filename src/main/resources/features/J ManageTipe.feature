@@ -1,4 +1,4 @@
-Feature: User Akses Manage Tipe
+Feature: User Access Manage Tipe Page
 
   Scenario: Testing Menu Manage Tipe
     # Given User mengakses web hadir

@@ -1,4 +1,4 @@
-Feature: User Akses Manage Hari Cuti
+Feature: User Access Manage Hari Cuti Page
 
   Scenario: Testing Menu Manage Hari Cuti
     # Given User mengakses web hadir1

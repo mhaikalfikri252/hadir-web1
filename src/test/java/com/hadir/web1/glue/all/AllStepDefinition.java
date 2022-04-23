@@ -302,7 +302,7 @@ public class AllStepDefinition {
 
 	@Then("User berhasil melakukan perubahan data")
 	public void user_berhasil_melakukan_perubahan_data() {
-		assertEquals(configurationProperties.getTextUpdateData(), registerPage.getTextRegisterPage());
+		assertEquals(configurationProperties.getTextUpdateData(), registerPage.getTextSuccesUpdateData());
 		extentTest.log(LogStatus.PASS, "User berhasil melakukan perubahan data");
 	}
 
@@ -371,6 +371,18 @@ public class AllStepDefinition {
 			e.printStackTrace();
 		}
 		extentTest.log(LogStatus.PASS, "Data berhasil Diedit");
+	}
+
+	@When("Reject data karyawan")
+	public void reject_data_karyawan() {
+		selfRegistrationPage.rejectData();
+		extentTest.log(LogStatus.PASS, "Reject data karyawan");
+	}
+
+	@Then("Data berhasil di reject")
+	public void data_berhasil_di_reject() {
+		assertEquals(configurationProperties.getTextReject(), selfRegistrationPage.getTextReject());
+		extentTest.log(LogStatus.PASS, "Data berhasil di reject");
 	}
 
 	// Manage Tipe

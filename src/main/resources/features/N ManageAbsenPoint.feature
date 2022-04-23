@@ -1,4 +1,4 @@
-Feature: User Akses Manage Absen Point
+Feature: User Access Manage Absen Point Page
 
   Scenario: Testing Menu Manage Absen Point
     # Given User mengakses link web hadir

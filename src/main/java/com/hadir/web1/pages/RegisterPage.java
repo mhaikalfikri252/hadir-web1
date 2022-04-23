@@ -92,7 +92,7 @@ public class RegisterPage {
 	WebElement btnSubmit;
 
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.alert.alert-success.alert-dismissible.show > span")
-	WebElement textSuccess;
+	WebElement textSuccessUpdateData;
 
 	public void goToRegisterPage() {
 		btnRegister.click();
@@ -167,10 +167,11 @@ public class RegisterPage {
 		editLokasiKerja.sendKeys(Keys.ENTER);
 		tunggu(2);
 		btnSubmit.click();
+		tunggu(4);
 	}
 
-	public String getTextRegisterPage() {
-		return textSuccess.getText();
+	public String getTextSuccesUpdateData() {
+		return textSuccessUpdateData.getText();
 	}
 
 	public void tunggu(int detik) {

@@ -99,7 +99,7 @@ public class RegisterStepDefinition {
 
 	@Then("User berhasil melakukan perubahan data")
 	public void user_berhasil_melakukan_perubahan_data() {
-		assertEquals(configurationProperties.getTextUpdateData(), registerPage.getTextRegisterPage());
+		assertEquals(configurationProperties.getTextUpdateData(), registerPage.getTextSuccesUpdateData());
 		extentTest.log(LogStatus.PASS, "User berhasil melakukan perubahan data");
 	}
 

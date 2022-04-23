@@ -7,3 +7,5 @@ Feature: User Akses Self Registration
     And Klik edit data
     And edit data staff
     Then Data berhasil Diedit
+    When Reject data karyawan
+    Then Data berhasil di reject

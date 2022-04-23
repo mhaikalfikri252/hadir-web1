@@ -104,15 +104,15 @@ public class SelfRegistrationStepDefinition {
 		extentTest.log(LogStatus.PASS, "Data berhasil Diedit");
 	}
 
-//	@When("Reject data karyawan")
-//	public void reject_data_karyawan() {
-//	   selfRegist.reject();
-//	   extentTest.log(LogStatus.PASS,"Reject data karyawan"); 
-//	}
-//
-//	@Then("Data berhasil di reject")
-//	public void data_berhasil_di_reject() {
-//		assertEquals(configurationProperties.getTextReject(), selfRegist.TextSubmit());
-//	    extentTest.log(LogStatus.PASS,"Data berhasil di reject"); 
-//	}
+	@When("Reject data karyawan")
+	public void reject_data_karyawan() {
+		selfRegistrationPage.rejectData();
+	   extentTest.log(LogStatus.PASS,"Reject data karyawan"); 
+	}
+
+	@Then("Data berhasil di reject")
+	public void data_berhasil_di_reject() {
+		assertEquals(configurationProperties.getTextReject(), selfRegistrationPage.getTextReject());
+	    extentTest.log(LogStatus.PASS,"Data berhasil di reject"); 
+	}
 }

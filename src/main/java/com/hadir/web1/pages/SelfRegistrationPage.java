@@ -103,7 +103,6 @@ public class SelfRegistrationPage {
 	}
 
 	public void rejectData() {
-		tunggu(3);
 		textEditSubmit.click();
 		driver.navigate().back();
 		tunggu(1);
@@ -111,6 +110,7 @@ public class SelfRegistrationPage {
 		alasanReject.sendKeys("Data Sudah Ada");
 		tunggu(2);
 		submitReject.click();
+		tunggu(1);
 	}
 
 	public String getTextReject() {

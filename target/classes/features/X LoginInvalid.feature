@@ -1,4 +1,4 @@
-Feature: User Access Login Invalid Page
+Feature: User Logout and Access Login Invalid
 
   Scenario: Testing Login Customer Invalid
     When User melakukan logout

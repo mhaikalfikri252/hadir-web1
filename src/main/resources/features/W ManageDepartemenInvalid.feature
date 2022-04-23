@@ -1,4 +1,4 @@
-Feature: User Access Manage Departemen Invalid Page
+Feature: User Access Manage Departemen Invalid
 
   Scenario: Testing Menu Manage Departemen Invalid
     When User tambah data departemen invalid

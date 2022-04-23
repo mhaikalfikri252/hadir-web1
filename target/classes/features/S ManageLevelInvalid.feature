@@ -1,4 +1,4 @@
-Feature: User Access Manage Level Invalid Page
+Feature: User Access Manage Level Invalid
 
   Scenario: Testing Menu Manage Level Invalid
     When User tambah data level invalid

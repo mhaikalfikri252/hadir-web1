@@ -1,4 +1,4 @@
-Feature: User Access Manage Tipe Invalid Page
+Feature: User Access Manage Tipe Invalid
 
   Scenario: Testing Menu Manage Tipe Invalid
     When User tambah data tipe invalid

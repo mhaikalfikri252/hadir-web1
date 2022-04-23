@@ -1,4 +1,4 @@
-Feature: User Access Manage Posisi Invalid Page
+Feature: User Access Manage Posisi Invalid
 
   Scenario: Testing Menu Manage Posisi Invalid
     When Admin tambah data posisi invalid

@@ -1,4 +1,4 @@
-Feature: User Access Staff Invalid Page
+Feature: User Access Staff Invalid
 
   Scenario: Testing Menu Staff Invalid
     When Admin Klik Halaman Staff

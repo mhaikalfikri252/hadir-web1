@@ -68,7 +68,6 @@ public class ManageDepartemenInvalidStepDefinition {
 	public void user_edit_data_departemen_invalid() {
 		manageDepartemenPage.editDataDepartemenInvalid();
 		extentTest.log(LogStatus.PASS, "User edit data departemen invalid");
-
 	}
 
 	@Then("User tidak berhasil tambah dan edit data departemen")

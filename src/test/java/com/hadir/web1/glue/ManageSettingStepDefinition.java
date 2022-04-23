@@ -73,10 +73,15 @@ public class ManageSettingStepDefinition {
 		extentTest.log(LogStatus.PASS, "Navigating to " + Constants.URL);
 	}
 
-	@When("User klik menu manage setting")
-	public void user_klik_menu_manage_setting() {
+	@When("User melakukan validasi login web hadir")
+	public void user_melakukan_validasi_login_web_hadir() {
 		loginPage.submitLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
 		tunggu();
+		extentTest.log(LogStatus.PASS, "User klik menu manage setting");
+	}
+
+	@And("User klik menu manage setting")
+	public void user_klik_menu_manage_setting() {
 		manageSettingPage.goToManageSetting();
 		extentTest.log(LogStatus.PASS, "User klik menu manage setting");
 	}

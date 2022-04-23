@@ -96,7 +96,6 @@ public class ManageAbsenPointStepDefinition {
 		manageAbsenPointPage.editDataAbsenPoint();
 		driver.navigate().refresh();
 		extentTest.log(LogStatus.PASS, "User edit manage absen point");
-
 	}
 
 	@And("User search data absen point")

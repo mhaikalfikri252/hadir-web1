@@ -71,7 +71,6 @@ public class ManageAbsenPointInvalidStepDefinition {
 	public void user_edit_data_absen_point_invalid() {
 		manageAbsenPointPage.editDataAbsenPointInvalid();
 		extentTest.log(LogStatus.PASS, "User edit data absen point invalid");
-
 	}
 
 	@Then("User tidak berhasil tambah dan edit data absen point")

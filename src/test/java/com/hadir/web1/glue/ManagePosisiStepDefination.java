@@ -110,4 +110,5 @@ public class ManagePosisiStepDefination {
 		assertEquals(configurationProperties.getTextHapusData(), managePosisiPage.getTextHapusPosisi());
 		extentTest.log(LogStatus.PASS, "Admin success go to tambah posisi and ubah posisi and hapus posisi");
 	}
+
 }

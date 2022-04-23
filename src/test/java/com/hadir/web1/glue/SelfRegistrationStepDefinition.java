@@ -23,6 +23,7 @@ import io.cucumber.java.AfterAll;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -80,19 +81,19 @@ public class SelfRegistrationStepDefinition {
 		extentTest.log(LogStatus.PASS, "Admin klik login button");
 	}
 
-	@When("User klik Self Registration")
+	@And("User klik Self Registration")
 	public void user_klik_self_registration() {
 		selfRegistrationPage.goToSelfRegistration();
 		extentTest.log(LogStatus.PASS, "User klik Self Registration");
 	}
 
-	@When("Klik edit data")
+	@And("Klik edit data")
 	public void klik_edit_data() {
 		selfRegistrationPage.goToForm();
 		extentTest.log(LogStatus.PASS, "Klik edit data");
 	}
 
-	@When("edit data staff")
+	@And("edit data staff")
 	public void edit_data_staff() {
 		selfRegistrationPage.editData();
 	}

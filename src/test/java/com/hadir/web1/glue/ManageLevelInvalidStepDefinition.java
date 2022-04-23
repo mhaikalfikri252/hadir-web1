@@ -27,7 +27,6 @@ import io.cucumber.java.en.When;
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
 public class ManageLevelInvalidStepDefinition {
 
-
 	private static WebDriver driver;
 	private ManageLevelPage manageLevelPage;
 	ExtentTest extentTest;
@@ -72,7 +71,6 @@ public class ManageLevelInvalidStepDefinition {
 	public void user_edit_data_level_invalid() {
 		manageLevelPage.ubahDataLevelInvalid();
 		extentTest.log(LogStatus.PASS, "User edit data level invalid");
-
 	}
 
 	@Then("User tidak berhasil tambah dan hapus data level")
@@ -80,4 +78,5 @@ public class ManageLevelInvalidStepDefinition {
 		assertEquals(configurationProperties.getTextHapusData(), manageLevelPage.getTextHapusLevel());
 		extentTest.log(LogStatus.PASS, "User tidak berhasil tambah dan hapus data level");
 	}
+
 }

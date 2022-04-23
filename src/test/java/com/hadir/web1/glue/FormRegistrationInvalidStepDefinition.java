@@ -9,7 +9,6 @@ import org.springframework.test.context.ContextConfiguration;
 import com.hadir.web1.config.AutomationFrameworkConfig;
 import com.hadir.web1.drivers.DriverSingleton;
 import com.hadir.web1.pages.FormRegistrationPage;
-import com.hadir.web1.pages.LoginPage;
 import com.hadir.web1.utils.ConfigurationProperties;
 import com.hadir.web1.utils.Utils;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -26,11 +25,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @ContextConfiguration(classes = AutomationFrameworkConfig.class)
-public class FormRegistrationInvalid {
-	
+public class FormRegistrationInvalidStepDefinition {
+
 	private static WebDriver driver;
 	private FormRegistrationPage formRegistration;
-	private LoginPage loginPage;
 	ExtentTest extentTest;
 	static ExtentReports reports = new ExtentReports("src/main/resources/TestReportStaffInvalid.html");
 
@@ -41,7 +39,6 @@ public class FormRegistrationInvalid {
 	public void initializeObjects() {
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		formRegistration = new FormRegistrationPage();
-		loginPage = new LoginPage();
 		extentTest = reports.startTest("Testing Menu Staff Invalid");
 	}
 
@@ -65,22 +62,19 @@ public class FormRegistrationInvalid {
 	}
 
 	@When("Admin Klik Halaman Form Registration")
-	public void admin_klik_staff_page() {
+	public void admin_klik_form_registration_page() {
 		formRegistration.goToFormRegistrationInvalid();
 		extentTest.log(LogStatus.PASS, "Admin klik staff page");
 	}
-	
+
 	@And("Admin edit data invalid form registration")
-	public void admin_search_data_staff_invalid() {
+	public void admin_edit_data_invalid_form_registration() {
 		formRegistration.invalidFoto();
-		
 	}
-	
-	
+
 	@Then("Admin tidak berhasil menambah data")
 	public void admin_tidak_berhaisl_tambah_dan_ubah_data_staff() {
 		assertEquals(configurationProperties.getTextInvalidFormRegistration(), formRegistration.textInvalidFoto());
-		
 	}
 
 }

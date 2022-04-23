@@ -276,7 +276,7 @@ public class AllStepDefinition {
 
 	@Then("Admin tidak berhasil tambah dan ubah data staff")
 	public void admin_tidak_berhasil_tambah_dan_ubah_data_staff() {
-		assertEquals(configurationProperties.getTextInvalidFormStaff(), staffPage.TextInvalid());
+		assertEquals(configurationProperties.getTextInvalidFormStaff(), staffPage.getTextInvalid());
 		extentTest.log(LogStatus.PASS, "Admin tidak berhasil tambah dan ubah data staff");
 	}
 

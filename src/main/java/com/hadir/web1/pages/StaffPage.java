@@ -226,7 +226,6 @@ public class StaffPage {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", btnEdit);
 		btnEditStaff.click();
-
 	}
 
 	public void invalidEditData() {
@@ -245,7 +244,7 @@ public class StaffPage {
 //		popUpSubmit.click();
 //	}
 
-	public String TextInvalid() {
+	public String getTextInvalid() {
 		return textInvalidEditStaff.getText();
 	}
 

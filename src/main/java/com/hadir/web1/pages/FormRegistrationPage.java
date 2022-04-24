@@ -94,7 +94,7 @@ public class FormRegistrationPage {
 	}
 
 	public String textInvalidFoto() {
-		tunggu(5);
+		tunggu(8);
 		return textInvalidFoto.getText();
 	}
 

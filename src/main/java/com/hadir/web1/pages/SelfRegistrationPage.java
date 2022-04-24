@@ -27,7 +27,7 @@ public class SelfRegistrationPage {
 	WebElement btnGoToForm;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div > select")
 	WebElement dropDownLevel;
-	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div > select > option:nth-child(2)")
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div > select > option:nth-child(6)")
 	WebElement selectDropDownLevel;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div > select")
 	WebElement dropDownTipeKaryawan;
@@ -85,19 +85,19 @@ public class SelfRegistrationPage {
 		js.executeScript("arguments[0].scrollIntoView();", dropDownLevel);
 		dropDownLevel.click();
 		selectDropDownLevel.click();
-		tunggu(2);
+		tunggu(1);
 		dropDownTipeKaryawan.click();
 		selectDropDownTipeKaryawan.click();
-		tunggu(2);
+		tunggu(1);
 		dropDownDepartemenName.click();
 		selectdropDownDepartemenName.click();
-		tunggu(2);
+		tunggu(1);
 		dropDownInputPosisi.click();
 		selectDropDownInputPosisi.click();
-		tunggu(2);
+		tunggu(1);
 		dropDownJamKerja.click();
 		selectDropDownJamKerja.click();
-		tunggu(2);
+		tunggu(1);
 		btnSubmit.click();
 		tunggu(5);
 	}
@@ -114,7 +114,7 @@ public class SelfRegistrationPage {
 		alasanReject.sendKeys("Data Sudah Ada");
 		tunggu(2);
 		submitReject.click();
-		tunggu(1);
+		tunggu(5);
 	}
 
 	public String getTextReject() {

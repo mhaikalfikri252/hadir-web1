@@ -114,6 +114,7 @@ public class RegisterPage {
 			dropDownKeyword.sendKeys(Keys.DOWN);
 		}
 		dropDownKeyword.sendKeys(Keys.ENTER);
+		tunggu(1);
 		btnSearch.click();
 		tunggu(2);
 		btnLihatDetail.click();
@@ -128,10 +129,13 @@ public class RegisterPage {
 		btnUbahData.click();
 		tunggu(2);
 		editNama.sendKeys(" Testing");
+		tunggu(1);
 		editLevel.click();
+		tunggu(1);
 		for (int i = 0; i <= 3; i++) {
 			editLevel.sendKeys(Keys.DOWN);
 		}
+		tunggu(1);
 		editLevel.sendKeys(Keys.ENTER);
 		tunggu(2);
 		editLeader.click();
@@ -140,30 +144,37 @@ public class RegisterPage {
 		tunggu(2);
 		scroll();
 		editNIK.sendKeys(Keys.BACK_SPACE);
+		tunggu(1);
 		editNIK.sendKeys("0");
 		tunggu(2);
 		editTipeKaryawan.click();
 		for (int i = 0; i <= 3; i++) {
 			editTipeKaryawan.sendKeys(Keys.DOWN);
 		}
+		tunggu(1);
 		editTipeKaryawan.sendKeys(Keys.ENTER);
 		tunggu(2);
 		editPosisi.click();
 		for (int i = 0; i <= 3; i++) {
 			editPosisi.sendKeys(Keys.DOWN);
 		}
+		tunggu(1);
 		editPosisi.sendKeys(Keys.ENTER);
 		tunggu(2);
 		editJamKerja.click();
+		tunggu(1);
 		for (int i = 1; i <= 3; i++) {
 			editJamKerja.sendKeys(Keys.DOWN);
 		}
+		tunggu(1);
 		editJamKerja.sendKeys(Keys.ENTER);
 		tunggu(2);
 		editLokasiKerja.click();
+		tunggu(1);
 		for (int i = 1; i <= 2; i++) {
 			editLokasiKerja.sendKeys(Keys.DOWN);
 		}
+		tunggu(1);
 		editLokasiKerja.sendKeys(Keys.ENTER);
 		tunggu(2);
 		btnSubmit.click();

@@ -27,7 +27,7 @@ public class SelfRegistrationPage {
 	WebElement btnGoToForm;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div > select")
 	WebElement dropDownLevel;
-	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div > select > option:nth-child(6)")
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div > select > option:nth-child(4)")
 	WebElement selectDropDownLevel;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div > select")
 	WebElement dropDownTipeKaryawan;
@@ -45,6 +45,26 @@ public class SelfRegistrationPage {
 	WebElement dropDownJamKerja;
 	@FindBy(css = "#input-jam-kerja > option:nth-child(2)")
 	WebElement selectDropDownJamKerja;
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(8) > div:nth-child(1) > div:nth-child(1) > div > select")
+	WebElement dropDownLeader;
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(8) > div:nth-child(1) > div:nth-child(1) > div > select > option:nth-child(2)")
+	WebElement selectDropDownLeader;
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(8) > div:nth-child(1) > div:nth-child(2) > div > select")
+	WebElement dropDownSupervisor;
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(8) > div:nth-child(1) > div:nth-child(2) > div > select > option:nth-child(3)")
+	WebElement selectDropDownSupervisor;
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(8) > div:nth-child(1) > div:nth-child(3) > div > select")
+	WebElement dropDownManager;
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(8) > div:nth-child(1) > div:nth-child(3) > div > select > option:nth-child(5)")
+	WebElement selectDropDownManager;
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(8) > div:nth-child(2) > div:nth-child(1) > div > select")
+	WebElement dropDownHead;
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(8) > div:nth-child(2) > div:nth-child(1) > div > select > option:nth-child(4)")
+	WebElement selectDropDownHead;
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(8) > div:nth-child(2) > div:nth-child(2) > div > select")
+	WebElement dropDownGM;
+	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(8) > div:nth-child(2) > div:nth-child(2) > div > select > option:nth-child(2)")
+	WebElement selectDropDownGM;
 	@FindBy(css = "#root > div > div.mt--8.container-fluid > div > div > div.bg-secondary.shadow.card > div.card-body > form > div:nth-child(9) > div > div > button")
 	WebElement btnSubmit;
 
@@ -65,18 +85,24 @@ public class SelfRegistrationPage {
 	WebElement textReject;
 
 	public void goToSelfRegistration() {
+		tunggu(1);
 		btnSelfRegistration.click();
+		tunggu(1);
 	}
 
 	public String getTextHome() {
+		tunggu(1);
 		return textHome.getText();
 	}
 
 	public void goToForm() {
+		tunggu(1);
 		btnGoToForm.click();
+		tunggu(1);
 	}
 
 	public String getTextEdit() {
+		tunggu(1);
 		return textEditPage.getText();
 	}
 
@@ -84,30 +110,57 @@ public class SelfRegistrationPage {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", dropDownLevel);
 		dropDownLevel.click();
+		tunggu(1);
 		selectDropDownLevel.click();
 		tunggu(1);
 		dropDownTipeKaryawan.click();
+		tunggu(1);
 		selectDropDownTipeKaryawan.click();
 		tunggu(1);
 		dropDownDepartemenName.click();
+		tunggu(1);
 		selectdropDownDepartemenName.click();
 		tunggu(1);
 		dropDownInputPosisi.click();
+		tunggu(1);
 		selectDropDownInputPosisi.click();
 		tunggu(1);
 		dropDownJamKerja.click();
+		tunggu(1);
 		selectDropDownJamKerja.click();
 		tunggu(1);
+//		dropDownLeader.click();
+//		tunggu(1);
+//		selectDropDownLeader.click();
+//		tunggu(1);
+//		dropDownSupervisor.click();
+//		tunggu(1);
+//		selectDropDownSupervisor.click();
+//		tunggu(1);
+//		dropDownManager.click();
+//		tunggu(1);
+//		selectDropDownManager.click();
+//		tunggu(1);
+//		dropDownHead.click();
+//		tunggu(1);
+//		selectDropDownHead.click();
+//		tunggu(1);
+//		dropDownGM.click();
+//		tunggu(1);
+//		selectDropDownGM.click();
+//		tunggu(1);
 		btnSubmit.click();
 		tunggu(5);
 	}
 
 	public String getTextSubmit() {
+		tunggu(1);
 		return textEditSubmit.getText();
 	}
 
 	public void rejectData() {
 		textEditSubmit.click();
+		tunggu(1);
 		driver.navigate().back();
 		tunggu(1);
 		btnReject.click();
@@ -118,6 +171,7 @@ public class SelfRegistrationPage {
 	}
 
 	public String getTextReject() {
+		tunggu(1);
 		return textReject.getText();
 	}
 

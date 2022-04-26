@@ -336,40 +336,24 @@ public class AllStepDefinition {
 
 	@When("User klik Self Registration")
 	public void user_klik_self_registration() {
-		try {
-			selfRegistrationPage.goToSelfRegistration();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		selfRegistrationPage.goToSelfRegistration();
 		extentTest.log(LogStatus.PASS, "User klik Self Registration");
 	}
 
 	@And("Klik edit data")
 	public void klik_edit_data() {
-		try {
-			selfRegistrationPage.goToForm();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		selfRegistrationPage.goToForm();
 		extentTest.log(LogStatus.PASS, "Klik edit data");
 	}
 
 	@And("edit data staff")
 	public void edit_data_staff() {
-		try {
-			selfRegistrationPage.editData();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		selfRegistrationPage.editData();
 	}
 
 	@Then("Data berhasil Diedit")
 	public void data_berhasil_diedit() {
-		try {
-			assertEquals(configurationProperties.getTextOk(), selfRegistrationPage.getTextSubmit());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		assertEquals(configurationProperties.getTextOk(), selfRegistrationPage.getTextSubmit());
 		extentTest.log(LogStatus.PASS, "Data berhasil Diedit");
 	}
 
@@ -381,8 +365,12 @@ public class AllStepDefinition {
 
 	@Then("Data berhasil di reject")
 	public void data_berhasil_di_reject() {
-		assertEquals(configurationProperties.getTextReject(), selfRegistrationPage.getTextReject());
-		extentTest.log(LogStatus.PASS, "Data berhasil di reject");
+		try {
+			assertEquals(configurationProperties.getTextReject(), selfRegistrationPage.getTextReject());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		extentTest.log(LogStatus.PASS, "Muncul pesan data berhasil di reject");
 	}
 
 	// Manage Tipe
@@ -493,7 +481,7 @@ public class AllStepDefinition {
 
 	@Then("User tidak berhasil tambah data hari cuti")
 	public void user_tidak_berhasil_tambah_data_hari_cuti() {
-		assertEquals(configurationProperties.getTextReject(), manageHariCutiPage.getTextFailedAddData());
+		assertEquals(configurationProperties.getTextGagal(), manageHariCutiPage.getTextFailedAddData());
 		extentTest.log(LogStatus.PASS, "User tidak berhasil tambah data hari cuti");
 	}
 

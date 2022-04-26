@@ -26,6 +26,9 @@ public class ConfigurationProperties {
 	@Value("${textOk}")
 	private String textOk;
 
+	@Value("${textGagal}")
+	private String textGagal;
+
 	@Value("${textTambahData}")
 	private String textTambahData;
 
@@ -87,6 +90,10 @@ public class ConfigurationProperties {
 
 	public String getTextOk() {
 		return textOk;
+	}
+
+	public String getTextGagal() {
+		return textGagal;
 	}
 
 	public String getTextTambahData() {

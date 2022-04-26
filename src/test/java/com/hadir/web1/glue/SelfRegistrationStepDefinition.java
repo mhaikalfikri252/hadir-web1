@@ -1,4 +1,3 @@
-
 package com.hadir.web1.glue;
 
 import static org.junit.Assert.assertEquals;
@@ -107,12 +106,17 @@ public class SelfRegistrationStepDefinition {
 	@When("Reject data karyawan")
 	public void reject_data_karyawan() {
 		selfRegistrationPage.rejectData();
-	   extentTest.log(LogStatus.PASS,"Reject data karyawan"); 
+		extentTest.log(LogStatus.PASS, "Reject data karyawan");
 	}
 
 	@Then("Data berhasil di reject")
 	public void data_berhasil_di_reject() {
-		assertEquals(configurationProperties.getTextReject(), selfRegistrationPage.getTextReject());
-	    extentTest.log(LogStatus.PASS,"Data berhasil di reject"); 
+		try {
+			assertEquals(configurationProperties.getTextReject(), selfRegistrationPage.getTextReject());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		extentTest.log(LogStatus.PASS, "Muncul pesan berhasil dan data berhasil di reject");
 	}
+
 }

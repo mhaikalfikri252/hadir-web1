@@ -117,25 +117,42 @@ public class FormRegistrationPage {
 		inputUsername.sendKeys("DummyDatatiga");
 		tunggu(3);
 		inputEmail.sendKeys("dummydua@gmail.com");
+		tunggu(1);
 		inputFullName.sendKeys("Data Dummyy tiga");
+		tunggu(1);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", inputPassword);
+		tunggu(1);
 		inputPassword.sendKeys("12345678");
+		tunggu(1);
 		inputImei.sendKeys("jhvjhlsdnmvbs09a");
+		tunggu(1);
 		js.executeScript("arguments[0].scrollIntoView();", inputNik);
+		tunggu(1);
 		inputNik.sendKeys("16170033");
+		tunggu(1);
 		dropDownLevel.click();
+		tunggu(1);
 		selectdropDownLevel.click();
+		tunggu(1);
 		dropDownTipeKaryawan.click();
+		tunggu(1);
 		selectDropDownTipeKaryawan.click();
+		tunggu(1);
 		dropDownDepartemen.click();
+		tunggu(1);
 		selectdropDownDepartemen.click();
+		tunggu(1);
 		dropDownPosisi.click();
+		tunggu(1);
 		selectDropDownPosisi.click();
 		tunggu(1);
 		dropDownJamKerja.click();
+		tunggu(1);
 		selectDropDownJamKerja.click();
+		tunggu(1);
 		inputJamMasuk.sendKeys("09.00");
+		tunggu(1);
 		inputJamKeluar.sendKeys("04.00");
 		tunggu(1);
 		js.executeScript("arguments[0].scrollIntoView();", btnSubmit);
@@ -151,6 +168,7 @@ public class FormRegistrationPage {
 
 	public void goToFormRegistrationInvalid() {
 		textOK.click();
+		tunggu(1);
 		btnFormRegistration.click();
 	}
 
